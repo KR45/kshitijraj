@@ -288,9 +288,9 @@ header {
         grid-column: -1/1;
         grid-row: 2;
         text-align: right;
-        position: inherit;
-        left: -0.8em;
-        width: calc(100% + 7em);
+        position: relative;
+        left: -0.5em;
+        width: calc(100% + 1.5em);
     }
 }
 
