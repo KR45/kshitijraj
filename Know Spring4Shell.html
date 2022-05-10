@@ -1,0 +1,724 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>Know Spring4Shell</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	text-indent: -1.7em;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(55, 53, 47, 1);
+}
+.highlight-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.highlight-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.highlight-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.highlight-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.highlight-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.highlight-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.highlight-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.highlight-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.highlight-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.highlight-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.highlight-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.highlight-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.highlight-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.highlight-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.highlight-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.block-color-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.block-color-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.block-color-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.block-color-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.block-color-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.block-color-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.block-color-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.block-color-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.block-color-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.block-color-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.block-color-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.block-color-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.select-value-color-pink { background-color: rgba(245, 224, 233, 1); }
+.select-value-color-purple { background-color: rgba(232, 222, 238, 1); }
+.select-value-color-green { background-color: rgba(219, 237, 219, 1); }
+.select-value-color-gray { background-color: rgba(227, 226, 224, 1); }
+.select-value-color-opaquegray { background-color: rgba(255, 255, 255, 0.0375); }
+.select-value-color-orange { background-color: rgba(250, 222, 201, 1); }
+.select-value-color-brown { background-color: rgba(238, 224, 218, 1); }
+.select-value-color-red { background-color: rgba(255, 226, 221, 1); }
+.select-value-color-yellow { background-color: rgba(253, 236, 200, 1); }
+.select-value-color-blue { background-color: rgba(211, 229, 239, 1); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="9734285c-fbe0-4de6-a206-f82cf6af2544" class="page sans"><header><img class="page-cover-image" src="Know%20Spring4Shell%20792196069fc34e10accb4dce7fdc87a0/spring4shell.png" style="object-position:center 68.14%"/><div class="page-header-icon page-header-icon-with-cover"><img class="icon" src="Know%20Spring4Shell%20792196069fc34e10accb4dce7fdc87a0/download-removebg-preview.png"/></div><h1 class="page-title">Know Spring4Shell</h1></header><div class="page-body"><p id="676db3dd-8763-4293-b303-c54a9a3f9b8d" class="">
+</p><h1 id="4c06cc71-1ff7-4882-b33e-70456ec216c5" class="">About Spring</h1><p id="e3ebb9e6-80a1-4f79-b858-baa7e4cfeb9b" class="">
+</p><p id="27688e89-a4de-4441-9ca4-149d334e6bcd" class="">Spring is a framework in JAVA that uses data binding functionality to bind data stored within an HTTP request to certain objects used by an application. This is a very brief idea about the Spring framework.</p><p id="826562d9-d24e-4450-a891-0b4e99f1e0f5" class="">
+</p><p id="30d660a1-4594-4680-8b55-9dfa0e35b1bc" class="">Now if any of the systems are running this configuration then it’s vulnerable.</p><p id="9af5404f-6b5a-44c8-8a66-9e837e8b7286" class="">
+</p><p id="fcf41a4a-fc91-4290-870a-b099e4f09b4a" class=""> </p><h2 id="2fea7d71-c527-464d-bef5-0d08d77b9796" class="">Technical Details</h2><p id="52446530-f074-4c78-bac7-2cbbfafeefd6" class=""> </p><ul id="1bef3bdb-e9ff-44dd-82cd-92505013e850" class="bulleted-list"><li style="list-style-type:disc">JDK version 9+</li></ul><ul id="e92fac26-c7c6-4680-acb4-9bab774044d6" class="bulleted-list"><li style="list-style-type:disc">Apache Tomcat for serving the application</li></ul><ul id="2fee21aa-380b-4b25-9123-66ddd5d6a5a9" class="bulleted-list"><li style="list-style-type:disc">Spring Framework Version 5.3.0 to 5.3.17 and 5.2.0 to 5.2.19 and below</li></ul><ul id="1cf15595-c126-4aaa-bfcf-8117fb82f316" class="bulleted-list"><li style="list-style-type:disc">application built as a WAR file </li></ul><ul id="db8123d6-3469-4a04-b622-b3b82c701708" class="bulleted-list"><li style="list-style-type:disc">spring-webmvc and/or  spring-webflux </li></ul><p id="59e911f3-5e92-4526-a9bd-b2a88b93251c" class="">
+</p><p id="f0658c52-3f82-4c46-8cb2-3b6e1f60b31a" class="">So this is all about vulnerable configuration</p><p id="c83347a8-56e9-4cbe-862b-85732e19abbb" class="">
+</p><p id="5292c1cc-ab81-4670-b4b2-e7fa53ddbf03" class="">But there is a catch in this as at the same time two CVEs came out </p><p id="e96727fc-8559-48de-b368-18c8e9cecc90" class="">
+</p><h2 id="f4853c28-2eb8-43fa-83d1-45ebfb025470" class="">Duo Vulnerabilities</h2><p id="75a350d7-e3d5-4c12-a0d1-1e68560d5b4a" class="">
+</p><ol type="1" id="7ba63ba7-6afd-435c-9589-f27eda901a69" class="numbered-list" start="1"><li>Spring4Shell - an RCE in Spring Core:  This leverages class injection leading to a full RCE and very severe. The name &quot;Spring4Shell&quot; was picked because Spring Core is a ubiquitous library, similar to log4j.</li></ol><ol type="1" id="49cd3464-36af-4326-9107-a7a0f3973a9d" class="numbered-list" start="2"><li>RCE in “Spring Cloud Function” - A <em>confirmed RCE</em> in <em>Spring Cloud Function</em> (&lt;=3.1.6 and &lt;=3.2.2).<p id="e559e1f4-012e-4836-b1f1-793b0000f225" class="">If you&#x27;re using the Spring Cloud Function library, you must upgrade to 3.1.7+ or 3.2.3+ to prevent an RCE attack.</p><p id="1484249b-e0d5-44dd-adc2-f3f62c7e0c5f" class="">
+</p><p id="4972133a-7225-4196-bd16-477c6732863a" class="">Let’s take a dive into this framework and find out what’s it is</p></li></ol><p id="5c859f76-8698-4f75-850c-11482b31434c" class="">
+</p><hr id="73c89751-05b1-459f-a5d7-3c8f15cccb7b"/><p id="c0777c9f-b99e-4e78-8ca5-a911e8432e39" class="">
+</p><h2 id="84c365b6-b74f-4494-ac35-41009ca56b55" class="">Dive in Spring Framework</h2><p id="617cadbd-dc72-4036-bdd3-e83ecfae4595" class=""><div class="indented"><p id="5b7803ff-b33a-4aac-bfdb-689cf55e1206" class="">It is a java-based framework used for building web apps with JEE (JAVA Enterprise Edition) platform and it has an extension k<strong>nown</strong> as <mark class="highlight-orange"><strong>Spring Boot</strong></mark><strong>.</strong></p><p id="a56b6b50-dded-444c-b7b0-3d8d6ef85d57" class="">Talking about core logic of this framework is <a href="https://stackoverflow.com/questions/130794/what-is-dependency-injection">dependency injection</a>.</p><p id="aeeabe5d-7d03-4ec8-9603-637c76132f00" class="">
+</p><p id="d78e5fa1-dc12-4825-8011-8bca25cee984" class="">
+</p><h3 id="819d9aa3-6545-4608-913f-1617055c0b5f" class="">Now time to see how developers use this framework</h3><p id="fcf715e7-0865-454b-8d17-9c437913d191" class="">
+</p></div></p><p id="f86d1eaa-9af0-4dc3-adcb-f5f1d5019cb0" class="">Talking what spring does is just simple map user requests to Java objects in the backend. Let’s learn from an example</p><p id="30febc34-4e0a-42b0-81e1-efe6a1b3998b" class="">
+</p><p id="1cbdeeb5-b579-4833-8bed-9e87919fed56" class="">A demo object class we have that has a string attribute message.</p><p id="63ffa546-ceaa-469d-a240-cd47dae12ecd" class="">
+</p><figure id="79219606-9fc3-4e10-accb-4dce7fdc87a0" class="image"><a href="Know%20Spring4Shell%20792196069fc34e10accb4dce7fdc87a0/demoobject-1.jpg"><img style="width:800px" src="Know%20Spring4Shell%20792196069fc34e10accb4dce7fdc87a0/demoobject-1.jpg"/></a><figcaption>Demo Object as its object</figcaption></figure><p id="c5121adb-75ff-40aa-8c94-d9ea7041b615" class="">
+</p><p id="702758f3-6ad7-44cc-b8ec-e00efcf00554" class="">Now spring comes into play to map this class with web requests.</p><p id="86a92fef-2bc3-41e5-8a6b-74d48d2bb48e" class="">
+</p><p id="dfab9a73-01ea-4681-8256-e859e3837bcf" class="">In the below code we can see that mapping magic, talking about mapping spring provides a controller.  Now what this code does, when a user submits parameters through a browser. This code redirect requests to the requested component like here it is DemoObject.</p><p id="89b729d0-5d95-4fed-9576-1cf593ec584b" class="">
+</p><figure id="791d1489-aefd-4a37-8454-cd248953df5b" class="image"><a href="Know%20Spring4Shell%20792196069fc34e10accb4dce7fdc87a0/democontroller-1.jpg"><img style="width:800px" src="Know%20Spring4Shell%20792196069fc34e10accb4dce7fdc87a0/democontroller-1.jpg"/></a><figcaption>Controller that maps the DemoObject to requests received at the server</figcaption></figure><p id="2a1f480c-b9e2-4479-88a7-d0706144f69a" class="">
+</p><p id="0c2b4a0a-c588-47fa-94d2-63e6d5165a59" class="">Once our DemoObject gets mapped by spring it can be used with the message attribute as a variable in the HTML  and then it can be rendered by the web browser.</p><figure id="807b2cf6-b58c-49ec-81c0-0aa6a9ca7085" class="image"><a href="Know%20Spring4Shell%20792196069fc34e10accb4dce7fdc87a0/Untitled.png"><img style="width:612px" src="Know%20Spring4Shell%20792196069fc34e10accb4dce7fdc87a0/Untitled.png"/></a><figcaption>Adding the mapped message from our DemoObject using variable ${message}</figcaption></figure><p id="5e78d8fa-315e-449b-9c63-44f74f008047" class="">
+</p><figure id="65838001-764e-46db-ac25-7dcfc24629f9" class="image"><a href="Know%20Spring4Shell%20792196069fc34e10accb4dce7fdc87a0/Untitled%201.png"><img style="width:945px" src="Know%20Spring4Shell%20792196069fc34e10accb4dce7fdc87a0/Untitled%201.png"/></a><figcaption>Rendered out with user input </figcaption></figure><p id="c1dc5faf-b224-4f09-81f6-caf3e6ec2941" class="">
+</p><p id="83d0bc6b-4f69-42b5-8c1d-754d614aba7f" class="">So let’s see how we can take access through it.</p><p id="00fdb770-e78e-40cb-a010-8bfdaceaf19c" class="">
+</p><hr id="5b8db02e-8dea-4da5-b47d-2e046bc83870"/><p id="bb7b3e08-0a85-40d3-b612-542938c2c241" class="">
+</p><h2 id="8bb75df7-b5e7-47b6-bf74-e6207fc9ad5d" class="">Taking Remote in Hand </h2><p id="2931743b-6df0-4c85-8a8b-5d0308c9beb9" class="">
+</p><p id="b48ca296-e918-498f-bb62-a2c373bb1080" class="">Before understanding this CVE, first, let’s get way back to the one old CVE to this framework. </p><p id="3097bc9e-8006-43ab-8ce3-132efd7112bd" class="">
+</p><p id="a2f1585e-e3f9-4c57-bc6e-c64541092c7e" class=""><a href="http://blog.o0o.nu/2010/06/cve-2010-1622.html">CVE-2010-1622</a>. Spring MVC (<strong>M</strong>odel-<strong>V</strong>iew-<strong>C</strong>ontroller) is part of the Spring Framework which makes it easy to develop web applications following the MVC design pattern. One of the features of Spring MVC is that it automatically instantiates and populates an object of a specified class when a request is made based on the parameters sent to the endpoint. In simple terms, this could be abused to overwrite important attributes of the parent class, resulting in remote code execution.</p><p id="1ba077fe-2be5-4593-9ddb-7addaf4822af" class="">
+</p><p id="4846ad63-de52-4189-b29f-f5803e126107" class=""><span style="border-bottom:0.05em solid"><strong>Spring4Shell works along similar lines, bypassing the mitigations that were added to patch </strong></span><a href="http://blog.o0o.nu/2010/06/cve-2010-1622.html"><span style="border-bottom:0.05em solid"><strong>CVE-2010-1622</strong></span></a><span style="border-bottom:0.05em solid"><strong>.</strong></span></p><p id="cf9357ff-4fe8-4c20-994d-c2825a5054c2" class="">
+</p><p id="de2263e8-7802-4697-a1f1-22aeff2ef3fe" class="">Here are some ways to exploit this vulnerability</p><p id="e0212b93-8f8e-49f6-9679-7d200797cc7b" class="">
+</p><h3 id="1fc7f42b-a63c-4ae5-9a30-010cb2a4ede9" class="">→ Overwriting the Tomcat logging directory</h3><p id="1253cf08-3e40-4750-a33f-98363ec9b6a2" class="">
+</p><p id="5858fe76-7d63-46dd-a692-881a7dba2a57" class="">An attack can be done using a POST request as follows to overwrite the directory, where logging files are stored on the server-side.</p><p id="4017f793-1517-424c-9e1f-2be3b0d9deec" class="">
+</p><p id="3bfc0d02-1473-44ab-b86a-c86ab9ceec95" class=""> </p><pre id="c9782ad2-f9db-4793-9a49-7b9b2708bb86" class="code code-wrap"><code>POST http://localhost:8080/s4sdemo/demoapp?class.module.classLoader.resources.context.parent.pipeline.first.directory=
+DIRECTORY_OF_CHOICE</code></pre><p id="04fbbcfb-f9fb-45cf-b078-1576af884dab" class="">
+</p><h3 id="68d0e39f-b85a-4dea-aa73-ca0e20c0f191" class="">→ Setting up the prefix and suffix of the file to stored on the server</h3><p id="368f1bea-343a-4c52-8070-d508bacf0b71" class="">
+</p><p id="5195a796-503f-4519-ae68-fd9771cce132" class="">An attacker’s POST request adds the prefix to the start of the wrtten log file . The suffix is for the file extension </p><p id="657dc573-4f58-4daf-9496-5a52dacb7003" class="">
+</p><pre id="27374f97-2b59-4e5d-8e76-941a03aabd9c" class="code code-wrap"><code>POST http://localhost:8080/s4sdemo/demoapp?class.module.classLoader.resources.context.parent.pipeline.first.prefix=
+FILENAME_OF_CHOICE
+
+POST http://localhost:8080/s4sdemo/demoapp?class.module.classLoader.resources.context.parent.pipeline.first.suffix=
+EXTENSION_OF_CHOICE</code></pre><p id="18f7ea59-7855-42f1-bd72-59105ad073fc" class="">
+</p><h3 id="8a5d10c9-6afa-421d-b347-823589921761" class="">→ Writing arbitrary payload into the created file</h3><p id="e4a59e2d-1153-4d36-89cc-1025e3bad597" class="">
+</p><p id="18da9b81-1227-43e7-b11d-a883bfe3dacb" class="">An attacker can write an arbitrary payload into created.jsp file .</p><pre id="783bc693-6161-4e52-bb09-00075b1549d9" class="code code-wrap"><code>POST http://localhost:8080/s4sdemo/demoapp? class.module.classLoader.resources.context.parent.pipeline.first.pattern=
+EXPLOIT_PAYLOAD</code></pre><p id="7e2259a8-ffc6-432a-9bf4-3dab2b65ce9f" class="">
+</p><h3 id="51b43d1c-f75b-4729-8970-330269cdd943" class="">→ Remotely calling the created.jsp file</h3><p id="95e4896f-fe0b-40ce-96b0-ef7b12bb181b" class="">
+</p><p id="5be9d019-fa91-4976-b492-450a3cb72efb" class="">An attacker can then remotely call the created “<code>shell.jsp</code>,” which will execute the written payload and print the OS name</p><p id="b42ed62d-5d30-435c-b5da-66f6391e37a4" class="">
+</p><p id="b970632e-07dc-4e69-9bd8-6eb60933131c" class="">
+</p><hr id="175e8e10-1507-4da0-91e9-de7493583384"/><p id="ad027150-b345-4b6c-bc07-4b5e202e767a" class="">
+</p><p id="db7999d3-82a7-41fc-b060-ee4dae3db8fa" class="">
+</p><h2 id="4b26c63c-02b3-41e2-a681-255444a0fde2" class="">Mitigations </h2><p id="6d483cec-900f-4b26-b81f-2db980b2608b" class="">A patch is now available as of March 31st, 2022 in the newest published <a href="https://spring.io/blog/2022/03/31/spring-framework-rce-early-announcement">Spring versions 5.3.18 and 5.2.20</a>. We recommend all users update. For those unable to update, the following mitigations are possible:</p><p id="386f1786-bdcd-402a-ab45-ad531f88895d" class="">
+</p><p id="e906dbf5-6f28-4ada-98ce-341941688d3f" class="">According to the <a href="https://www.praetorian.com/blog/spring-core-jdk9-rce/">Praetorian post</a> confirming the presence of an RCE in Spring Core, the currently recommended approach for is to patch <code>DataBinder</code> by adding a blacklist of vulnerable field patterns required for exploitation.</p><p id="168a5b16-2c90-4d09-adf5-0738c26312a0" class="">
+</p><p id="37d93666-0679-460c-9c40-8961eb45b781" class=""> </p><hr id="44c3e434-3643-4201-a373-bfd7a250baf9"/><figure id="c9951882-3072-4056-b655-1e50a1d72a0e" class="image"><a href="Know%20Spring4Shell%20792196069fc34e10accb4dce7fdc87a0/Kshitij_(Custom)-modified_(Custom).png"><img style="width:96px" src="Know%20Spring4Shell%20792196069fc34e10accb4dce7fdc87a0/Kshitij_(Custom)-modified_(Custom).png"/></a></figure><div id="8d189b63-51a5-4767-896f-8cdc2d481940" class="column-list"><div id="08fa5c65-bbf5-4fdf-8ada-57a280887bc0" style="width:45.83333333333333%" class="column"><p id="48107d94-260c-4907-baf8-5dcfafebfd21" class="">
+</p></div><div id="9c62659a-85e0-47ba-ab84-6f6ddb187787" style="width:20.83333333333335%" class="column"><p id="2a341182-7a98-4741-b1f0-2796fc7db177" class="">Kshitij Raj </p></div><div id="28ef7bc8-ecfe-42a3-a54f-d0952ece6430" style="width:33.33333333333333%" class="column"><p id="b7a3e142-312c-41e0-bafe-6ae8f20d465d" class="">
+</p></div></div><div id="3a94b2bf-ed8d-486e-914c-7e89b7a59122" class="column-list"><div id="12f51a57-34bb-4075-ac89-c52aee88c510" style="width:37.5%" class="column"><p id="914c7326-5279-4d58-963b-85a48df0e647" class="">
+</p></div><div id="621dec3a-c335-49cf-a99f-09d3c131388b" style="width:54.16666666666665%" class="column"><p id="da87e1ba-c441-49bb-95be-e4ff87955d76" class="">    Pentester and Security Researcher </p></div><div id="557f5e87-8357-49d0-9564-5cebd2d1f2a1" style="width:8.333333333333346%" class="column"><p id="7f4ba131-feba-4633-95d7-1d3e25e3ea7e" class="">
+</p></div></div><p id="c77d38b2-96c3-4903-a05a-41eba682c44b" class=""><a href="https://kshitijraj.vercel.app/">&lt;&lt; Back to home</a></p><p id="5ed517e9-f3a2-4c05-930b-13057dc8c81d" class="">
+</p></div></article></body></html>
